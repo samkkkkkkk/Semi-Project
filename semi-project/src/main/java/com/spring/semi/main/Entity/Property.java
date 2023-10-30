@@ -11,7 +11,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-//ºÎµ¿»ê ¿£Æ¼Æ¼
+//ë¶€ë™ì‚° ì—”í‹°í‹°
 public class Property {
 
 	private int realestateNo;

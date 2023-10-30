@@ -1,6 +1,6 @@
 package com.spring.semi.main.mapper;
 
-//¾÷Á¾ ¼ÒºÐ·ù Mapper
+//ì—…ì¢… ì†Œë¶„ë¥˜ Mapper
 public interface IJobCategoryMapper {
 	String getCode(String name);
 }

@@ -11,7 +11,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-// ¾÷Á¾ ¼ÒºÐ·ù ¿£Æ¼Æ¼
+// ì—…ì¢… ì†Œë¶„ë¥˜ ì—”í‹°í‹°
 public class JobCategory {
 	
 	private String smallCategoryCode;

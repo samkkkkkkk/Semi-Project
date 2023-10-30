@@ -11,7 +11,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-// ΗΰΑ¤Έν ΔΪµε Ώ£ΖΌΖΌ
+// ν–‰μ •λª… μ½”λ“ μ—”ν‹°ν‹°
 public class AdministrativeCode {
 
 	private int code;

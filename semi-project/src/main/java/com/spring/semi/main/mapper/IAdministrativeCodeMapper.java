@@ -2,7 +2,7 @@ package com.spring.semi.main.mapper;
 
 import com.spring.semi.main.Entity.AdministrativeCode;
 
-//ΗΰΑ¤Έν ΔΪµε Mapper
+//ν–‰μ •λª… μ½”λ“ Mapper
 public interface IAdministrativeCodeMapper {
 	int getCode(AdministrativeCode code);
 	int getCode(String eupMyeongDong);
