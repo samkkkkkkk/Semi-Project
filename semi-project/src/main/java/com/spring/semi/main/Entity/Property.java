@@ -11,7 +11,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-//부동산 엔티티
+// 부동산 엔티티
 public class Property {
 
 	private int realestateNo;
