@@ -14,6 +14,7 @@
 	position:absolute;
 	left:2.2737367544323206e-13px;
 	top:966.9535522460938px;
+	border:1px solid;
 }
 .footerstyle { 
 	background-color:rgba(255, 213.56249392032623, 213.56249392032623, 1);
@@ -41,6 +42,7 @@
 	position:absolute;
 	left:33px;
 	top:142px;
+	border: 1px solid;
 }
 .sidebar { 
 	background-color:rgba(254.00000005960464, 234.00000125169754, 234.00000125169754, 1);
@@ -144,12 +146,13 @@
 	font-size:18px;
 	letter-spacing:0;
 }
-.headerwrap { 
+.headerwrap {
 	width:1920px;
 	height:116px;
 	position:absolute;
 	left:0px;
 	top:0px;
+	border:1px solid;
 }
 .group_1 { 
 	width:1920px;
@@ -199,7 +202,9 @@
 	position:absolute;
 	left:530px;
 	top:201px;
-	background-image:url(images/map.png);
+	background-color:"yellow";
 	background-repeat:no-repeat;
 	background-size:cover;
+	border:1px solid;
 }
+

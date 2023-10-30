@@ -12,6 +12,6 @@ public class testController {
 	
 	@GetMapping("/test")
 	public void test() {
-		System.out.println("${pageContext.request.contextPath} : ",pageContext.request.contextPath);
+//		System.out.println("${pageContext.request.contextPath} : ",pageContext.request.contextPath);
 	};
 }

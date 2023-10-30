@@ -6,11 +6,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>footer입니다.</title>
-<!--개인 디자인 추가-->
-<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
+<title>Map이 들어갈 body 영역입니다.</title>
 </head>
-
-<header>
-	<div class="headerwrap"> 헤더 </div>
-</header>
+<body>
+	<div class="map">지도영역</div>
+</body>
+</html>

@@ -6,11 +6,10 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>footer입니다.</title>
-<!--개인 디자인 추가-->
-<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css">
+<title>sidebar입니다.</title>
+<title>Insert title here</title>
 </head>
 
-<header>
-	<div class="headerwrap"> 헤더 </div>
-</header>
+<aside>
+	<div class="sidebarwrap"> 사이드바 </div>
+</aside>
