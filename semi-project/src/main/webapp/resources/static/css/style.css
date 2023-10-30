@@ -1,0 +1,210 @@
+.e1_49 { 
+	overflow:hidden;
+}
+.main { 
+	box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+	background-color:rgba(255, 255, 255, 0.75);
+	width:1920px;
+	height:1080px;
+	position:absolute;
+}
+.footerwrap { 
+	width:1932px;
+	height:113.04647064208984px;
+	position:absolute;
+	left:2.2737367544323206e-13px;
+	top:966.9535522460938px;
+	border:1px solid;
+}
+.footerstyle { 
+	background-color:rgba(255, 213.56249392032623, 213.56249392032623, 1);
+	width:1932px;
+	height:113.04647064208984px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.footer___ { 
+	color:rgba(0, 0, 0, 1);
+	width:270.87835693359375px;
+	height:58.50650405883789px;
+	position:absolute;
+	left:76.6824951171875px;
+	top:25.782470703125px;
+	font-family:DM Sans;
+	text-align:left;
+	font-size:48px;
+	letter-spacing:0;
+}
+.sidebarwrap { 
+	width:400.3422546386719px;
+	height:795.2918090820312px;
+	position:absolute;
+	left:33px;
+	top:142px;
+	border: 1px solid;
+}
+.sidebar { 
+	background-color:rgba(254.00000005960464, 234.00000125169754, 234.00000125169754, 1);
+	width:400.3422546386719px;
+	height:795.2918090820312px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.selectbuttonall { 
+	width:226.1732177734375px;
+	height:443.26116943359375px;
+	position:absolute;
+	left:41.8267822265625px;
+	top:194.360595703125px;
+}
+.selectbuttonwrap { 
+	width:92.61649322509766px;
+	height:52.55669021606445px;
+	position:absolute;
+	left:47.8021240234375px;
+	top:390.7044677734375px;
+}
+.selectbutton { 
+	background-color:rgba(255, 255, 255, 1);
+	width:92.61649322509766px;
+	height:52.55669021606445px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.e2_40 { 
+	border:2px solid rgba(0, 0, 0, 1);
+}
+._____ { 
+	color:rgba(0, 0, 0, 1);
+	width:199.1094207763672px;
+	height:60.79828643798828px;
+	position:absolute;
+	left:153px;
+	top:28px;
+	font-family:DM Sans;
+	text-align:left;
+	font-size:48px;
+	letter-spacing:0;
+}
+.___________ { 
+	color:rgba(0, 0, 0, 1);
+	width:176px;
+	height:32px;
+	position:absolute;
+	left:0.1732177734375px;
+	top:67.7435302734375px;
+	font-family:DM Sans;
+	text-align:left;
+	font-size:18px;
+	letter-spacing:0;
+}
+.e2_47 { 
+	border:2px solid rgba(0, 0, 0, 1);
+}
+.e2_51 { 
+	border:2px solid rgba(0, 0, 0, 1);
+}
+._______________ { 
+	color:rgba(0, 0, 0, 1);
+	width:226px;
+	height:29px;
+	position:absolute;
+	left:0.1732177734375px;
+	top:67.889404296875px;
+	font-family:DM Sans;
+	text-align:left;
+	font-size:18px;
+	letter-spacing:0;
+}
+.e2_128 { 
+	border:2px solid rgba(0, 0, 0, 1);
+}
+.__ { 
+	color:rgba(0, 0, 0, 1);
+	width:89.3685302734375px;
+	height:81.4906005859375px;
+	position:absolute;
+	left:6.024886131286621px;
+	top:18.401107788085938px;
+	font-family:DM Sans;
+	text-align:left;
+	font-size:48px;
+	letter-spacing:0;
+}
+.________________________________________________________________ { 
+	color:rgba(0, 0, 0, 1);
+	width:333.6185607910156px;
+	height:165.60316467285156px;
+	position:absolute;
+	left:38.839111328125px;
+	top:28.7574462890625px;
+	font-family:DM Sans;
+	text-align:left;
+	font-size:18px;
+	letter-spacing:0;
+}
+.headerwrap {
+	width:1920px;
+	height:116px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	border:1px solid;
+}
+.group_1 { 
+	width:1920px;
+	height:116px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.headerstyle { 
+	background-color:rgba(246.49999290704727, 221.85000121593475, 221.85000121593475, 1);
+	width:1920px;
+	height:116px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.___ { 
+	color:rgba(0, 0, 0, 1);
+	width:155px;
+	height:63px;
+	position:absolute;
+	left:1735px;
+	top:26px;
+	font-family:DM Sans;
+	text-align:left;
+	font-size:48px;
+	letter-spacing:0;
+}
+.logowrap { 
+	width:109.45134735107422px;
+	height:99.8917007446289px;
+	position:absolute;
+	left:27.111835479736328px;
+	top:7.88616943359375px;
+}
+.logo { 
+	background-color:rgba(250.75000405311584, 116.51516944169998, 98.210419267416, 1);
+	width:109.45134735107422px;
+	height:99.8917007446289px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.map { 
+	width:1320px;
+	height:700px;
+	position:absolute;
+	left:530px;
+	top:201px;
+	background-color:"yellow";
+	background-repeat:no-repeat;
+	background-size:cover;
+	border:1px solid;
+}
+
