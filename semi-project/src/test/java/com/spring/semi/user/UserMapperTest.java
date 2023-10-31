@@ -1,6 +1,7 @@
 package com.spring.semi.user;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -47,8 +48,44 @@ public class UserMapperTest {
 	}
 	
 	@Test
-	@DisplayName("아이디를 주면 계정 정보를 줄 것이다.")
+	@DisplayName("아이디를 주면 유저 정보를 줄 것이다.")
 	public void getMemberTest() {
+		String id = "test1";
+
+		Members res = membersMapper.getMember(id);
+
+		log.info("계정 정보: {}", res);
+
+		assertEquals("김춘식", res.getUserName());
+	}
+
+	@Test
+	@DisplayName("수정할 유저의 정보를 주면 정보가 수정될 것이다.")
+	public void updateMemberTest() {
+		String id = "test1";
+		Members user = membersMapper.getMember(id);
+
+		user.setUserName("김스프링");
+		user.setEmail("test2@naver.com");
+
+		membersMapper.updateMember(user);
+
+		user = null;
+		user = membersMapper.getMember(id);
+
+		log.info("계정 정보: {}", user);
+		assertEquals("김스프링", user.getUserName());
+	}
+
+	@Test
+	@DisplayName("아이디를 주면 유저를 삭제할 것이다.")
+	public void deleteMemberTest() {
+		String id = "test1";
+
+		membersMapper.deleteMember(id);
+
+		Members res = membersMapper.getMember(id);
+		assertNull(res);
 	}
 	
 	

@@ -7,4 +7,11 @@
         INSERT INTO members
         VALUES (#{id}, #{password}, #{userName}, #{email})
     </insert>
+
+    <select id="getMember">
+        SELECT * FROM members
+        WHERE id = #{id}
+    </select>
+
+
 </mapper>
