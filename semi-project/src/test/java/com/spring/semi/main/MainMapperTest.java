@@ -19,7 +19,7 @@ import com.spring.semi.main.mapper.IPropertyMapper;
 
 import lombok.extern.slf4j.Slf4j;
 
-@ExtendWith(SpringExtension.class) // 테스트 환경을 만들어 주는 Junit5 객체 로딩
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
 @Slf4j
 public class MainMapperTest {
