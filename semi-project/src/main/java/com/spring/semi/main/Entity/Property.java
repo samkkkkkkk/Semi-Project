@@ -1,4 +1,4 @@
-package com.spring.semi.main.Entity;
+package com.spring.semi.main.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

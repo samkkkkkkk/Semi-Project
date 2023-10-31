@@ -1,6 +1,6 @@
 package com.spring.semi.main.mapper;
 
-import com.spring.semi.main.Entity.Property;
+import com.spring.semi.main.entity.Property;
 
 // 부동산 Mapper
 public interface IPropertyMapper {
