@@ -18,6 +18,7 @@ public class MyPage {
 	private int bno;
 	private String id;
 	private LocalDateTime regDate;
+	private String location;
 	private String jobCategory1;
 	private String jobCategory2;
 	private String jobCategory3;
