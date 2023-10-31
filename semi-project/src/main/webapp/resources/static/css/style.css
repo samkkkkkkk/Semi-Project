@@ -9,7 +9,7 @@
 	position:absolute;
 }
 .footerwrap { 
-	width:1932px;
+	width:100%;
 	height:113.04647064208984px;
 	position:absolute;
 	left:2.2737367544323206e-13px;
@@ -147,7 +147,7 @@
 	letter-spacing:0;
 }
 .headerwrap {
-	width:1920px;
+	width:100%;
 	height:116px;
 	position:absolute;
 	left:0px;
@@ -196,13 +196,13 @@
 	left:0px;
 	top:0px;
 }
-.map { 
+.bodywrap { 
 	width:1320px;
 	height:700px;
 	position:absolute;
 	left:530px;
 	top:201px;
-	background-color:"yellow";
+	background-color:"#ddd";
 	background-repeat:no-repeat;
 	background-size:cover;
 	border:1px solid;
