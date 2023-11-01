@@ -8,10 +8,25 @@
         VALUES (#{id}, #{password}, #{userName}, #{email})
     </insert>
 
-    <select id="getMember">
+    <select id="getMember" resultType="members">
         SELECT * FROM members
         WHERE id = #{id}
     </select>
+
+    <update id="updateMember">
+        UPDATE members
+        SET
+            id = #{id},
+            password = #{password},
+            user_name = #{userName},
+            email = #{email}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteMember">
+        DELETE FROM members
+        WHERE id = #{id}
+    </delete>
 
 
 </mapper>

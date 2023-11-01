@@ -20,6 +20,8 @@
 		별칭을 대신 사용할 수 있게 하는 설정 -->
 	<typeAliases>
 		<typeAlias type="com.spring.semi.main.entity.Property" alias="property"/>
+		<typeAlias type="com.spring.semi.user.entity.Members" alias="members"/>
+		<typeAlias type="com.spring.semi.user.entity.MyPage" alias="myPage"/>
 		<!-- <typeAlias type="com.spring.semi...." alias="..."/> -->
 	</typeAliases>
 </configuration>
