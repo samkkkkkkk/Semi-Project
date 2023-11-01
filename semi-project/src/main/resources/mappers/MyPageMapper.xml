@@ -2,4 +2,23 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.semi.user.mapper.IMyPageMapper">
+    <insert id="insertMyPage">
+        INSERT INTO mypage
+            (bno, id, location, job_category1, job_category2, job_category3, budget)
+        VALUES (SEQ_mypage_bno.NEXTVAL, #{id}, #{location}, #{jobCategory1}, #{jobCategory2}, #{jobCategory3}, #{budget})
+    </insert>
+
+    <select id="getMyPage" resultType="myPage">
+        SELECT * FROM mypage
+        WHERE bno = #{bno}
+    </select>
+
+    <select id="getMyPages" resultType="myPage">
+        SELECT * FROM mypage
+    </select>
+
+    <delete id="deleteMyPage">
+        DELETE FROM mypage
+        WHERE bno = #{bno}
+    </delete>
 </mapper>

@@ -13,7 +13,7 @@ public interface IMyPageMapper {
 	MyPage getMyPage(int bno);
 	
 	// mypage 리스트 얻기
-	List<MyPage> getMyPage();
+	List<MyPage> getMyPages();
 	
 	// mypage 삭제
 	void deleteMyPage(int bno);

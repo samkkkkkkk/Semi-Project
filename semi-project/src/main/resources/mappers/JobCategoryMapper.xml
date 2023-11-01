@@ -3,4 +3,9 @@
 
 
 <mapper namespace="com.spring.semi.main.mapper.IJobCategoryMapper">
+    <select id="getCode" resultType="string">
+        SELECT small_category_code FROM job_category
+        WHERE small_category_name = #{name}
+    </select>
+
 </mapper>
