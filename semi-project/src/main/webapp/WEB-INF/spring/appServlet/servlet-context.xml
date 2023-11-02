@@ -15,7 +15,6 @@
 	<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
 	<!-- 외부에 따로 설정한 설정 파일을 참조하는 곳에 사용하는 클래스 -->
-	<!-- 
 	<beans:bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
 		<beans:property name="locations">
 			<beans:list>
@@ -23,7 +22,6 @@
 			</beans:list>
 		</beans:property>
 	</beans:bean>
-	-->
 	
 	<!-- css, img, js...의 파일 경로가 복잡할때 사용합니다.
 		jsp 파일 같은 데서 경로 긴 거 일일히 쓰기 귀찮잖아요. 그럴 때 선언합니다.

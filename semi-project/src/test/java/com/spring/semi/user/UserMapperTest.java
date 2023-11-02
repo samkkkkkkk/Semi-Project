@@ -9,8 +9,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.spring.semi.user.entity.Members;
@@ -21,7 +23,10 @@ import com.spring.semi.user.mapper.IMyPageMapper;
 import lombok.extern.slf4j.Slf4j;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
+@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml",
+		"file:src/main/webapp/WEB-INF/spring/appServlet/email-config.xml"
+		})
+@TestPropertySource("classpath:/properties/email.properties")
 @Slf4j
 public class UserMapperTest {
 
@@ -41,7 +46,7 @@ public class UserMapperTest {
 	public void insertMemberTest() {
 		Members user = Members.builder()
 				.id("test1")
-				.password(encoder.encode("test1"))
+				.password(encoder.encode("test1234"))
 				.userName("김춘식")
 				.email("test1@naver.com")
 				.build();
