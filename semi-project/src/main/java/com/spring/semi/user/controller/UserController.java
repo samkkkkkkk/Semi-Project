@@ -28,6 +28,11 @@ public class UserController {
 	private final UserService service;
 	private final MailSenderService mailService;
 	
+	// 로그인
+	
+	@GetMapping("/login")
+	public void login() {}
+	
 	@PostMapping("/login")
 	public String login(RedirectAttributes ra, HttpSession session, UserLoginRequestDTO dto) {
 		log.info("dto: {}", dto);
@@ -42,6 +47,11 @@ public class UserController {
 		}
 	}
 	
+	// 회원 가입
+	
+	@GetMapping("/join")
+	public void join() {}
+	
 	@PostMapping("/join")
 	public String join(RedirectAttributes ra, UserRegisterRequestDTO dto) {
 		service.register(dto);
@@ -50,6 +60,7 @@ public class UserController {
 		return "redirect:/user/login";
 	}
 	
+	// 아이디 체크
 	@GetMapping("/id/{id}")
 	@ResponseBody
 	public String idCheck(@PathVariable String id) {
@@ -72,4 +83,14 @@ public class UserController {
 		// 화면단으로 인증번호를 전달
 		return mailService.joinEmail(email);
 	}
+	
+	// mypage
+	
+	// mypage 회원수정
+	@PostMapping("/user/modify")
+	public String userModify() {
+		return "redirect:/user/mypage";
+	}
+	
+	// mypage 조회기록 삭제
 }
