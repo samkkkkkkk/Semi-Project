@@ -1,6 +1,7 @@
 package com.spring.semi.user.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,10 +12,9 @@ import lombok.ToString;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserRegistRequestDTO {
+@Builder
+public class UserResponseMyPageInfoDTO {
 	private String userId;
-	private String userPw;
 	private String userName;
 	private String userEmail;
-
 }

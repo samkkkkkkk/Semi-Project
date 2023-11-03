@@ -11,10 +11,10 @@ import lombok.ToString;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserRegisterRequestDTO {
-
+public class UserRequstModifyDTO {
 	private String userId;
 	private String userPw;
 	private String userName;
-	private String userEmail;
+	private String userEmail1;
+	private String userEmail2;
 }

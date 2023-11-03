@@ -69,11 +69,12 @@ public class UserMapperTest {
 	@Test
 	@DisplayName("수정할 유저의 정보를 주면 정보가 수정될 것이다.")
 	public void updateMemberTest() {
-		String id = "test1";
+		String id = "test3";
 		Members user = membersMapper.getMember(id);
 
 		user.setUserName("김스프링");
-		user.setEmail("test2@naver.com");
+		user.setEmail("test3@naver.com");
+		user.setPassword(null);
 
 		membersMapper.updateMember(user);
 
