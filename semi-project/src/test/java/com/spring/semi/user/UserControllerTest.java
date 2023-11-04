@@ -56,10 +56,11 @@ public class UserControllerTest {
 	@DisplayName("회원가입 체크")
 	public void joinTest() throws Exception {
 		ModelAndView mv = mockMvc.perform(MockMvcRequestBuilders.post("/user/join")
-				.param("userId", "test2")
+				.param("userId", "test3")
 				.param("userPw", "test123")
 				.param("userName", "김춘식")
-				.param("userEmail", "test2@naver.com"))
+				.param("userEmail1", "test2")
+				.param("userEmail2", "@naver.com"))
 				.andReturn()
 				.getModelAndView();
 		

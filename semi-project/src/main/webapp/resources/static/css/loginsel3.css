@@ -1,0 +1,114 @@
+/* Reset some default styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+#login-fail-msg {
+  color: #58151c;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 20px;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+#join-success-msg {
+  color: #055160;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 20px;
+  width: 400px;
+  margin-bottom: 20px;
+}
+.login-header {
+  width: 400px;
+  height: auto;
+}
+
+.login-logo {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 400px;
+  height: 150px;
+  border: black 1px solid;
+}
+
+/* Container style */
+#container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  /* background-color: #00c73c; 네이버 초록색 배경 */
+}
+
+/* Login form styles */
+.container {
+  background-color: #fff;
+  /* 배경색 흰색 */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 20px;
+  width: 400px;
+  height: 400px;
+}
+
+.titlebox {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.form-group {
+  margin: 10px 0;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type='text'],
+input[type='password'] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: rgb(63, 111, 150);
+  /* 네이버 초록색 버튼 배경색 */
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(70, 130, 180);
+  /* 버튼 hover 시 배경색 변경 */
+}
+
+/* Adjust login and join buttons */
+#loginBtn {
+  background-color: rgb(70, 130, 180);
+}
+
+#joinBtn {
+  background-color: rgb(48, 95, 133);
+  /* 회원가입 버튼 다른 초록색 */
+}

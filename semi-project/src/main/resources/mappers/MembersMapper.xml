@@ -3,6 +3,11 @@
 
 <mapper namespace="com.spring.semi.user.mapper.IMembersMapper">
 
+    <sql id="passwordCheck">
+        <if test="password != null">
+            password = #{password},
+        </if>
+    </sql>
     <insert id="insertMember">
         INSERT INTO members
         VALUES (#{id}, #{password}, #{userName}, #{email})
@@ -17,8 +22,8 @@
         UPDATE members
         SET
             id = #{id},
-            password = #{password},
             user_name = #{userName},
+            <include refid="passwordCheck" />
             email = #{email}
         WHERE id = #{id}
     </update>

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.spring.semi.user.dto.UserLoginRequestDTO;
-import com.spring.semi.user.dto.UserRegisterRequestDTO;
+import com.spring.semi.user.dto.UserRequestLoginDTO;
+import com.spring.semi.user.dto.UserRequestRegisterDTO;
 import com.spring.semi.user.service.UserService;
 import com.spring.semi.util.MailSenderService;
 
@@ -34,7 +34,7 @@ public class UserController {
 	public void login() {}
 	
 	@PostMapping("/login")
-	public String login(RedirectAttributes ra, HttpSession session, UserLoginRequestDTO dto) {
+	public String login(RedirectAttributes ra, HttpSession session, UserRequestLoginDTO dto) {
 		log.info("dto: {}", dto);
 		boolean isLoginSuccess = service.loginCheck(session, dto);
 		
@@ -53,7 +53,7 @@ public class UserController {
 	public void join() {}
 	
 	@PostMapping("/join")
-	public String join(RedirectAttributes ra, UserRegisterRequestDTO dto) {
+	public String join(RedirectAttributes ra, UserRequestRegisterDTO dto) {
 		service.register(dto);
 		
 		ra.addFlashAttribute("msg", "joinSuccess");
@@ -85,12 +85,26 @@ public class UserController {
 	}
 	
 	// mypage
+	@GetMapping("/user/mypage")
+	public String UserMyPage() {
+		return "";
+	}
+	
+	// mypage
+	@GetMapping("/user/mypage/result")
+	public String UserMyPageResult() {
+		return "";
+	}
 	
 	// mypage 회원수정
-	@PostMapping("/user/modify")
+	@PostMapping("/user/mypage/modify")
 	public String userModify() {
 		return "redirect:/user/mypage";
 	}
 	
 	// mypage 조회기록 삭제
+	@GetMapping("/user/mypage/delete")
+	public String userMypageDelete() {
+		return "redirect:/user/mypage";
+	}
 }
