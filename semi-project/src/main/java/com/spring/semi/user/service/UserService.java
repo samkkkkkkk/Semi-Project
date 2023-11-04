@@ -100,10 +100,10 @@ public class UserService {
 	}
 	
 	// 조회결과 정보 리스트 가져오기
-	public List<UserResponseMyPageResultDTO> getResultList() {
+	public List<UserResponseMyPageResultDTO> getResultList(String userId) {
 		List<UserResponseMyPageResultDTO> dto = new ArrayList<>();
 		
-		for ( MyPage page : myPageMapper.getMyPages()) {
+		for ( MyPage page : myPageMapper.getMyPages(userId)) {
 			dto.add(UserResponseMyPageResultDTO.builder()
 					.bno(page.getBno())
 					.location(page.getLocation())
