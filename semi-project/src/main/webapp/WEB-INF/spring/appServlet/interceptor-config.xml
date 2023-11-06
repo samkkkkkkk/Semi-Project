@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+		<!-- namespces 탭에서 mvc 기능 추가 -->
+		<!-- web.xml에 초기 설정 파일로 이 파일을 추가 -->
+		
+		<bean id="userAuthHandler" class="com.spring.semi.util.interceptor.UserAuthHandler" />
+
+		<!-- 인터셉터 작동하려면 web.xml에 추가! -->
+		<!-- 로그인 이후에 실행되는 postHandler를 어떤 url에 동작하게 할 지 세팅 -->
+		<mvc:interceptors>
+			<!-- 로그인 권한 체크 인터셉터 url 매핑 -->
+			<mvc:interceptor>
+                <!-- /user 하위에 있는 모든 페이지는 로그인이 필요함-->
+				<mvc:mapping path="/user/**" />
+                <!-- 로그인과 회윈가입은 제외해야 함! -->
+                <mvc:exclude-mapping path="/user/login" />
+                <mvc:exclude-mapping path="/user/join" />
+                <mvc:exclude-mapping path="/user/id/**" />
+                <mvc:exclude-mapping path="/user/email" />
+
+
+				<!-- 특정 페이지를 제외하고 싶으면 밑에 것을 사용하세요
+				<mvc:exclude-mapping path="/user/..." />
+                -->
+				<ref bean="userAuthHandler"/>
+			</mvc:interceptor>
+
+		</mvc:interceptors>
+
+</beans>
