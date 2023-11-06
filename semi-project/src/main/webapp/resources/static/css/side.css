@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@200;400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@200;400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Jua&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@200;400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#container {
+  width: auto;
+  height: 100vh;
+  background-color: aliceblue;
+}
+
+#login {
+  position: absolute;
+  right: 30px;
+}
+
+#contents {
+  width: 1500px;
+  height: 600px;
+  float: left;
+  margin-top: 50px;
+}
+
+#article {
+  background-color: antiquewhite;
+  width: 1100px;
+  height: 500px;
+  margin: 30px auto;
+  margin-left: 370px;
+  margin-top: 50px;
+}
+#sidebar {
+  width: 300px;
+  height: 550px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+  margin-right: 50p;
+  background-color: #fff;
+  float: left;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+#sidebar:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+h2 {
+  width: 150px;
+}
+h3 {
+  margin-left: 20px;
+  margin-bottom: 0px;
+  margin-top: 30px;
+  font-family: 'Gowun Batang', serif;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+ul {
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+li {
+  margin-left: 30px;
+  font-family: 'Gowun Batang', serif;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.b1 {
+  width: 150px;
+  height: 40px;
+  border: 3px solid black;
+  margin-left: 20px;
+  margin-bottom: -20px;
+  font-size: 20px;
+  background-color: rgb(244, 238, 238);
+  font-family: 'Gowun Batang', serif;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.b1:hover {
+  background-color: rgb(158, 156, 156);
+  cursor: pointer;
+}
+
+p {
+  width: 250px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  font-size: 13.5px;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+
+.pre {
+  width: 150px;
+  height: 40px;
+  text-align: center;
+}
+
+.btn {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  margin-left: 43px;
+  font-family: 'Gowun Batang', serif;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.btn:hover {
+  background-color: rgb(253, 253, 253);
+  cursor: pointer;
+}
+
+#footer {
+  width: 100%;
+  height: 150px;
+  background-color: rgb(250, 229, 232);
+  clear: left;
+}
