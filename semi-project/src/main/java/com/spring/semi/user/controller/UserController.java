@@ -36,7 +36,6 @@ public class UserController {
 	private final MailSenderService mailService;
 	
 	// 로그인
-	
 	@GetMapping("/login")
 	public void login() {}
 	
@@ -55,7 +54,6 @@ public class UserController {
 	}
 	
 	// 회원 가입
-	
 	@GetMapping("/join")
 	public void join() {}
 	
@@ -127,9 +125,11 @@ public class UserController {
 	}
 	
 	// mypage 조회기록 삭제
-	@GetMapping("/mypage/delete")
-	public String userMypageDelete(HttpSession session, String bno) {
-		String userId = session.getAttribute("userId").toString();
-		return "redirect:/user/results";
+	@GetMapping("/mypage/results/delete")
+	public String userMypageDelete(RedirectAttributes ra, HttpSession session, int bno) {
+		service.deleteResult(bno);
+		
+		ra.addFlashAttribute("msg", "deleteSuccess");
+		return "redirect:/user/mypage/results";
 	}
 }

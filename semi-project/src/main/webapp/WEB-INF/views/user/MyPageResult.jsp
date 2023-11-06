@@ -245,6 +245,14 @@
 </body>
 
 <script>
+  window.onload = () => {
+    const msg = '${msg}';
+
+    if (msg === 'deleteSuccess') {
+      alert('삭제 성공!');
+    }
+  }
+
   const onClickQuery = (e) => {
     const bno = e.dataset.bno;
     const location = e.dataset.location;
@@ -255,12 +263,16 @@
     console.log('location: ', location);
     console.log('jobCategory: ', jobCategory);
     console.log('budget: ', budget);
-    //window.location = '${pageContext.request.contextPath}/result' + `?location=\${location}&jobCategory=\${jobCategory}&budget=\${budget}`
+    window.location = '${pageContext.request.contextPath}/result' + `?location=\${location}&jobCategory=\${jobCategory}&budget=\${budget}`
   }
 
   const onClickDelete = (e) => {
-    console.log('delete bno: ', e.dataset.bno);
-    //window.location = '${pageContext.request.contextPath}/user/mypage/results/delete' + `?bno=\${bno}`
+    const bno = e.dataset.bno;
+    console.log('delete bno: ', bno);
+
+    if (confirm('삭제하시겠습니까?')) {
+      window.location = '${pageContext.request.contextPath}/user/mypage/results/delete' + `?bno=\${bno}`
+    }
   }
 </script>
 
