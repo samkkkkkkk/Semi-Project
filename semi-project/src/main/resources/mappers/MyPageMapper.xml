@@ -14,8 +14,28 @@
     </select>
 
     <select id="getMyPages" resultType="myPage">
-        SELECT * FROM mypage
+        SELECT *
+        FROM
+            (
+            SELECT
+                ROWNUM as rn,
+                tbl.*
+            FROM(
+                SELECT * FROM mypage
+                WHERE id = #{userId}
+                ORDER BY reg_date
+                ) tbl
+            )
+        <![CDATA[
+        WHERE rn > #{pageStart} AND rn <= #{pageEnd}
+        ]]>
     </select>
+
+    <select id="getTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM mypage
+        WHERE id = #{userId}
+	</select>
 
     <delete id="deleteMyPage">
         DELETE FROM mypage
