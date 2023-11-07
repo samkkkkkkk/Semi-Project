@@ -60,13 +60,8 @@ public class UserService {
 
 	// 아이디 중복 체크
 	public int idCheck(String id) {
-		Members member = membersMapper.getMember(id);
+		return membersMapper.idCheck(id);
 		
-		if (member != null) {
-			return 1;
-		}
-		
-		return 0;
 	}
 	
 	// 유저 정보 가져오기

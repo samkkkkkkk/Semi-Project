@@ -15,4 +15,9 @@ public interface IMembersMapper {
 
 	// 유저 삭제
 	void deleteMember(String id);
+	
+	//아이디 체크
+	int idCheck(String id);
 }
+
+	

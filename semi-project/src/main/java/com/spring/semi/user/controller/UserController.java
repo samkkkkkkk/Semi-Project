@@ -71,7 +71,8 @@ public class UserController {
 	public String idCheck(@PathVariable String id) {
 		System.out.println("클라이언트로부터 전달된 아이디: " + id);
 		
-		if (service.idCheck(id) == 1) {
+		int result = service.idCheck(id);
+		if (result == 1) {
 			return "duplicated";
 		}
 		else {

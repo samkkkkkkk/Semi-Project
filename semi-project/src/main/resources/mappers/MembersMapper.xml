@@ -3,11 +3,18 @@
 
 <mapper namespace="com.spring.semi.user.mapper.IMembersMapper">
 
+	<select id="idCheck" resultType="int">
+		SELECT COUNT(*)
+		FROM members
+		WHERE id = #{userId}
+	</select>
+
     <sql id="passwordCheck">
         <if test="password != null">
             password = #{password},
         </if>
     </sql>
+    
     <insert id="insertMember">
         INSERT INTO members
         VALUES (#{id}, #{password}, #{userName}, #{email})
