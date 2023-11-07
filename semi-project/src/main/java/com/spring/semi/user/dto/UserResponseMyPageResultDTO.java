@@ -16,6 +16,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 public class UserResponseMyPageResultDTO {
+	
+	private int rn;
 	private int bno;
 	private LocalDateTime regDate;
 	private String location;

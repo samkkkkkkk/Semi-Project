@@ -13,6 +13,7 @@ import com.spring.semi.user.dto.UserRequestRegisterDTO;
 import com.spring.semi.user.dto.UserRequstModifyDTO;
 import com.spring.semi.user.dto.UserResponseMyPageInfoDTO;
 import com.spring.semi.user.dto.UserResponseMyPageResultDTO;
+import com.spring.semi.user.dto.page.Page;
 import com.spring.semi.user.entity.Members;
 import com.spring.semi.user.entity.MyPage;
 import com.spring.semi.user.mapper.IMembersMapper;
@@ -100,15 +101,16 @@ public class UserService {
 	}
 	
 	// 조회결과 정보 리스트 가져오기
-	public List<UserResponseMyPageResultDTO> getResultList(String userId) {
+	public List<UserResponseMyPageResultDTO> getResultList(String userId, Page page) {
 		List<UserResponseMyPageResultDTO> dto = new ArrayList<>();
 		
-		for ( MyPage page : myPageMapper.getMyPages(userId)) {
+		for ( MyPage myPage : myPageMapper.getMyPages(page)) {
 			dto.add(UserResponseMyPageResultDTO.builder()
-					.bno(page.getBno())
-					.location(page.getLocation())
-					.jobCategory3(page.getJobCategory3())
-					.budget(page.getBudget())
+					.rn(myPage.getRn())
+					.bno(myPage.getBno())
+					.location(myPage.getLocation())
+					.jobCategory3(myPage.getJobCategory3())
+					.budget(myPage.getBudget())
 					.build());	
 		}
 				
@@ -134,6 +136,10 @@ public class UserService {
 	// 조회결과 정보 지우기
 	public void deleteResult(int bno) {
 		myPageMapper.deleteMyPage(bno);
+	}
+
+	public int getTotal(String userId) {
+		return myPageMapper.getTotal(userId);
 	}	
 
 }

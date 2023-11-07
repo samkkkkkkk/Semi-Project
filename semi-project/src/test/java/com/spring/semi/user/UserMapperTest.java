@@ -15,6 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.spring.semi.user.dto.page.Page;
 import com.spring.semi.user.entity.Members;
 import com.spring.semi.user.entity.MyPage;
 import com.spring.semi.user.mapper.IMembersMapper;
@@ -129,8 +130,11 @@ public class UserMapperTest {
 	@Test
 	@DisplayName("id를 주면 mypage 테이블에 해당되는 id의 모든 데이터를 줄 것이다.")
 	public void getMyPagesTest() {
+		Page page = new Page();
 		String id = "test1";
-		List<MyPage> res = myPageMapper.getMyPages(id);
+		page.setUserId(id);
+		
+		List<MyPage> res = myPageMapper.getMyPages(page);
 
 		log.info("리스트 결과: {}", res);
 	}

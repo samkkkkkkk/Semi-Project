@@ -1,8 +1,11 @@
 package com.spring.semi.user.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +16,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.semi.user.dto.UserRequestLoginDTO;
 import com.spring.semi.user.dto.UserRequestRegisterDTO;
+import com.spring.semi.user.dto.UserRequstModifyDTO;
+import com.spring.semi.user.dto.UserResponseMyPageResultDTO;
+import com.spring.semi.user.dto.page.Page;
+import com.spring.semi.user.dto.page.PageCreator;
 import com.spring.semi.user.service.UserService;
 import com.spring.semi.util.MailSenderService;
 
@@ -29,7 +36,6 @@ public class UserController {
 	private final MailSenderService mailService;
 	
 	// 로그인
-	
 	@GetMapping("/login")
 	public void login() {}
 	
@@ -48,7 +54,6 @@ public class UserController {
 	}
 	
 	// 회원 가입
-	
 	@GetMapping("/join")
 	public void join() {}
 	
@@ -84,27 +89,47 @@ public class UserController {
 		return mailService.joinEmail(email);
 	}
 	
-	// mypage
-	@GetMapping("/user/mypage")
-	public String UserMyPage() {
-		return "";
+	// mypage 회원 수정 페이지
+	@GetMapping("/mypage")
+	public String UserMyPage(Model model, HttpSession session) {
+		String userId = session.getAttribute("userId").toString();
+		model.addAttribute("userInfo", service.getMemberInfo(userId));
+		return "user/MyPage";
 	}
 	
-	// mypage
-	@GetMapping("/user/mypage/result")
-	public String UserMyPageResult() {
-		return "";
+	// mypage 저장된 조회 결과 페이지
+	@GetMapping("/mypage/results")
+	public String UserMyPageResult(Model model, HttpSession session, Page page) {
+		String userId = session.getAttribute("userId").toString();
+		page.setUserId(userId);
+		log.info("page: {}", page);
+		int totalCount = service.getTotal(userId);
+		
+		List<UserResponseMyPageResultDTO> dto = service.getResultList(userId, page);
+		log.info("resultList: {}", dto);
+		PageCreator pc = new PageCreator(page, totalCount);
+		log.info("pc: {}", pc);
+		
+		model.addAttribute("resultList", dto);
+		model.addAttribute("pc", pc);
+		
+		return "user/MyPageResult";
 	}
 	
 	// mypage 회원수정
-	@PostMapping("/user/mypage/modify")
-	public String userModify() {
+	@PostMapping("/mypage/modify")
+	public String userModify(HttpSession session, UserRequstModifyDTO dto) {
+		String userId = session.getAttribute("userId").toString();
+		service.modifyMemberInfo(userId, dto);
 		return "redirect:/user/mypage";
 	}
 	
 	// mypage 조회기록 삭제
-	@GetMapping("/user/mypage/delete")
-	public String userMypageDelete() {
-		return "redirect:/user/mypage";
+	@GetMapping("/mypage/results/delete")
+	public String userMypageDelete(RedirectAttributes ra, HttpSession session, int bno) {
+		service.deleteResult(bno);
+		
+		ra.addFlashAttribute("msg", "deleteSuccess");
+		return "redirect:/user/mypage/results";
 	}
 }
