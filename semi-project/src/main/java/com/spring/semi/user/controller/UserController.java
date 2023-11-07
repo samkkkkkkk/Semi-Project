@@ -118,7 +118,7 @@ public class UserController {
 	}
 	
 	// mypage 회원수정
-	@PostMapping("/mypage/modify")
+	@PostMapping("/mypage")
 	public String userModify(HttpSession session, UserRequstModifyDTO dto) {
 		String userId = session.getAttribute("userId").toString();
 		service.modifyMemberInfo(userId, dto);
