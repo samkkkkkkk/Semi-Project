@@ -3,4 +3,8 @@
 
 
 <mapper namespace="com.spring.semi.main.mapper.IPropertyMapper">
+    <select id="getProperties" resultType="property">
+        SELECT * FROM property
+        WHERE adstrd_nm = #{adstrdNm}
+    </select>
 </mapper>

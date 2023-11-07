@@ -7,6 +7,9 @@
 	
 	<!-- JDBC, DB 관련 빈을 등록하고 관리하는 설정 파일
 		꼭 저 두개만 관리하는 것은 아님~ -->
+	
+	<!-- 비밀번호 암호화 객체 빈 등록 -->
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 		
 	<!-- 
 		프로젝트를 구성하다 보면 자주 변경되지 않는 설정 파일들이나, 공통 정보들에 대한 

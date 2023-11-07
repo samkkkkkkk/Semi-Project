@@ -1,4 +1,4 @@
-package com.spring.semi.main.Entity;
+package com.spring.semi.main.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -17,6 +17,6 @@ public class Property {
 	private int realestateNo;
 	private String adstrdNm;
 	private int excheGtn;
-	private int latitude;
-	private int longitude;
+	private double latitude;
+	private double longitude;
 }
