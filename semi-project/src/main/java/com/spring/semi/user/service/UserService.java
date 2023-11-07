@@ -72,12 +72,16 @@ public class UserService {
 	// 유저 정보 가져오기
 	public UserResponseMyPageInfoDTO getMemberInfo(String id) {
 		Members member = membersMapper.getMember(id);
+		String[] email = member.getEmail().split("@");
+		String email1 = email[0];
+		String email2 = "@" + email[1];
 		
 		UserResponseMyPageInfoDTO dto =
 				UserResponseMyPageInfoDTO.builder()
-				.userId(member.getUserName())
+				.userId(member.getId())
 				.userName(member.getUserName())
-				.userEmail(member.getEmail())
+				.userEmail1(email1)
+				.userEmail2(email2)
 				.build();
 				
 		return dto;

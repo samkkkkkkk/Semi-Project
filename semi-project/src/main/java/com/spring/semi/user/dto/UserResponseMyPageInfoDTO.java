@@ -16,5 +16,6 @@ import lombok.ToString;
 public class UserResponseMyPageInfoDTO {
 	private String userId;
 	private String userName;
-	private String userEmail;
+	private String userEmail1;
+	private String userEmail2;
 }
