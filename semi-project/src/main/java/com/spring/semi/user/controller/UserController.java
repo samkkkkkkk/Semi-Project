@@ -16,6 +16,7 @@ import com.spring.semi.user.dto.UserRequestRegisterDTO;
 import com.spring.semi.user.service.UserService;
 import com.spring.semi.util.MailSenderService;
 
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,8 +25,9 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/user")
 @Slf4j
 public class UserController {
-
+	
 	private final UserService service;
+
 	private final MailSenderService mailService;
 	
 	// 로그인
