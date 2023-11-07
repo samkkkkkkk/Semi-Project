@@ -1,0 +1,151 @@
+.container {
+  max-width: 80vh;
+  margin: 0 auto;
+  padding: 20px;
+}
+html,
+body {
+  width: 100%;
+  height: auto;
+}
+
+.inputContainer {
+  /* border: 1px solid black; */
+  width: 66%;
+  margin: auto;
+}
+
+.join-form {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+/* Style the title box */
+.titlebox {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Style form fields and labels */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style buttons */
+.btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: rgb(50, 96, 122);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: rgb(40, 80, 100);
+}
+
+.btn-success {
+  background-color: rgb(50, 96, 122);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-success:hover {
+  background-color: rgb(40, 80, 100);
+}
+
+.btn-info {
+  background-color: #00a0e9;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-info:hover {
+  background-color: #0080c9;
+}
+
+/* Style the mail-check-box input */
+.mail-check-box .form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Style the mail-check-warn message */
+#mail-check-warn {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Style the address search button */
+.input-group-addon button {
+  background-color: rgb(50, 96, 122);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-group-addon button:hover {
+  background-color: rgb(40, 80, 100);
+}
+
+.mail-check-box.mailBtn button {
+  position: absolute;
+  right: 3px;
+  bottom: 2px;
+  height: 35px;
+  font-size: 10;
+  border-radius: 5px;
+}
+
+.mail-check-box {
+  position: relative;
+}
+
+.input-group.idBtn {
+  position: relative;
+}
+
+.input-group-addon.idBtn button {
+  position: absolute;
+  right: 2px;
+  top: 3px;
+  height: 35px;
+  width: 60px;
+  font-size: 10;
+}
+
+/* .idWarn {
+  font-size: 13;
+  font-weight: bold;
+  color: red;
+  text-align: left;
+  width: 200px;
+} */

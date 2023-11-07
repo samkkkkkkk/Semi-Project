@@ -17,6 +17,7 @@ import lombok.ToString;
 @Builder
 public class MyPage {
 
+	private int rn;
 	private int bno;
 	private String id;
 	private LocalDateTime regDate;

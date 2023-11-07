@@ -1,0 +1,107 @@
+@import url(minireset.css);
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.join-form {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+/* Style the title box */
+.titlebox {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Style form fields and labels */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style buttons */
+.btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color: #00c73c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #009c2c;
+}
+
+.btn-success {
+    background-color: #00c73c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-success:hover {
+    background-color: #009c2c;
+}
+
+.btn-info {
+    background-color: #00a0e9;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-info:hover {
+    background-color: #0080c9;
+}
+
+/* Style the mail-check-box input */
+.mail-check-box .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Style the mail-check-warn message */
+#mail-check-warn {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Style the address search button */
+.input-group-addon button {
+    background-color: #00c73c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-group-addon button:hover {
+    background-color: #009c2c;
+}

@@ -13,6 +13,7 @@ import com.spring.semi.user.dto.UserRequestRegisterDTO;
 import com.spring.semi.user.dto.UserRequstModifyDTO;
 import com.spring.semi.user.dto.UserResponseMyPageInfoDTO;
 import com.spring.semi.user.dto.UserResponseMyPageResultDTO;
+import com.spring.semi.user.dto.page.Page;
 import com.spring.semi.user.entity.Members;
 import com.spring.semi.user.entity.MyPage;
 import com.spring.semi.user.mapper.IMembersMapper;
@@ -61,24 +62,23 @@ public class UserService {
 
 	// 아이디 중복 체크
 	public int idCheck(String id) {
-		Members member = membersMapper.getMember(id);
+		return membersMapper.idCheck(id);
 		
-		if (member != null) {
-			return 1;
-		}
-		
-		return 0;
 	}
 	
 	// 유저 정보 가져오기
 	public UserResponseMyPageInfoDTO getMemberInfo(String id) {
 		Members member = membersMapper.getMember(id);
+		String[] email = member.getEmail().split("@");
+		String email1 = email[0];
+		String email2 = "@" + email[1];
 		
 		UserResponseMyPageInfoDTO dto =
 				UserResponseMyPageInfoDTO.builder()
-				.userId(member.getUserName())
+				.userId(member.getId())
 				.userName(member.getUserName())
-				.userEmail(member.getEmail())
+				.userEmail1(email1)
+				.userEmail2(email2)
 				.build();
 				
 		return dto;
@@ -102,15 +102,16 @@ public class UserService {
 	}
 	
 	// 조회결과 정보 리스트 가져오기
-	public List<UserResponseMyPageResultDTO> getResultList(String userId) {
+	public List<UserResponseMyPageResultDTO> getResultList(String userId, Page page) {
 		List<UserResponseMyPageResultDTO> dto = new ArrayList<>();
 		
-		for ( MyPage page : myPageMapper.getMyPages(userId)) {
+		for ( MyPage myPage : myPageMapper.getMyPages(page)) {
 			dto.add(UserResponseMyPageResultDTO.builder()
-					.bno(page.getBno())
-					.location(page.getLocation())
-					.jobCategory3(page.getJobCategory3())
-					.budget(page.getBudget())
+					.rn(myPage.getRn())
+					.bno(myPage.getBno())
+					.location(myPage.getLocation())
+					.jobCategory3(myPage.getJobCategory3())
+					.budget(myPage.getBudget())
 					.build());	
 		}
 				
@@ -136,6 +137,10 @@ public class UserService {
 	// 조회결과 정보 지우기
 	public void deleteResult(int bno) {
 		myPageMapper.deleteMyPage(bno);
+	}
+
+	public int getTotal(String userId) {
+		return myPageMapper.getTotal(userId);
 	}	
 
 }
