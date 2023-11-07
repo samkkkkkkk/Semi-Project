@@ -3,15 +3,8 @@
 
 
 <mapper namespace="com.spring.semi.main.mapper.IPropertyMapper">
-    <select id="getProperties" resultType="Property">
-        SELECT ROWNUM, si_do, si_gun_gu,
-		adstrd_nm,EXCHE_GTN, latitude,longitude
-        FROM property 
-        join administrative_code 
-        on property.adstrd_nm =administrative_code.eup_myeong_dong 
+    <select id="getProperties" resultType="property">
+        SELECT * FROM property
         WHERE adstrd_nm = #{adstrdNm}
-        <![CDATA[
-         AND exche_gtn <= #{excheGtn}/#{area}
-        ]]>
     </select>
 </mapper>
