@@ -14,8 +14,6 @@
 
         <div class="bodywrap">
           bodywrap
-          <h2>${body.totalCount}</h2>
-
           <div id="map" style="width: 100%; height: 90%;"></div>
 
           <!-- 나재성이 만든 대충 테스트용 폼 -->
@@ -25,14 +23,6 @@
             <button type="button" id="checkBtn2">이건 소분류 포커스 벗어나면 할거</button>
             <button type="submit" id="checkBtn">조회</button>
           </form>
-          <!-- 테스트용 폼 -->
-          <img alt="" class="category ico_comm" src="${pageContext.request.contextPath}/img/Marker.png">
-          <hr>
-          <img alt="" class="category ico_coffee" src="${pageContext.request.contextPath}/img/Marker.png">
-          <hr>
-          <img alt="" class="category ico_store" src="${pageContext.request.contextPath}/img/Marker.png">
-          <hr>
-          <img alt="" class="category ico_carpark" src="${pageContext.request.contextPath}/img/Marker.png">
         </div>
         
         

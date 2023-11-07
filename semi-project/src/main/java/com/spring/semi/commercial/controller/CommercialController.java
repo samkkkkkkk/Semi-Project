@@ -25,11 +25,10 @@ public class CommercialController {
 	public String apiRequest(@PathVariable String h1, @PathVariable String h2, RedirectAttributes attr) {
 		log.info("/api/req: GET, h1: {h1}, h2: {h2}", h1, h2);
 
-		Map<String, Object> responseData = service.getShortTermForecast(h1,h2);
-		log.info("전달받은 데이터: {}", responseData);
+		String body = service.getShortTermForecast(h1,h2);
+//		log.info("서비스에서달받은데이터: {}", body);
 
-		attr.addFlashAttribute("body", responseData.get("body"));
-		attr.addFlashAttribute("items", ((Map<String, Object>) responseData.get("body")).get("items"));
+		attr.addFlashAttribute("body", body);
 		
 		return "redirect:/home2";
 	}

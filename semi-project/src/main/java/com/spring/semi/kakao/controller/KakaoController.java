@@ -36,8 +36,8 @@ public class KakaoController {
 		model.addAttribute("lat", 37.5523419);
 		model.addAttribute("lon", 126.9377159);
 		
-		log.info("body: {}", model.asMap().get("body"));
-		log.info("items: {}", model.asMap().get("items"));
+		model.asMap().get("body");
+	    log.info("CommericalController에서 전달받은 데이터 : {}", (String) model.asMap().get("body"));
 		return "home2";
 	}
 }

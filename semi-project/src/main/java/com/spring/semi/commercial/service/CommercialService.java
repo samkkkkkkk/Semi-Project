@@ -1,6 +1,7 @@
 package com.spring.semi.commercial.service;
 
 import java.net.URI;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +32,7 @@ public class CommercialService {
 
 	private Map<String, Object> responseData; // 전달 받은 데이터를 담을 객체
 
-	public Map getShortTermForecast(String h1, String h2) {
+	public String getShortTermForecast(String h1, String h2) {
 		//요청 헤더 설정(api에서 원하는 헤더 설정이 있다면 사용하세요.)
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -62,14 +64,16 @@ public class CommercialService {
 			ResponseEntity<Map> responseEntity = template.exchange(uri, HttpMethod.GET, requestEntity, Map.class);
 
 
-			responseData = (Map<String, Object>) responseEntity.getBody();
 //			log.info("요청에 따른 응답 데이터: {}", responseData);
 //			log.info("body까지 접근 : {}", ((Map) responseData).get("body"));
+			responseData = (Map<String, Object>) responseEntity.getBody();
+			
+			//자바 스크립트에서 바로 사용할 수 있는 json 문자열 형태로 변환
+			ObjectMapper objectMapper = new ObjectMapper();
+			return objectMapper.writeValueAsString(responseData.get("body"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return responseData;
+		return null;
 	}
-
-
 }
