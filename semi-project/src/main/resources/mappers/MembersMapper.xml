@@ -21,7 +21,6 @@
     <update id="updateMember">
         UPDATE members
         SET
-            id = #{id},
             user_name = #{userName},
             <include refid="passwordCheck" />
             email = #{email}
