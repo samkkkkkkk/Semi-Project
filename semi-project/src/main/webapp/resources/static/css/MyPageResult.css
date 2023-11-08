@@ -1,0 +1,152 @@
+body,
+h1,
+h2,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #f7f7f7;
+}
+
+#container {
+  /* display: flex; */
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+section {
+  width: 800px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.resultContainer {
+  min-height: 80vh;
+  flex: 1;
+  max-width: 960px;
+}
+
+.titlebox p:nth-child(1) {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.toggleBox {
+  background-color: rgb(50, 96, 122);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  height: 30px;
+}
+
+.toggleBox a {
+  text-decoration: none;
+  margin-right: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  height: 30px;
+  width: 100px;
+}
+
+.toggleBox span:hover {
+  color: #eee;
+}
+
+p {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th {
+  color: #000;
+  padding: 10px;
+  border-bottom: 2px solid rgb(50, 96, 122);
+}
+
+.table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid rgb(50, 96, 122);
+}
+
+.table a {
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.table tbody tr:hover {
+  background-color: #e0e0e0;
+}
+
+.table tbody button {
+  width: 50px;
+  height: 35px;
+  line-height: 35px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
+.pagination .prevNext a {
+  color: #fff;
+  background-color: rgb(50, 96, 122);
+  border-color: rgb(50, 96, 122);
+}
+
+.pagination .prevNext a:hover {
+  background-color: rgb(44, 83, 105);
+  border-color: rgb(50, 96, 122);
+  cursor: pointer;
+}
+
+.btn {
+  border-radius: 5px;
+  font-family: 'Gowun Batang', serif;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.btn:hover {
+  background-color: rgb(158, 156, 156);
+  cursor: pointer;
+}

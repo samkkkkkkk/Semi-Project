@@ -3,13 +3,13 @@
 
 <mapper namespace="com.spring.semi.user.mapper.IMyPageMapper">
     <insert id="insertMyPage">
-        INSERT INTO my_page
+        INSERT INTO mypage
             (bno, id, location, job_category1, job_category2, job_category3, budget)
         VALUES (SEQ_mypage_bno.NEXTVAL, #{id}, #{location}, #{jobCategory1}, #{jobCategory2}, #{jobCategory3}, #{budget})
     </insert>
 
     <select id="getMyPage" resultType="myPage">
-        SELECT * FROM my_page
+        SELECT * FROM mypage
         WHERE bno = #{bno}
     </select>
 
@@ -21,7 +21,7 @@
                 ROWNUM as rn,
                 tbl.*
             FROM(
-                SELECT * FROM my_page
+                SELECT * FROM mypage
                 WHERE id = #{userId}
                 ORDER BY reg_date
                 ) tbl
@@ -33,12 +33,12 @@
 
     <select id="getTotal" resultType="int">
 		SELECT COUNT(*)
-		FROM my_page
+		FROM mypage
         WHERE id = #{userId}
 	</select>
 
     <delete id="deleteMyPage">
-        DELETE FROM my_page
+        DELETE FROM mypage
         WHERE bno = #{bno}
     </delete>
 </mapper>

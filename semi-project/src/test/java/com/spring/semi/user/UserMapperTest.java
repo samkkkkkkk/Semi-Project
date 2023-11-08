@@ -102,8 +102,9 @@ public class UserMapperTest {
 	@Test
 	@DisplayName("mypage 정보를 입력하면 추가가 될 것이다.")
 	public void insertMyPageTest() {
+		for (int i = 1; i <= 100; i++) {
 		MyPage user = MyPage.builder()
-				.id("test1")
+				.id("test3")
 				.location("신내동")
 				.jobCategory1("소매업")
 				.jobCategory2("종합 소매업")
@@ -112,6 +113,7 @@ public class UserMapperTest {
 				.build();
 		
 		myPageMapper.insertMyPage(user);
+		}
 	}
 
 	@Test

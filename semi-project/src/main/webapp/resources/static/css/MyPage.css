@@ -1,0 +1,99 @@
+body {
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  width: 800px;
+  margin: 100px auto;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.titlebox {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.toggleBox {
+  background-color: rgb(50, 96, 122);
+  padding: 10px;
+  border-radius: 5px;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.toggleBox a {
+  width: 100px;
+  height: 30px;
+  text-decoration: none;
+  margin-right: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.toggleBox span:hover {
+  color: #eee;
+}
+.tab-content {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.m-control .m-title {
+  font-weight: bold;
+  padding-right: 10px;
+  line-height: 100%;
+}
+
+.formBox.inputBox,
+.sel {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.formBox.inputBox.email,
+.formBox.inputBox.phone {
+  width: 150px;
+}
+
+.formBox.inputBox.sel {
+  width: 130px;
+  display: inline;
+}
+
+.titlefoot {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#info {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.btn {
+  width: 120px;
+  height: 30px;
+  border-radius: 10px;
+  margin-left: 50px;
+  font-family: 'Gowun Batang', serif;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.btn:hover {
+  background-color: rgb(158, 156, 156);
+  cursor: pointer;
+}
