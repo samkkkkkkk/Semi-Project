@@ -1,0 +1,156 @@
+/*비즈니스맵 글귀*/
+@import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&family=Nanum+Gothic&family=Noto+Sans+KR:wght@300&family=Quicksand:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.box {
+  width: auto;
+  height: 90px;
+  margin: 0;
+}
+
+.box .headerWrap {
+  /* position: fixed; */
+  width: auto;
+  height: 90px;
+  margin: 0;
+}
+.bi {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  width: 25px;
+  height: 25px;
+  color: black;
+}
+
+.box .headerStyle {
+  /* position: fixed; */
+  width: auto;
+  height: 90px;
+
+  background-color: rgb(70, 130, 180);
+  /* rgb(250, 229, 232); */
+}
+
+.box .textWrapper {
+  font-family: 'Diphylleia', serif;
+  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  width: 230px;
+  top: 20px;
+  left: 20px;
+  position: absolute;
+  font-weight: 530;
+  color: #fff;
+  font-size: 30px;
+}
+
+.box .loginButton {
+  width: 110px;
+  height: 55px;
+  position: absolute;
+  right: 25px;
+  top: 15px;
+}
+
+.box .loginButton > span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-family: 'DM Sans-Bold', Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 36px;
+}
+
+.box .loginButton > span:hover {
+  color: #ff9900;
+}
+
+/*로그인 이후 적용되는 css*/
+.box .dropOut {
+  list-style: none;
+  width: 140px;
+  /* 내 정보 클릭 시 변경 */
+  /* height: 200px; */
+  height: 50px;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 10px;
+}
+
+/*사용자 이름 영역*/
+.box .dropOut > li > a > span {
+  width: 120px;
+  position: absolute;
+  padding-left: 5px;
+  font-family: 'Gowun Batang', serif;
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  color: #000000;
+  font-size: 23px;
+  /* border: 1px solid black; */
+  left: 2px;
+  top: 6px;
+}
+
+.box .polygon {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 12px;
+  right: 10px;
+}
+
+.box .dropOutButton {
+  list-style: none;
+}
+
+/* 내 정보, 로그아웃 글씨*/
+.box .dropOutButton > li > a > span {
+  position: absolute;
+  font-family: 'DM Sans-Bold', Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 28px;
+  left: 15px;
+  background-color: antiquewhite;
+}
+
+/*내 정보 위치*/
+.box .dropOutButton-myInfo > span {
+  width: 115px;
+  position: absolute;
+  left: 20px;
+  height: 50px;
+  bottom: 80px;
+  /* background-color: #d9d9d9; */
+  line-height: 50px;
+  text-align: center;
+}
+.box .dropOutButton-logout > span {
+  width: 115px;
+  position: absolute;
+  left: 20px;
+  height: 50px;
+  bottom: 15px;
+  /* background-color: #d9d9d9; */
+  line-height: 50px;
+  text-align: center;
+}
+
+#userInfo > span {
+  width: 95px;
+  position: absolute;
+  left: 8px;
+}
