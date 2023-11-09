@@ -49,6 +49,10 @@
   color: #fff;
   font-size: 30px;
 }
+.box .textWrapper a {
+  text-decoration: none;
+  color: #fff;
+}
 
 .box .textWrapper > a {
   color: inherit;
