@@ -15,7 +15,7 @@ prefix="c" %>
 <div class="box">
   <div class="headerWrap">
     <div class="headerStyle">
-      <div class="textWrapper">businessMap</div>
+      <div class="textWrapper"><a href="${pageContext.request.contextPath}/">businessMap</a></div>
 
       <c:if test="${userId == null}">
         <!-- 로그인 하기 전 -->
