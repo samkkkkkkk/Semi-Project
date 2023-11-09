@@ -105,6 +105,30 @@
   opacity: 1;
   transform: translateY(-50px);
 }
+#shopList2 {
+  overflow: auto;
+  width: 266px;
+  height: 383px;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#shopList2::-webkit-scrollbar {
+  /*스크롤바 너비 */
+  width: 10px;
+}
+#shopList2::-webkit-scrollbar-thumb {
+  /*전체 스크롤바 */
+  background-color: black;
+  border-radius: 10px;
+}
+
+#shopList2::-webkit-scrollbar-track {
+  /* 막대 스크롤바 */
+
+  border-radius: 14px;
+}
+
 
 /*매물 리스트 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200&display=swap');
@@ -212,7 +236,7 @@ ul.tabnav {
   bottom: 120px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
-#article3_map {
+#map:nth-child(1) {
   height: 450px;
   border: 1px solid red;
 }
@@ -315,7 +339,7 @@ ul.tabnav {
   z-index: 1;
 }
 
-#map {
+#map:nth-child(2) {
   width: 600px;
   height: 450px;
   top: 140px;
