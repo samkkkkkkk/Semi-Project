@@ -50,6 +50,11 @@
   font-size: 30px;
 }
 
+.box .textWrapper > a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .box .loginButton {
   width: 110px;
   height: 55px;

@@ -70,6 +70,7 @@ pageEncoding="UTF-8"%>
                           <input
                             class="formBox inputBox"
                             name="userPw"
+                            type="password"
                           />
                           <span class="form-control" id="msgPw"></span>
                         </td>
@@ -80,6 +81,7 @@ pageEncoding="UTF-8"%>
                           <input
                             class="formBox inputBox"
                             name="userPwChk"
+                            type="password"
                           />
                           <span class="form-control" id="msgPw-c"></span>
                         </td>
