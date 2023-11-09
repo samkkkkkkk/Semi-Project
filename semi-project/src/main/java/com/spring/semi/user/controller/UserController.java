@@ -133,4 +133,12 @@ public class UserController {
 		ra.addFlashAttribute("msg", "deleteSuccess");
 		return "redirect:/user/mypage/results";
 	}
+	
+	// 로그아웃
+	@GetMapping("/logout")
+	public String userLogout(HttpSession session) {
+		session.invalidate();
+		
+		return "redirect:/";
+	}
 }
