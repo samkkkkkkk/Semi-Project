@@ -35,7 +35,7 @@ prefix="c" %>
               href="#"
               id="userInfo"
             >
-              <span>김춘식님</span>
+              <span>${userName}님</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -66,7 +66,7 @@ prefix="c" %>
               </li>
               <li>
                 <a
-                  href="${pageContext.request.contextPath}/user/mypage/results"
+                  href="${pageContext.request.contextPath}/user/logout"
                   class="dropOutButton-logout"
                 >
                   <span>로그아웃</span>

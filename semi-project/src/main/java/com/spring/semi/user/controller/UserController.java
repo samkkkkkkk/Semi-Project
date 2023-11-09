@@ -118,7 +118,7 @@ public class UserController {
 	}
 	
 	// mypage 회원수정
-	@PostMapping("/mypage/modify")
+	@PostMapping("/mypage")
 	public String userModify(HttpSession session, UserRequstModifyDTO dto) {
 		String userId = session.getAttribute("userId").toString();
 		service.modifyMemberInfo(userId, dto);
@@ -132,5 +132,13 @@ public class UserController {
 		
 		ra.addFlashAttribute("msg", "deleteSuccess");
 		return "redirect:/user/mypage/results";
+	}
+	
+	// 로그아웃
+	@GetMapping("/logout")
+	public String userLogout(HttpSession session) {
+		session.invalidate();
+		
+		return "redirect:/";
 	}
 }
