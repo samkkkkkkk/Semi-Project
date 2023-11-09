@@ -55,6 +55,11 @@
     </section>
     <script>
     	window.onload = () => {
+            const loginId = "${userId}";
+            if (loginId) {
+                window.location = '${pageContext.request.contextPath}/user/mypage';
+            }
+            
             document.getElementById('loginBtn').onclick = () => {
             if (document.loginForm.userId.value === '') {
                 alert('아이디를 입력하세요');
