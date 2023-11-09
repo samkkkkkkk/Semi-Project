@@ -32,14 +32,20 @@
 						<li>indsSclsNm 가맹점 총 : totalCount 개</li>
 					</ul>
 				</div>
-				<!--반복문 돌릴 곳-->
+				<!--api 조회 결과 표시 될 곳-->
 				<div id="ListContents">
 					<div>index bizesNm lnoAdr</div>
+				</div>
+
+				<!-- 부동산 정보 표시 될 곳 -->
+				<div id="ListProperty">
+					<div></div>
 				</div>
 			</div>
 		</article>
 		<article id="map"></article>
 	</div>
+	<article id="map2"></article>
 	<%@ include file="./include/footer.jsp"%>
 
 
@@ -51,13 +57,24 @@
 	const body = JSON.parse('${body}'); // 서버 kakaoController에서 이미 자바스크립트에서 바로 사용할 수 있는 json 형태로 변환해서 사용가능
 	const items = body.items;
 //	console.log(items[0].adongNm);
+	const property = JSON.parse('${property}');
+//	console.log(property);
 	
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
-		  center: new kakao.maps.LatLng(body.items[0].lat, body.items[0].lon), // 지도의 중심좌표 // 전달받은 첫번째 json을 가공해서 중심이 어디 있는지 표시하고
+		  center: new kakao.maps.LatLng(items[0].lat, items[0].lon), // 지도의 중심좌표 // 전달받은 첫번째 json을 가공해서 중심이 어디 있는지 표시하고
 		  level: 1 // 지도의 확대 레벨
 		};
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	
+	
+	var mapContainer2 = document.getElementById('map2'),
+	mapOption2 = {
+	  center: new kakao.maps.LatLng(property[0].latitude, property[0].longitude),
+	  level: 1 // 지도의 확대 레벨
+	};
+	var map2 = new kakao.maps.Map(mapContainer, mapOption);
+	
 	
 	// 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
 	var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), contentNode = document.createElement('div'); // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다
@@ -96,7 +113,7 @@
 	window.onload = function () {
 		saleListSetUp();  
 	
-		// 반복문 시작
+		// 상권 조회 api를 이용해서 items 반복문 시작
 		items.forEach((item, index) => {
 		    var markerPosition = new kakao.maps.LatLng(item.lat, item.lon); // 마커가 표시될 위치입니다
 		    
@@ -136,10 +153,38 @@
 		    // 마커에 클릭 이벤트를 등록합니다
 		    kakao.maps.event.addListener(marker, 'click', () => {
 		        // 클릭한 마커에 대한 정보를 사용하여 커스텀 오버레이를 표시하는 함수를 호출합니다
-		        displayPlaceInfo(item, index); // index 매개변수 추가
+		        displayPlaceInfo(item, index+1); // index 매개변수 추가
 		    });
 		});
-		// 반복문 끝
+		// 상권 조회 api를 이용해서 items 반복문 끝
+		
+		// 부동산 데이터베이스에서 뽑아온 위도, 경도를 이용한 마커 반복문 시작
+		property.forEach((property, index) => {
+		    var markerPosition = new kakao.maps.LatLng(property.latitude, property.longitude); // 마커가 표시될 위치입니다
+		    
+		    var imageSrc = '${pageContext.request.contextPath}/img/map-marker-icon_34392.png', // 마커이미지의 주소입니다    
+            imageSize = new kakao.maps.Size(44, 49), // 마커이미지의 크기입니다
+            imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+			
+			// 마커를 생성합니다
+			var marker = new kakao.maps.Marker({
+			  position: markerPosition,
+			  image: markerImage // 마커이미지 설정 
+			});
+			
+		    // 마커가 지도 위에 표시되도록 설정합니다
+		    marker.setMap(map2);
+		
+		    // 마커에 클릭 이벤트를 등록합니다
+		    kakao.maps.event.addListener(marker, 'click', () => {
+		        // 클릭한 마커에 대한 정보를 사용하여 커스텀 오버레이를 표시하는 함수를 호출합니다
+		        displayPlaceInfo2(property, index); // 부동산 관련 정보 인포
+		    });
+		});
+		// 부동산 데이터베이스에서 뽑아온 위도, 경도를 이용한 마커 반복문 끝
 		
 		// 클러스터러에 마커들을 추가합니다
 	    clusterer.addMarkers(markers);
@@ -172,6 +217,17 @@
 	        div.innerHTML = '<div>'+idx+'. '+ item.bizesNm+ item.lnoAdr + '<button onclick="panTo(' + idx + ')">위치보기</button>'+'</div>';
 	        listContents.appendChild(div);
 	    });
+	    
+	    // listProperty 내부를 비웁니다
+	    const listProperty = document.querySelector('#ListProperty');
+	    listProperty.innerHTML = '';
+	
+	    // items 배열의 각 요소에 대해 div 생성 후 추가
+	    property.forEach((property, idx) => {
+	        const div = document.createElement('div');
+	        div.innerHTML = '<div>' + idx + '. 서울특별시 '+ property.adstrdNm +' '+ property.excheGtn + '원' + '<button onclick="panTo(' + idx + ')">위치보기</button>'+'</div>';
+	        listProperty.appendChild(div);
+	    });
 	};// 조회 결과 대입 끝
 	
 	
@@ -189,6 +245,18 @@
 	    placeOverlay.setPosition(new kakao.maps.LatLng(item.lat, item.lon));
 	    placeOverlay.setMap(map);
 	};
+	
+	function displayPlaceInfo2(property) {
+		contentNode.className = 'placeinfo_wrap';
+	    var content = '<div class="placeinfo">' +
+	                    '<a class="title" href="https://map.kakao.com/?q=' + property.latitude + ' ' + property.longitude + '" target="_blank" title="' + property.adstrdNm + '">' + property.adstrdNm + '</a>'+
+	                    '<span title="' + property.excheGtn + '">' + property.excheGtn + '</span>' +
+	                  '</div>'+
+	                  '<div class="after"></div>';
+	    contentNode.innerHTML = content;
+	    placeOverlay.setPosition(new kakao.maps.LatLng(property.latitude, property.longitude));
+	    placeOverlay.setMap(map2);
+	};
 	// 커스텀 오버레이 컨텐츠를 설정합니다
 	placeOverlay.setContent(contentNode);
 	
@@ -204,6 +272,12 @@
 	    // 지도 중심을 부드럽게 이동시킵니다
 	    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 	    map.panTo(moveLatLon);            
+	}
+	var panTo2 = (idx) => {
+		placeOverlay.setMap(null);
+		map2.setLevel(1);
+	    var moveLatLon = new kakao.maps.LatLng(property[idx].latitude, property[idx].longitude);
+	    map2.panTo(moveLatLon);            
 	}
 	
 	// 지도가 확대 또는 축소되면 발동하는 이벤트

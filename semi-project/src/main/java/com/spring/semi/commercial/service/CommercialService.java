@@ -1,7 +1,7 @@
 package com.spring.semi.commercial.service;
 
 import java.net.URI;
-
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +14,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.spring.semi.main.entity.Property;
+import com.spring.semi.main.mapper.IPropertyMapper;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -44,8 +48,8 @@ public class CommercialService {
 				.queryParam("pageNo", "1")
 				.queryParam("numOfRows", "200")
 				.queryParam("divId", "adongCd")
-				.queryParam("key", "11110640")
-				.queryParam("indsSclsCd", "I21201")
+				.queryParam("key", h1)
+				.queryParam("indsSclsCd", h2)
 				.queryParam("type", "json")
 				.build();
 
@@ -76,4 +80,20 @@ public class CommercialService {
 		}
 		return null;
 	}
+	
+	private final IPropertyMapper mapper;
+	
+	public String getProperties(String h1) {
+		List<Property> list = mapper.getProperties(h1);
+	    //자바 스크립트에서 바로 사용할 수 있는 json 문자열 형태로 변환
+	    ObjectMapper objectMapper = new ObjectMapper();
+	    try {
+	        return objectMapper.writeValueAsString(list); // map 전체를 JSON으로 변환
+	    } catch (Exception e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
+
 }

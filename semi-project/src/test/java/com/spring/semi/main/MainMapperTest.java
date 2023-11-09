@@ -68,7 +68,7 @@ public class MainMapperTest {
 	public void getPropertyTest() {
 		String name = "방화동";
 		
-		List<Property> res = propertyMapper.getProperties(name);
+		List<Property> res = (List<Property>) propertyMapper.getProperties(name);
 		
 		log.info("결과({}): {}", res.size(), res);
 		assertEquals(56, res.size());

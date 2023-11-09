@@ -34,8 +34,9 @@ public class KakaoController {
 		model.addAttribute("serviceKey", serviceKey);
 		model.addAttribute("reqUrl", reqUrl);
 		
+		model.asMap().get("property");
 		model.asMap().get("body");
-	    log.info("CommericalController에서 전달받은 데이터 : {}", (String) model.asMap().get("body"));
+		
 		return "home2";
 	}
 }
