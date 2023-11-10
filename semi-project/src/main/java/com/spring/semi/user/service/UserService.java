@@ -98,6 +98,11 @@ public class UserService {
 		membersMapper.updateMember(member.build());
 		
 	}
+
+	// 유저 탈퇴	
+    public void deleteMember(String userId) {
+		membersMapper.deleteMember(userId);
+    }
 	
 	// 조회결과 정보 리스트 가져오기
 	public List<UserResponseMyPageResultDTO> getResultList(String userId, Page page) {
@@ -137,8 +142,11 @@ public class UserService {
 		myPageMapper.deleteMyPage(bno);
 	}
 
+	// 결과 리스트 총 개수
 	public int getTotal(String userId) {
 		return myPageMapper.getTotal(userId);
-	}	
+	}
+
+	
 
 }
