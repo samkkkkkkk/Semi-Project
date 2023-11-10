@@ -18,9 +18,9 @@
 
           <!-- 나재성이 만든 대충 테스트용 폼 -->
           <form id="myForm" action="${pageContext.request.contextPath}/api/req/" method="GET">
-            <input type="input" name="h1" value="11110640" />
-            <input type="input" name="h2" value="I21201" />
-            <button type="button" id="checkBtn2">이건 소분류 포커스 벗어나면 할거</button>
+           	지역<input type="input" name="h1" value="11110640" />
+            업종<input type="input" name="h2" value="I21201" />
+            창업비용<input type="input" name="h3" value="31008018" />
             <button type="submit" id="checkBtn">조회</button>
           </form>
         </div>
@@ -113,8 +113,9 @@
             
             const $h1 = document.querySelector('input[name=h1]').value;
             const $h2 = document.querySelector('input[name=h2]').value;
+            const $h3 = document.querySelector('input[name=h3]').value;
 
-            this.action = this.action + $h1 + '/' + $h2; // 폼의 action 속성 변경
+            this.action = this.action + $h1 + '/' + $h2+'/' + $h3; // 폼의 action 속성 변경
 //			console.log(this.action);
             
             this.submit(); // 폼 데이터 서버로 전송
