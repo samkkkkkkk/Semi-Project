@@ -4,161 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-	<style>
-      #modal1,#modal2{
-        position: relative;
-        background-color: #fff;
-        border: 20px solid gray;
-        width: 650px;
-        height: 400px;
-        /* margin: 140px auto; */
-        padding: 30px auto;
-        display: flex;
-        z-index: 1050;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-      }
-      #modal3 {
-         position: relative;
-        background-color: #fff;
-        border: 20px solid gray;
-        width: 650px;
-        height: 600px;
-        /* margin: 140px auto; */
-        padding: 30px auto;
-        display: flex;
-        z-index: 1050;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .modal > h2 {
-        width: 150px;
-        margin-left: 30px;
-        margin-top: 30px;  
-        margin-bottom: 20px;  
-      }
-
-      #sel1,
-      #sel2,
-      #sel3 {
-        width: 180px;
-        height: 48px;
-        padding: 12px;
-        border-radius: 8px;
-        border: 1px solid #000;
-        background: #fff;
-        font-size: 18px;
-        margin-left: 12px;
-        color: #424242;
-      }
-
-      .in1 {
-        width: 180px;
-        height: 40px;
-        bottom: -250px;
-        border-radius: 12px;
-      }
-
-      .pri::-webkit-inner-spin-button {
-        appearance: none;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-      }
-      .pri::placeholder {
-        text-align: right;
-        font-size: large;
-      }
-      .pri::-webkit-inner-spin-button {
-        margin-right: 5px;
-      } 
-      .pri {
-        text-align: right;
-        width: 300px;
-        height: 40px;
-        margin-bottom: 10px;
-        border-radius: 2px;
-        font-size: large;
-      }
-      #price2 {
-        text-align: right;
-        padding-right: 40px;
-        font-size: large;
-      }
-
-      #modal3>p {
-        width: 500px;
-        height: 84px;
-        margin: 10px auto 20px;
-        padding: auto auto;
-        border-radius: 2px;
-        border: 10px solid rgb(224, 224, 224);
-        background-color: rgb(224, 224, 224);
-      }
-
-      #res1,
-      #res2,
-      #res3 {
-        margin-left: -80px;
-        position: absolute;
-        left: 130px;
-        bottom: 40px;
-        flex-shrink: 0;
-        background-color: rgb(205, 203, 203);
-        border: 0;
-      }
-
-      #res1:hover,
-      #res2:hover,
-      #res3:hover {
-        background-color: rgb(102, 102, 102);
-      }
-
-      #sub1,
-      #sub2,
-      #sub3 {
-        position: absolute;
-        right: 60px;
-        bottom: 40px;
-        flex-shrink: 0;
-        background-color: rgb(250, 229, 232);
-        border: 0;
-      }
-
-      #sub1:hover,
-      #sub2:hover,
-      #sub3:hover {
-        background-color: rgb(243, 128, 145);
-      }
-
-      #modal1,
-      #modal2,
-      #modal3 {
-        display: none;
-      }
-    </style>
+<title>모달창입니다.</title>
+    <link href="${pageContext.request.contextPath}/css/modal.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/semi" method="post">
-      <!-- <input id="adr" type="button" value="지역" />
-      <input id="sec" type="button" value="업종" /> -->
 
-      <div id="modal1" class="modal">
-        <h2>지역 선택</h2>
-        <select name="siDo" id="sel1" class="sel"></select>
+      <div id="modal1">
+        <h2 id="modalTitle">지역 선택</h2>
+        <select name="siDo" id="sel1" class="sel"></select> 
         <select name="siGunGu" id="sel2" class="sel"></select>
         <select name="eupMyeongDong" id="sel3" class="sel"></select>
         <input type="reset" value="취소" id="res1" class="in1" />
         <input type="submit" value="확인" id="sub1" class="in1" />
       </div>
 
-      <div id="modal2" class="modal">
-        <h2>업종 선택</h2>
+      <div id="modal2">
+        <h2 id="modalTitle">업종 선택</h2>
         <select name="sec1st" id="sel1" class="sel"></select>
         <select name="sec2nd" id="sel2" class="sel"></select>
         <select name="sec3rd" id="sel3" class="sel"></select>
@@ -166,22 +27,22 @@
         <input type="submit" value="확인" id="sub2" class="in1" />
       </div>
 
-      <div id="modal3" class="modal">
-        <h2>창업 비용</h2>
+      <div id="modal3">
+        <h2 id="modalTitle">창업 비용</h2>
         <p>
-          전세: 전세금 <br><br>
-          월세: 보증금+(월차임x100),<br>단 이 때 계산된 금액이 5천만원 미만일 경우: 보증금+(월차임x70)
+          환산 보증금이란? <br>
+          환산 보증금을 기준으로 해당 지역별 상가 건물 임대차 보호법의 적용 대상 유무가 결정된다. <br>
+          환산 보증금:&nbsp; <input type="text" id="conversion" placeholder="보증금 + (월세 * 100)" readonly> &nbsp;(원)
         </p>
-        <article id="price2">
-          <input type="number" id="pri1" class="pri" placeholder="보증금" />  (원) <br>
-          <input type="number" id="pri2" class="pri" placeholder="월세" />  (원) <br>
-          <input type="number" id="pri3" class="pri" placeholder="면적" /> (m2) <br>
+        <article id="deposit">
+          <input type="number" id="pri1" class="pri" placeholder="보증금" onkeyup="autoCal(this);" /> (원) <br>
+          <input type="number" id="pri2" class="pri" placeholder="월세" onkeyup="autoCal(this);" /> (원) <br>
         </article>
         <input type="reset" value="취소" id="res3" class="in1">
         <input type="submit" value="확인" id="sub3" class="in1">
       </div>
-    </form>
-  </body>
+
+</body>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
@@ -199,6 +60,9 @@
       // 동 선택
       var adr2 = [];
 
+      // p1 선택시 박스 초기화
+      $
+      
       // 시/도 선택 박스 초기화
       $('select[name^=siDo]').each(function () {
         $siDo = $(this);
@@ -463,9 +327,10 @@
 
       });
 
-    }); 
+    });
+
     // 지역 버튼 이벤트 부여
-    document.getElementById('adr').onclick = () => {
+    document.getElementById('loc').onclick = () => {
       // 로그인 여부 판단
       // const id = document.getElementById('id').value;
       // const pw = document.getElementById('pw').value;
@@ -476,10 +341,19 @@
       // }
 
       document.getElementById('modal1').style.display = 'block';
+      document.getElementById('modal2').style.display = 'none';
+      document.getElementById('modal3').style.display = 'none';
+
+      // 지역 버튼 클릭시 값 초기화
+      $("select[name='siDo'] option:eq(0)").prop("selected", true);
+      $("select[name='siGunGu'] option").remove();
+      $("select[name='siGunGu']").append("<option value=''>구 선택</option>");
+      $("select[name='eupMyeongDong'] option").remove();
+      $("select[name='eupMyeongDong']").append("<option value=''>동 선택</option>");
     };
 
     // 업종 버튼 이벤트 부여
-    document.getElementById('sec').onclick = () => {
+    document.getElementById('category').onclick = () => {
       // 로그인 여부 판단
       // const id = document.getElementById('id').value;
       // const pw = document.getElementById('pw').value;
@@ -489,7 +363,37 @@
       //   return;
       // }
 
+      document.getElementById('modal1').style.display = 'none';
       document.getElementById('modal2').style.display = 'block';
+      document.getElementById('modal3').style.display = 'none';
+
+      // 업종 버튼 클릭시 값 초기화
+      $("select[name='sec1st'] option:eq(0)").prop("selected", true);
+      $("select[name='sec2nd'] option").remove();
+      $("select[name='sec2nd']").append("<option value=''>중분류 선택</option>");
+      $("select[name='sec3rd'] option").remove();
+      $("select[name='sec3rd']").append("<option value=''>소분류 선택</option>");
+    };
+
+    // 가격 버튼 이벤트 부여
+    document.getElementById('price').onclick = () => {
+      // 로그인 여부 판단
+      // const id = document.getElementById('id').value;
+      // const pw = document.getElementById('pw').value;
+
+      // if (id === '' || pw === '') {
+      //   alert('로그인을 해주세요!');
+      //   return;
+      // }
+
+      document.getElementById('modal1').style.display = 'none';
+      document.getElementById('modal2').style.display = 'none';
+      document.getElementById('modal3').style.display = 'block';
+
+      // 가격 버튼 클릭시 값 초기화
+      document.getElementById('pri1').value = null;
+      document.getElementById('pri2').value = null;
+      document.getElementById('conversion').value = null;
     };
 
     // 취소 버튼 이벤트 부여
@@ -503,11 +407,96 @@
       document.getElementById('modal3').style.display = 'none';
     };
 
+    // 확인 버튼 이벤트 부여
+    document.getElementById('sub1').onclick = () => {
+      const $siDo = document.querySelector('select[name=siDo]');
+      const $siGunGu = document.querySelector('select[name=siGunGu]');
+      const $eupMyeongDong = document.querySelector('select[name=eupMyeongDong]');
 
+      const $siDoValue = $siDo.options[$siDo.selectedIndex].textContent;
+      const $siGunGuValue = $siGunGu.options[$siGunGu.selectedIndex].textContent;
+      const $eupMyeongDongValue = $eupMyeongDong.options[$eupMyeongDong.selectedIndex].textContent;
 
+      if ($siDoValue === $("select[name='siDo'] option:eq(0)").val() ||
+          $siGunGuValue === $("select[name='siGunGu'] option:eq(0)").val() ||
+          $eupMyeongDongValue === $("select[name='eupMyeongDong'] option:eq(0)").val()) {
+        alert('잘못된 지정 값입니다.');
+        return;
+      } else {
+        if ($siDoValue && $siGunGuValue && $eupMyeongDongValue) {
+          document.getElementById('p1').innerText = $siDoValue + ' ' + $siGunGuValue + ' ' + $eupMyeongDongValue;
+        }
+      }
 
+      document.getElementById('modal1').style.display = 'none';
+    };
 
+    document.getElementById('sub2').onclick = () => {
+      const $sec1st = document.querySelector('select[name=sec1st]');
+      const $sec2nd = document.querySelector('select[name=sec2nd]');
+      const $sec3rd = document.querySelector('select[name=sec3rd]');
 
+      const $sec1stValue = $sec1st.options[$sec1st.selectedIndex].textContent;
+      const $sec2ndValue = $sec2nd.options[$sec2nd.selectedIndex].textContent;
+      const $sec3rdValue = $sec3rd.options[$sec3rd.selectedIndex].textContent;
+
+      if ($sec1stValue === $("select[name='sec1st'] option:eq(0)").val() ||
+          $sec2ndValue === $("select[name='sec2nd'] option:eq(0)").val() ||
+          $sec3rdValue === $("select[name='sec3rd'] option:eq(0)").val()) {
+        alert('잘못된 지정 값입니다.');
+        return;
+      } else {
+        if ($sec1stValue && $sec2ndValue && $sec3rdValue) {
+          document.getElementById('p2').innerText = $sec3rdValue;
+        }
+      }
+
+      document.getElementById('modal2').style.display = 'none';
+    };
+
+    document.getElementById('sub3').onclick = () => {
+      const $pri1 = document.getElementById('pri1').value;
+      const $pri2 = document.getElementById('pri2').value;
+      const $conversion = document.getElementById('conversion').value;
+
+      const $pri1st = $pri1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      const $pri2nd = $pri2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+      if($pri1st === '') {
+        alert('보증금을 입력해주세요.')
+        return;
+      } else if ($pri2nd === ''){
+        alert('월세를 입력해주세요.')
+        return;
+      } else {
+        if ($pri1st && $pri2nd) {
+          document.getElementById('p3').innerText =
+          '환산 보증금: ' + $conversion + '원\n' + '보증금: ' + $pri1st + '원, ' + '월세: ' + $pri2nd + '원';
+        }
+      }
+
+      document.getElementById('modal3').style.display = 'none';
+    };
+
+    // 보증금 or 월세 입력시 이벤트 발생 (환산 보증금)
+    function autoCal() {
+      var pri1 = $("#pri1").val();
+      var pri2 = $("#pri2").val();
+
+      if (pri1 === '' || pri2 === '') {
+        $("#conversion").val(null);
+      } else {
+        var result = parseFloat(pri1) + (parseFloat(pri2) * 100);
+        var formattedResult = formatNumber(result);
+        $("#conversion").val(formattedResult);
+      }
+    }
+
+    function formatNumber(number) {
+      var formatted = number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+      return formatted.replace(/\.00$/, '');
+    }
+    
   </script>
 </body>
 </html>
