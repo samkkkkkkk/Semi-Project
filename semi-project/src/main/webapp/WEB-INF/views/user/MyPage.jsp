@@ -110,7 +110,7 @@ pageEncoding="UTF-8"%>
   
                 <div class="titlefoot">
                   <button class="btn" id="modifyBtn">수정</button>
-                  <button class="btn">목록</button>
+                  <button class="btn" id="withdrawal">회원탈퇴</button>
                 </div>
               </div>
             </div>
@@ -144,6 +144,13 @@ pageEncoding="UTF-8"%>
         userForm.submit();
       }
       else return;
+    }
+
+    document.getElementById('withdrawal').onclick = () => {
+      if (confirm('회원탈퇴를 계속 진행하시겠습니까?')) {
+        alert('회원탈퇴가 완료되었습니다.');
+        window.location = '${pageContext.request.contextPath}/user/withdrawal'
+      }
     }
 
     // document.getElementById('mainBtn').onclick = () => {

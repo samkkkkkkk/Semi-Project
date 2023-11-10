@@ -124,6 +124,15 @@ public class UserController {
 		service.modifyMemberInfo(userId, dto);
 		return "redirect:/user/mypage";
 	}
+
+	// mypage 회원탈퇴
+	@GetMapping("/withdrawal")
+	public String UserMyPageResult(HttpSession session) {
+		String userId = session.getAttribute("userId").toString();
+		service.deleteMember(userId);
+
+		return "redirect:/user/logout";
+	}
 	
 	// mypage 조회기록 삭제
 	@GetMapping("/mypage/results/delete")
