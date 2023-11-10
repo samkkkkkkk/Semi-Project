@@ -29,7 +29,7 @@ public class KakaoController {
 		return "home";  
 	}
 
-	@GetMapping("/home2")
+	@GetMapping("/result")
 	public String viewKakaoMap2(Model model) {
 		model.addAttribute("serviceKey", serviceKey);
 		model.addAttribute("reqUrl", reqUrl);
