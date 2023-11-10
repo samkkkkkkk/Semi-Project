@@ -44,6 +44,7 @@
   font-size: 25px;
   margin-bottom: 20px;
   margin-left: 15px;
+  margin-top: 40px;
   width: 280px;
 }
 #contents > h2 {
@@ -358,7 +359,7 @@ ul.tabnav {
 #sidebar {
   position: absolute;
   left: 3%;
-  top: 50%;
+  top: 45%;
 }
 
 /*매물 점수 부분*/

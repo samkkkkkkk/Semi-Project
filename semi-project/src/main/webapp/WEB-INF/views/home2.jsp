@@ -4,11 +4,6 @@ pageEncoding="UTF-8"%>
 <html lang="en">
   <head>
     <link
-      href="${pageContext.request.contextPath}/css/header.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
       href="${pageContext.request.contextPath}/css/side.css"
       rel="stylesheet"
       type="text/css"
@@ -26,12 +21,6 @@ pageEncoding="UTF-8"%>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>사용자 조회페이지</title>
-    <style>
-      @import url(header.css);
-      @import url(side.css);
-      @import url(search.css);
-      @import url(mainFooter.css);
-    </style>
   </head>
   <body>
     <div id="container">
