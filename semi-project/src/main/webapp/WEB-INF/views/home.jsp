@@ -1,64 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link
-      href="${pageContext.request.contextPath}/css/side.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="${pageContext.request.contextPath}/css/main.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="${pageContext.request.contextPath}/css/mainFooter.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>사용자 첫페이지</title>
-  </head>
-  <body>
-    <div id="container">
-      <!--헤더 시작-->
-      <%@ include file="./include/header.jsp"%>
-      <!--헤더 끝-->
+<head>
+<link href="${pageContext.request.contextPath}/css/side.css"
+	rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/css/main.css"
+	rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/css/mainFooter.css"
+	rel="stylesheet" type="text/css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>사용자 첫페이지</title>
+</head>
+<body>
+	<div id="container">
+		<!--헤더 시작-->
+		<%@ include file="./include/header.jsp"%>
+		<!--헤더 끝-->
 
-      <!--중간 세션 시작-->
-      <section id="contents">
-        <p id="content1">상권 분석 서비스</p>
-        <h2>
-          당신을 좋은 곳으로 <br />
-          이끌어 줄 지도, 비즈니스맵
-          <p id="app">
-            <공지> businessMap앱 설치하고 <strong>혜택 알람</strong>받기!
-          </p>
-        </h2>
-        <div class="caption">
-          <h2>로그인하시면 더 많은 혜택을 경험할 수 있습니다.</h2>
-        </div>
-      </section>
-      <!--중간 세션 끝-->
+		<!--중간 세션 시작-->
+		<section id="contents">
+			<p id="content1">상권 분석 서비스</p>
+			<h2>
+				당신을 좋은 곳으로 <br /> 이끌어 줄 지도, 비즈니스맵
+				<p id="app">
+					<공지> businessMap앱 설치하고 <strong>혜택 알람</strong>받기! 
+				</p>
+			</h2>
+			<div class="caption">
+				<h2>로그인하시면 더 많은 혜택을 경험할 수 있습니다.</h2>
+			</div>
+		</section>
+		<!--중간 세션 끝-->
 
-      <!--사이드바 시작-->
-      <h2 id="dream">
-          고객님,<br />
-          어떤 창업을 꿈꾸시나요?
-        </h2>
-      <section id="content2">
-        <%@ include file="./include/sidebar.jsp" %>
-        <!--사이드바 끝-->
+		<!--사이드바 시작-->
+		<h2 id="dream">
+			고객님,<br /> 어떤 창업을 꿈꾸시나요?
+		</h2>
+		<section id="content2">
+			<%@ include file="./include/sidebar.jsp"%>
+			<!--사이드바 끝-->
 
-        <!--메인 화면 지도 나타낼 곳-->
-        <!--<div class="bodywrap">
+			<!--메인 화면 지도 나타낼 곳-->
+			<!--<div class="bodywrap">
           bodywrap
           <div
             id="map"
@@ -66,29 +52,31 @@ pageEncoding="UTF-8"%>
           ></div>
         </div>  -->
 
-        <section id="content3">
-          <!-- <img
+			<section id="content3">
+				<!-- <img
             src="카카오맵.png"
             style="width: 800px; height: 620px"
           /> -->
-           <!-- 나재성이 만든 대충 테스트용 폼 -->
-          <form id="myForm" action="${pageContext.request.contextPath}/api/req/" method="GET">
-            <input type="input" name="h1" value="11110640" />
-            <input type="input" name="h2" value="I21201" />
-            <button type="button" id="checkBtn2">이건 소분류 포커스 벗어나면 할거</button>
-            <button type="submit" id="checkBtn">조회</button>
-          </form>
-        </div>
-        </section> 
-        <!--메인 지도 끝-->
-      </section>
+				<!-- 나재성이 만든 대충 테스트용 폼 -->
+				<form id="myForm"
+					action="${pageContext.request.contextPath}/api/req/" method="GET">
+					<input type="input" name="h1" value="11110640" /> <input
+						type="input" name="h2" value="I21201" />
+					<button type="button" id="checkBtn2">이건 소분류 포커스 벗어나면 할거</button>
+					<button type="submit" id="checkBtn">조회</button>
+				</form>
+			</section>
+			<!--메인 지도 끝-->
+		</section>
+		<%@ include file="./include/footer.jsp"%>
+	</div>
 
-      <%@ include file="./include/footer.jsp"%>
-    </div>
-  </body>
-  
-  <script type="text/javascript" src="${reqUrl}?appkey=${serviceKey}&libraries=clusterer"></script>
-        <script>
+
+</body>
+
+<script type="text/javascript"
+	src="${reqUrl}?appkey=${serviceKey}&libraries=clusterer"></script>
+<script>
           window.onload = function () {
             var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
               mapOption = {
@@ -202,7 +190,7 @@ pageEncoding="UTF-8"%>
           }// refresh() 끝
         </script>
 
-  <!-- <script>
+<!-- <script>
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
       mapOption = {
         center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
