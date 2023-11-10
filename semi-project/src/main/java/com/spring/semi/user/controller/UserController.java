@@ -141,4 +141,9 @@ public class UserController {
 		
 		return "redirect:/";
 	}
+	
+	@GetMapping("/result")
+	public void result() {
+		
+	}
 }

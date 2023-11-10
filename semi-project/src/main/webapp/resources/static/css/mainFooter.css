@@ -1,0 +1,36 @@
+#footer {
+  background-color: rgb(70, 130, 180);
+  height: 210px;
+}
+
+.copyright {
+  margin-top: 50px;
+  color: #fff;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  height: 180px;
+}
+.copyright p {
+  width: 600px;
+  margin-top: 10px;
+  line-height: 25px;
+}
+
+.footer-menu ul {
+  list-style: none;
+  padding: 0;
+  text-align: right;
+}
+.footer-menu li {
+  display: inline;
+  margin-right: 15px;
+}
+.footer-menu a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-menu a:hover {
+  color: #ff9900;
+}
