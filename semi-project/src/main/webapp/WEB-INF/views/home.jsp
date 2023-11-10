@@ -104,7 +104,7 @@
           
 
 
-          // 조회버튼
+/*           // 조회버튼
           document.getElementById('myForm').addEventListener('submit', function (e) {
             e.preventDefault(); // 폼 기본 동작인 페이지 새로고침 방지
             
@@ -122,7 +122,8 @@
             
          	// 조회 후에 action 속성을 원래대로 초기화
             this.action = originalAction;
-          }); // 조회버튼 끝
+          }); // 조회버튼 끝 
+*/
         </script>
   </body>
 

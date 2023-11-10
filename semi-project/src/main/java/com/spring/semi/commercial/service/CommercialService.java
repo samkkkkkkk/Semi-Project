@@ -36,6 +36,7 @@ public class CommercialService {
 
 	private Map<String, Object> responseData; // 전달 받은 데이터를 담을 객체
 
+	//api 요청
 	public String getShortTermForecast(String h1, String h2) {
 		//요청 헤더 설정(api에서 원하는 헤더 설정이 있다면 사용하세요.)
 		HttpHeaders headers = new HttpHeaders();
@@ -83,6 +84,7 @@ public class CommercialService {
 	
 	private final IPropertyMapper mapper;
 	
+	// 동 이름으로 데이터베이스 부동산 조회
 	public String getProperties(String h1) {
 		List<Property> list = mapper.getProperties(h1);
 	    //자바 스크립트에서 바로 사용할 수 있는 json 문자열 형태로 변환
