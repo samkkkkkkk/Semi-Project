@@ -36,7 +36,7 @@ pageEncoding="UTF-8"%>
   <body>
     <div id="container">
       <!--헤더 시작-->
-      <%@ include file="./include/header.jsp"%>
+      <%@ include file="../include/header.jsp"%>
       <!--헤더 끝-->
 
       <!--중간 세션 시작-->
@@ -139,18 +139,14 @@ pageEncoding="UTF-8"%>
           <!--컨텐츠3 시작 - 매물점수-->
           <article id="score">
             <div id="article_score">
-              <h2 id="h2_score">매물 점수</h2>
-              <div id="div_score">매물 점수 34점</div>
-              <h2 id="h2_score2">상권 점수</h2>
-              <div id="div_score2">상권 점수 34점</div>
-              <h2 id="h2_score3">businessMap 분석 결과 보고서</h2>
-              <div id="div_score3">비즈니스맵 분석 결과 보고서 입니다.</div>
-            </div>
+            <h2 id="score1">매물 점수</h2>
+            <div>매물 점수 34점</div>
           </article>
+          </div>
           <!--컨텐츠3 끝-->
-        </div><!--fix id끝-->
+        </div>
       </section>
-      <%@ include file="./include/footer.jsp"%>
+      <%@ include file="../include/footer.jsp"%>
 
       
     </div>

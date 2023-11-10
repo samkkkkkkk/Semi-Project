@@ -6,19 +6,42 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<style>
-      div {
+      #modal1,#modal2{
         position: relative;
+        background-color: #fff;
         border: 20px solid gray;
-        width: 600px;
+        width: 650px;
         height: 400px;
-        margin: 200px auto;
+        /* margin: 140px auto; */
         padding: 30px auto;
-        top: 270px;
-        left: 250px;
+        display: flex;
+        z-index: 1050;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
       }
-      h2 {
+      #modal3 {
+         position: relative;
+        background-color: #fff;
+        border: 20px solid gray;
+        width: 650px;
+        height: 600px;
+        /* margin: 140px auto; */
+        padding: 30px auto;
+        display: flex;
+        z-index: 1050;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .modal > h2 {
         width: 150px;
         margin-left: 30px;
+        margin-top: 30px;  
+        margin-bottom: 20px;  
       }
 
       #sel1,
@@ -62,7 +85,7 @@
         border-radius: 2px;
         font-size: large;
       }
-      #price {
+      #price2 {
         text-align: right;
         padding-right: 40px;
         font-size: large;
@@ -114,17 +137,18 @@
       }
 
       #modal1,
-      #modal2 {
+      #modal2,
+      #modal3 {
         display: none;
       }
     </style>
 </head>
 <body>
 	<form action="${pageContext.request.contextPath}/semi" method="post">
-      <input id="adr" type="button" value="지역" />
-      <input id="sec" type="button" value="업종" />
+      <!-- <input id="adr" type="button" value="지역" />
+      <input id="sec" type="button" value="업종" /> -->
 
-      <div id="modal1">
+      <div id="modal1" class="modal">
         <h2>지역 선택</h2>
         <select name="siDo" id="sel1" class="sel"></select>
         <select name="siGunGu" id="sel2" class="sel"></select>
@@ -133,7 +157,7 @@
         <input type="submit" value="확인" id="sub1" class="in1" />
       </div>
 
-      <div id="modal2">
+      <div id="modal2" class="modal">
         <h2>업종 선택</h2>
         <select name="sec1st" id="sel1" class="sel"></select>
         <select name="sec2nd" id="sel2" class="sel"></select>
@@ -142,15 +166,16 @@
         <input type="submit" value="확인" id="sub2" class="in1" />
       </div>
 
-      <div id="modal3">
+      <div id="modal3" class="modal">
         <h2>창업 비용</h2>
         <p>
           전세: 전세금 <br><br>
           월세: 보증금+(월차임x100),<br>단 이 때 계산된 금액이 5천만원 미만일 경우: 보증금+(월차임x70)
         </p>
-        <article id="price">
-          <input type="number" id="pri1" class="pri" placeholder="보증금" /> (원) <br>
-          <input type="number" id="pri2" class="pri" placeholder="월세" /> (원) <br>
+        <article id="price2">
+          <input type="number" id="pri1" class="pri" placeholder="보증금" />  (원) <br>
+          <input type="number" id="pri2" class="pri" placeholder="월세" />  (원) <br>
+          <input type="number" id="pri3" class="pri" placeholder="면적" /> (m2) <br>
         </article>
         <input type="reset" value="취소" id="res3" class="in1">
         <input type="submit" value="확인" id="sub3" class="in1">
@@ -438,8 +463,7 @@
 
       });
 
-    });
-
+    }); 
     // 지역 버튼 이벤트 부여
     document.getElementById('adr').onclick = () => {
       // 로그인 여부 판단
@@ -478,6 +502,12 @@
     document.getElementById('res3').onclick = () => {
       document.getElementById('modal3').style.display = 'none';
     };
+
+
+
+
+
+
   </script>
 </body>
 </html>

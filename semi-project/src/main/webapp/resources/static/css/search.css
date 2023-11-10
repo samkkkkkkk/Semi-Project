@@ -7,11 +7,6 @@
 /* 고객님~, 로그인 하시면 ~ 쪽 글꼴*/
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
-#sidebar {
-  transform: translateX(-55px);
-  width: 320px;
-}
-
 #container {
   width: 100%; /* 내용 전체의 너비 */
   padding: 0px;
@@ -37,8 +32,12 @@
   font-family: 'Noto Sans KR', sans-serif;
   height: 280px;
 }
-#content2 {
-  width: 100%;
+#result_content2 {
+  width: 90%;
+  height: 700px;
+  margin: 0 auto;
+  margin-bottom: 0px;
+  display: flex;
 }
 #dream {
   font-family: 'Gowun Dodum', sans-serif;
@@ -105,30 +104,6 @@
   opacity: 1;
   transform: translateY(-50px);
 }
-#shopList2 {
-  overflow: auto;
-  width: 266px;
-  height: 383px;
-  overflow: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-#shopList2::-webkit-scrollbar {
-  /*스크롤바 너비 */
-  width: 10px;
-}
-#shopList2::-webkit-scrollbar-thumb {
-  /*전체 스크롤바 */
-  background-color: black;
-  border-radius: 10px;
-}
-
-#shopList2::-webkit-scrollbar-track {
-  /* 막대 스크롤바 */
-
-  border-radius: 14px;
-}
-
 
 /*매물 리스트 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200&display=swap');
@@ -138,7 +113,7 @@
   width: 450px;
   height: 360px;
   position: absolute;
-  left: 400px;
+  left: 13%;
   top: 200px;
   border: 3px solid rgb(217, 212, 212);
   border-radius: 15px;
@@ -177,6 +152,29 @@
 }
 
 #saleList2::-webkit-scrollbar-track {
+  /* 막대 스크롤바 */
+
+  border-radius: 14px;
+}
+#shopList2 {
+  overflow: auto;
+  width: 266px;
+  height: 383px;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#shopList2::-webkit-scrollbar {
+  /*스크롤바 너비 */
+  width: 10px;
+}
+#shopList2::-webkit-scrollbar-thumb {
+  /*전체 스크롤바 */
+  background-color: black;
+  border-radius: 10px;
+}
+
+#shopList2::-webkit-scrollbar-track {
   /* 막대 스크롤바 */
 
   border-radius: 14px;
@@ -225,29 +223,32 @@ ul.tabnav {
   width: 300px;
   height: 400px;
   position: absolute;
-  bottom: 140px;
-  right: 65px;
+  top: 23%;
+  right: 10%;
+  transform: translate(0, 10%);
 }
 #article3 {
-  width: 40%;
+  width: 65%;
   height: 450px;
   position: absolute;
-  left: 410px;
-  bottom: 120px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  top: 25%;
+  left: 15%;
 }
-#map:nth-child(1) {
+#article3_map {
+  width: 65%;
   height: 450px;
   border: 1px solid red;
 }
 
 #btn {
-  text-align: center;
+  width: 75%;
+  justify-content: center; /* 가로로 중앙 정렬 */
+  align-items: center; /* 세로로 중앙 정렬 */
   position: absolute;
-  left: 850px;
-  top: 10px;
-  border: 1px solid red;
-  width: auto;
+  top: 10%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  text-align: left;
 }
 
 #search {
@@ -263,14 +264,11 @@ ul.tabnav {
 .btn1 {
   width: 200px;
   height: 55px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 5px;
   border-radius: 12px;
-  position: absolute;
   border: 2px solid #000;
+  margin: 20px;
   background: #fff;
-  margin: 5px;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
@@ -278,9 +276,11 @@ ul.tabnav {
   font-family: 'Nanum Gothic Coding', monospace;
   font-family: 'Noto Sans KR', sans-serif;
 }
+#fix {
+  width: 100%;
+  position: relative;
+}
 #btnId1 {
-  position: absolute;
-  right: 50px;
   transition-property: width, height;
   transition-duration: 0.5s;
 }
@@ -339,13 +339,47 @@ ul.tabnav {
   z-index: 1;
 }
 
-#map:nth-child(2) {
-  width: 600px;
+#map {
+  width: 38%;
   height: 450px;
-  top: 140px;
+  top: 25%;
   position: absolute;
-  right: 5px;
+  right: 7%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  margin-right: 0px;
+  margin-left: 10px;
   display: none;
+}
+#map_map {
+  width: 38%;
+  height: 450px;
+}
+
+/*긴급사이드바 조절 */
+#sidebar {
+  position: absolute;
+  left: 3%;
+  top: 50%;
+}
+
+/*매물 점수 부분*/
+#score {
+  display: none;
+}
+#article_score {
+  border: 3px solid rgb(217, 212, 212);
+  border-radius: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: #fff;
+  width: 67%;
+  height: 450px;
+  position: absolute;
+  top: 150px;
+  left: 15%;
+}
+#h2_score,
+#h2_score2,
+#h2_score3 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
 }

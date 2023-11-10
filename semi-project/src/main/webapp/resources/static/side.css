@@ -15,7 +15,6 @@
 #container {
   width: auto;
   height: auto;
-  position: relative;
   background-color: aliceblue;
 }
 
@@ -25,37 +24,46 @@
 }
 
 #content2 {
-  width: 80%;
+  width: 1500px;
   height: 700px;
-  margin: 0 auto;
-  margin-bottom: 0px;
-  display: flex;
-  border: 1px solid red;
+  float: left;
+  margin-top: 50px;
+  padding: 30px auto;
+  padding-left: 40px;
+  position: relative;
 }
 
+#article {
+  background-color: antiquewhite;
+  width: 1100px;
+  height: 500px;
+  margin: 30px auto;
+  margin-left: 370px;
+  margin-top: 50px;
+  border-top: 1px solid black;
+}
 #sidebar {
   width: 380px;
   height: 520px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  margin-right: 50p;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(17px);
+  float: left;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   border: 1px solid rgb(192, 191, 191);
-  padding: 30px;
-  padding-left: 50px;
+  position: relative;
 }
 #sidebar:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-#sidebar > form {
-  padding-left: 35px;
-}
-.sidebar {
-  margin: 50px;
-}
-
 h3 {
+  margin-left: 20px;
+  margin-bottom: 0px;
+  margin-top: 30px;
   font-family: 'Gowun Batang', serif;
   font-family: 'Nanum Gothic Coding', monospace;
   font-family: 'Noto Sans KR', sans-serif;
@@ -74,6 +82,8 @@ li {
   width: 200px;
   height: 40px;
   border: 2px solid black;
+  margin-left: 20px;
+  margin-bottom: -20px;
   font-size: 20px;
   background-color: rgb(244, 238, 238);
   font-family: 'Gowun Batang', serif;
@@ -126,7 +136,7 @@ p {
 }
 #save {
   width: 35px;
-  background-image: url('${pageContext.request.contextPath}/img/save.png');
+  background-image: url(/resources/static/img/save.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #ffffff;
@@ -134,10 +144,9 @@ p {
   border: 1px solid black;
   cursor: pointer;
   border-radius: 20px;
-  height: 35px;
   position: absolute;
-  bottom: 25px;
-  right: 23%;
+  left: 50px;
+  bottom: 49px;
 }
 #save:hover + p.arrow_box {
   display: block;
@@ -145,14 +154,14 @@ p {
 
 .arrow_box {
   display: none;
+  position: absolute;
   width: 75px;
   padding: 8px;
+  left: 150px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
   background: #333;
   color: #fff;
   font-size: 14px;
-  position: absolute;
-  right: 10%;
 }
