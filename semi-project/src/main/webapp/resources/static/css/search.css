@@ -1,28 +1,28 @@
-/*�떦�떊�쓣 ~ 湲�瑗� */
+/*당신을 ~ 글꼴 */
 @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&family=Nanum+Gothic&family=Noto+Sans+KR:wght@300&display=swap');
-/*怨듭� */
+/*공지 */
 @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&display=swap');
-/* �긽沅뚮텇�꽍 */
+/* 상권분석 */
 @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&family=Nanum+Gothic&display=swap');
-/* 怨좉컼�떂~, 濡쒓렇�씤 �븯�떆硫� ~ 履� 湲�瑗�*/
+/* 고객님~, 로그인 하시면 ~ 쪽 글꼴*/
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
 #container {
-  width: 100%; /* �궡�슜 �쟾泥댁쓽 �꼫鍮� */
+  width: 100%; /* 내용 전체의 너비 */
   padding: 0px;
 }
 
 #header {
-  width: 100%; /* 遺�紐� �슂�냼�쓽 �꼫鍮꾩� �삊媛숆쾶 */
-  height: 100px; /* �뿤�뜑�쓽 �넂�씠 */
+  width: 100%; /* 부모 요소의 너비와 똑같게 */
+  height: 100px; /* 헤더의 높이 */
   background-color: #acacac;
 }
 
 #contents {
-  width: 100%; /* 蹂몃Ц�쓽 �꼫鍮� */
-  height: 400px; /* 蹂몃Ц�쓽 �넂�씠 */
+  width: 100%; /* 본문의 너비 */
+  height: 400px; /* 본문의 높이 */
   background-color: #f7f7f7;
-  float: left; /* �쇊履쎌쑝濡� �뵆濡쒗똿 */
+  float: left; /* 왼쪽으로 플로팅 */
 }
 #contents > h2 {
   text-align: center;
@@ -76,7 +76,7 @@
   font-family: 'Gothic A1', sans-serif;
 }
 
-/*content3履� */
+/*content3쪽 */
 #content3 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   position: absolute;
@@ -106,7 +106,7 @@
   transform: translateY(-50px);
 }
 
-/*留ㅻЪ 由ъ뒪�듃 */
+/*매물 리스트 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@200;400&display=swap');
 
@@ -150,17 +150,17 @@
   overflow-y: auto;
 }
 #saleList2::-webkit-scrollbar {
-  /*�뒪�겕濡ㅻ컮 �꼫鍮� */
+  /*스크롤바 너비 */
   width: 10px;
 }
 #saleList2::-webkit-scrollbar-thumb {
-  /*�쟾泥� �뒪�겕濡ㅻ컮 */
+  /*전체 스크롤바 */
   background-color: black;
   border-radius: 10px;
 }
 
 #saleList2::-webkit-scrollbar-track {
-  /* 留됰� �뒪�겕濡ㅻ컮 */
+  /* 막대 스크롤바 */
 
   border-radius: 14px;
 }
@@ -173,17 +173,17 @@
   overflow-y: auto;
 }
 #shopList2::-webkit-scrollbar {
-  /*�뒪�겕濡ㅻ컮 �꼫鍮� */
+  /*스크롤바 너비 */
   width: 10px;
 }
 #shopList2::-webkit-scrollbar-thumb {
-  /*�쟾泥� �뒪�겕濡ㅻ컮 */
+  /*전체 스크롤바 */
   background-color: black;
   border-radius: 10px;
 }
 
 #shopList2::-webkit-scrollbar-track {
-  /* 留됰� �뒪�겕濡ㅻ컮 */
+  /* 막대 스크롤바 */
 
   border-radius: 14px;
 }
@@ -225,7 +225,7 @@ ul.tabnav {
 .tabnav li:last-child {
   margin-left: 245px;
 }
-/*searchSale�쓽 留ㅻЪ 由ъ뒪�듃 css */
+/*searchSale의 매물 리스트 css */
 
 #article2 {
   width: 460px;
@@ -252,8 +252,8 @@ ul.tabnav {
 
 #btn {
   width: 75%;
-  justify-content: center; /* 媛�濡쒕줈 以묒븰 �젙�젹 */
-  align-items: center; /* �꽭濡쒕줈 以묒븰 �젙�젹 */
+  justify-content: center; /* 가로로 중앙 정렬 */
+  align-items: center; /* 세로로 중앙 정렬 */
   position: absolute;
   top: 10%;
   left: 60%;
@@ -373,14 +373,14 @@ ul.tabnav {
   height: 450px;
 }
 
-/*湲닿툒�궗�씠�뱶諛� 議곗젅 */
+/*긴급사이드바 조절 */
 #sidebar {
   position: absolute;
   left: 3%;
   top: 45%;
 }
 
-/*留ㅻЪ �젏�닔 遺�遺�*/
+/*매물 점수 부분*/
 #score {
   display: block;
   visibility: hidden;
