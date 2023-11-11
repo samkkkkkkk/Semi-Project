@@ -1,28 +1,28 @@
-/*당신을 ~ 글꼴 */
+/*�떦�떊�쓣 ~ 湲�瑗� */
 @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&family=Nanum+Gothic&family=Noto+Sans+KR:wght@300&display=swap');
-/*공지 */
+/*怨듭� */
 @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&display=swap');
-/* 상권분석 */
+/* �긽沅뚮텇�꽍 */
 @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&family=Nanum+Gothic&display=swap');
-/* 고객님~, 로그인 하시면 ~ 쪽 글꼴*/
+/* 怨좉컼�떂~, 濡쒓렇�씤 �븯�떆硫� ~ 履� 湲�瑗�*/
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
 #container {
-  width: 100%; /* 내용 전체의 너비 */
+  width: 100%; /* �궡�슜 �쟾泥댁쓽 �꼫鍮� */
   padding: 0px;
 }
 
 #header {
-  width: 100%; /* 부모 요소의 너비와 똑같게 */
-  height: 100px; /* 헤더의 높이 */
+  width: 100%; /* 遺�紐� �슂�냼�쓽 �꼫鍮꾩� �삊媛숆쾶 */
+  height: 100px; /* �뿤�뜑�쓽 �넂�씠 */
   background-color: #acacac;
 }
 
 #contents {
-  width: 100%; /* 본문의 너비 */
-  height: 400px; /* 본문의 높이 */
+  width: 100%; /* 蹂몃Ц�쓽 �꼫鍮� */
+  height: 400px; /* 蹂몃Ц�쓽 �넂�씠 */
   background-color: #f7f7f7;
-  float: left; /* 왼쪽으로 플로팅 */
+  float: left; /* �쇊履쎌쑝濡� �뵆濡쒗똿 */
 }
 #contents > h2 {
   text-align: center;
@@ -64,10 +64,10 @@
 }
 
 #footer {
-  width: 100%; /* 부모 요소의 너비와 똑같게  */
-  height: 100px; /* 푸터의 높이 */
+  width: 100%; /* 遺�紐� �슂�냼�쓽 �꼫鍮꾩� �삊媛숆쾶  */
+  height: 100px; /* �뫖�꽣�쓽 �넂�씠 */
   background-color: rgb(70, 130, 180);
-  clear: left; /* 플로팅 해제 */
+  clear: left; /* �뵆濡쒗똿 �빐�젣 */
 }
 #app {
   width: auto;
@@ -76,7 +76,7 @@
   font-family: 'Gothic A1', sans-serif;
 }
 
-/*content3쪽 */
+/*content3履� */
 #content3 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   position: absolute;
@@ -106,7 +106,7 @@
   transform: translateY(-50px);
 }
 
-/*매물 리스트 */
+/*留ㅻЪ 由ъ뒪�듃 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@200;400&display=swap');
 
@@ -134,6 +134,12 @@
   width: 420px;
   font-family: 'Noto Sans KR', sans-serif;
 }
+#ListContents div{
+  margin-top:8px;
+}
+#ListContents button{
+  float:right;
+}
 
 #saleList2 {
   overflow: auto;
@@ -144,40 +150,40 @@
   overflow-y: auto;
 }
 #saleList2::-webkit-scrollbar {
-  /*스크롤바 너비 */
+  /*�뒪�겕濡ㅻ컮 �꼫鍮� */
   width: 10px;
 }
 #saleList2::-webkit-scrollbar-thumb {
-  /*전체 스크롤바 */
+  /*�쟾泥� �뒪�겕濡ㅻ컮 */
   background-color: black;
   border-radius: 10px;
 }
 
 #saleList2::-webkit-scrollbar-track {
-  /* 막대 스크롤바 */
+  /* 留됰� �뒪�겕濡ㅻ컮 */
 
   border-radius: 14px;
 }
 #shopList2 {
   overflow: auto;
-  width: 266px;
+  width: 400px;
   height: 383px;
   overflow: auto;
   overflow-x: hidden;
   overflow-y: auto;
 }
 #shopList2::-webkit-scrollbar {
-  /*스크롤바 너비 */
+  /*�뒪�겕濡ㅻ컮 �꼫鍮� */
   width: 10px;
 }
 #shopList2::-webkit-scrollbar-thumb {
-  /*전체 스크롤바 */
+  /*�쟾泥� �뒪�겕濡ㅻ컮 */
   background-color: black;
   border-radius: 10px;
 }
 
 #shopList2::-webkit-scrollbar-track {
-  /* 막대 스크롤바 */
+  /* 留됰� �뒪�겕濡ㅻ컮 */
 
   border-radius: 14px;
 }
@@ -219,15 +225,16 @@ ul.tabnav {
 .tabnav li:last-child {
   margin-left: 245px;
 }
-/*searchSale의 매물 리스트 css */
+/*searchSale�쓽 留ㅻЪ 由ъ뒪�듃 css */
 
 #article2 {
-  width: 300px;
+  width: 460px;
   height: 400px;
   position: absolute;
   top: 23%;
   right: 10%;
   transform: translate(0, 10%);
+  background-color: #fff;
 }
 #article3 {
   width: 65%;
@@ -237,15 +244,16 @@ ul.tabnav {
   left: 15%;
 }
 #article3_map {
-  width: 65%;
+  width: 60%;
   height: 450px;
-  border: 1px solid red;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  /* border: 1px solid red; */
 }
 
 #btn {
   width: 75%;
-  justify-content: center; /* 가로로 중앙 정렬 */
-  align-items: center; /* 세로로 중앙 정렬 */
+  justify-content: center; /* 媛�濡쒕줈 以묒븰 �젙�젹 */
+  align-items: center; /* �꽭濡쒕줈 以묒븰 �젙�젹 */
   position: absolute;
   top: 10%;
   left: 60%;
@@ -254,6 +262,7 @@ ul.tabnav {
 }
 
 #search {
+  width: 90%;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   position: absolute;
@@ -312,12 +321,19 @@ ul.tabnav {
 }
 #foodListSpan {
   display: block;
+  width:90%;
   position: absolute;
   top: 70px;
   margin-top: 15px;
   font-weight: bold;
   color: #5e5b5b;
   font-size: 18px;
+}
+#foodListSpan div{
+	margin-top:6px;
+}
+#foodListSpan button{
+	float:right;
 }
 .ottif {
   color: black;
@@ -357,14 +373,14 @@ ul.tabnav {
   height: 450px;
 }
 
-/*긴급사이드바 조절 */
+/*湲닿툒�궗�씠�뱶諛� 議곗젅 */
 #sidebar {
   position: absolute;
   left: 3%;
   top: 45%;
 }
 
-/*매물 점수 부분*/
+/*留ㅻЪ �젏�닔 遺�遺�*/
 #score {
   display: block;
   visibility: hidden;
@@ -387,3 +403,86 @@ ul.tabnav {
   font-size: 30px;
   font-weight: bold;
 }
+.placeinfo_wrap {
+  position: absolute;
+  bottom: 28px;
+  left: -150px;
+  width: 300px;
+}
+.placeinfo {
+  position: relative;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  background: #fff;
+}
+.placeinfo:nth-of-type(n) {
+  border: 0;
+  box-shadow: 0px 1px 2px #888;
+}
+.placeinfo_wrap .after {
+  content: '';
+  position: relative;
+  margin-left: -12px;
+  left: 50%;
+  width: 22px;
+  height: 12px;
+  background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png');
+}
+.placeinfo a,
+.placeinfo a:hover,
+.placeinfo a:active {
+  color: #fff;
+  text-decoration: none;
+}
+.placeinfo a,
+.placeinfo span {
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.placeinfo span {
+  margin: 5px 5px 0 5px;
+  cursor: default;
+  font-size: 13px;
+}
+.placeinfo .title {
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 6px 6px 0 0;
+  margin: -1px -1px 0 -1px;
+  padding: 10px;
+  color: #fff;
+  background: #d95050;
+  background: #d95050
+    url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
+    no-repeat right 14px center;
+}
+.placeinfo .tel {
+  color: #0f7833;
+}
+.placeinfo .jibun {
+  color: #999;
+  font-size: 11px;
+  margin-top: 0;
+}
+.bodywrap { 
+	width:1320px;
+	height:700px;
+	position:absolute;
+	left:530px;
+	top:201px;
+	background-color:"#ddd";
+	background-repeat:no-repeat;
+	background-size:cover;
+	border:1px solid;
+} 
+
+.customoverlay {position:relative;bottom:85px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;}
+.customoverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+.customoverlay a {display:block;text-decoration:none;color:#000;text-align:center;border-radius:6px;font-size:14px;font-weight:bold;overflow:hidden;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+.customoverlay .title {display:block;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:14px;font-weight:bold;}
+.customoverlay:after {content:'';position:absolute;margin-left:-12px;left:50%;bottom:-12px;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}

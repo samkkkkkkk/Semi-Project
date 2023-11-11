@@ -83,32 +83,34 @@ prefix="c" %>
 
 <script>
   let flag = false;
-  document.getElementById('userInfo').onclick = function () {
-    // console.log('이벤트 발생!');
-    if (!flag) {
-      document.querySelector('.dropOut').style.height = '180px';
-      document.querySelector('.dropOutButton').style.display = 'block';
-      // console.log('alter styles! + flag: ', flag);
-      flag = true;
-      return;
-    } else {
-      document.querySelector('.dropOut').style.height = '50px';
-      document.querySelector('.dropOutButton').style.display = 'none';
-      // console.log('delete styles! + flag: ', flag);
-      flag = false;
-      return;
-    }
-  };
-
-  document
-    .querySelector('.dropOutButton')
-    .addEventListener('mouseover', (e) => {
-      console.log('mouseover');
-      console.log(e.target);
-      e.target.style.backgroundColor = '#d9d9d9';
-    });
-  document.querySelector('.dropOutButton').addEventListener('mouseout', (e) => {
-    console.log('mouseout event occurred!');
-    e.target.style.backgroundColor = 'transparent';
-  });
+  <c:if test="${userId != null}">
+	  document.getElementById('userInfo').onclick = function () {
+	    // console.log('이벤트 발생!');
+	    if (!flag) {
+	      document.querySelector('.dropOut').style.height = '180px';
+	      document.querySelector('.dropOutButton').style.display = 'block';
+	      // console.log('alter styles! + flag: ', flag);
+	      flag = true;
+	      return;
+	    } else {
+	      document.querySelector('.dropOut').style.height = '50px';
+	      document.querySelector('.dropOutButton').style.display = 'none';
+	      // console.log('delete styles! + flag: ', flag);
+	      flag = false;
+	      return;
+	    }
+	  };
+	
+	  document
+	    .querySelector('.dropOutButton')
+	    .addEventListener('mouseover', (e) => {
+	      console.log('mouseover');
+	      console.log(e.target);
+	      e.target.style.backgroundColor = '#d9d9d9';
+	    });
+	  document.querySelector('.dropOutButton').addEventListener('mouseout', (e) => {
+	    console.log('mouseout event occurred!');
+	    e.target.style.backgroundColor = 'transparent';
+	  });
+  </c:if>
 </script>

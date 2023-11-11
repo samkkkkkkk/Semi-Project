@@ -1,20 +1,20 @@
-/*당신을 ~ 글꼴 */
+/*�떦�떊�쓣 ~ 湲�瑗� */
 @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&family=Nanum+Gothic&family=Noto+Sans+KR:wght@300&display=swap');
-/*공지 */
+/*怨듭� */
 @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&display=swap');
-/* 상권분석 */
+/* �긽沅뚮텇�꽍 */
 @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&family=Nanum+Gothic&display=swap');
-/* 고객님~, 로그인 하시면 ~ 쪽 글꼴*/
+/* 怨좉컼�떂~, 濡쒓렇�씤 �븯�떆硫� ~ 履� 湲�瑗�*/
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
 #container {
-  width: 100%; /* 내용 전체의 너비 */
+  width: 100%; /* �궡�슜 �쟾泥댁쓽 �꼫鍮� */
   padding: 0px;
 }
 
 #contents {
-  width: 100%; /* 본문의 너비 */
-  height: 400px; /* 본문의 높이 */
+  width: 100%; /* 蹂몃Ц�쓽 �꼫鍮� */
+  height: 400px; /* 蹂몃Ц�쓽 �넂�씠 */
   background-color: #f7f7f7;
 }
 #contents > h2 {
@@ -54,11 +54,10 @@
   font-family: 'Gothic A1', sans-serif;
 }
 
-/*content3쪽 */
+/*content3履� */
 #content3 {
   position: relative;
   width: 100%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   margin-top: 50px;
 }
 .caption {
@@ -87,6 +86,7 @@
 #main-map {
   width: 100%;
   height: 600px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 

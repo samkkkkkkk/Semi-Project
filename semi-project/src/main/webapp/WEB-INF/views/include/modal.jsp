@@ -477,7 +477,7 @@
       } else {
         if ($pri1st && $pri2nd) {
           document.getElementById('p3').innerText =
-          '환산 보증금: ' + $conversion + '원\n' + '보증금: ' + $pri1st + '원, ' + '월세: ' + $pri2nd + '원';
+          '환산 보증금: ' + $conversion + '원\n' + '보증금: ' + $pri1st + '원, \n' + '월세: ' + $pri2nd + '원';
           document.querySelector('input[name=h3]').value = parseFloat($pri1) + (parseFloat($pri2) * 100);
         }
       }
