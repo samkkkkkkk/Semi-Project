@@ -59,9 +59,10 @@ pageEncoding="UTF-8"%>
               <input type="hidden" name="h2" />
               <input type="hidden" name="h3" />
               <div>
-	              <input type="submit" id="chkForm" class="btn" value="조회" />
-	              <input type="submit" id="saveForm" class="btn" value="저장" />
+	              <input type="submit" id="chkBtn" class="btn" value="조회" />
+	              <input type="submit" id="saveBtn" class="btn" value="저장" />
               </div>
+              
             </form>
         </aside>
 
@@ -359,7 +360,7 @@ pageEncoding="UTF-8"%>
 				// items 배열의 각 요소에 대해 div 생성 후 추가
 				items.forEach((item, idx) => {
 					const div = document.createElement('div');
-					div.innerHTML = (idx+1)+'. '+ item.bizesNm + '<button onclick="panTo(' + idx + ')">위치보기</button>';
+					div.innerHTML = (idx+1)+'. '+ item.bizesNm + '<button class="w-btn-outline w-btn-skin-outline" onclick="panTo(' + idx + ')">위치 보기</button>';
 					listContents.appendChild(div);
 				});
 			}
@@ -373,7 +374,7 @@ pageEncoding="UTF-8"%>
     	    // Property 배열의 각 요소에 대해 div 생성 후 추가
     	    property.forEach((property, idx) => {
     	        const div = document.createElement('div');
-    	        div.innerHTML = (idx+1) + '. 서울특별시 '+ property.adstrdNm +' '+ resultPrice(property.excheGtn) + '<button onclick="panTo2(' + idx + ')">위치보기</button>';
+    	        div.innerHTML = (idx+1) + '. 서울특별시 '+ property.adstrdNm +' '+ resultPrice(property.excheGtn) + '<button class="w-btn-outline w-btn-skin-outline" onclick="panTo2(' + idx + ')">위치 보기</button>';
     	        listProperty.appendChild(div);
     	        propertyAverage +=property.excheGtn;
     	        totalCount=idx;
@@ -475,25 +476,39 @@ pageEncoding="UTF-8"%>
     	    // 'submit' 이벤트를 취소합니다.
     	    event.preventDefault();
     	  }
-    	});
+		});
     	
-    	// form 요소에 'submit' 이벤트 리스너를 추가합니다.
-    	form.addEventListener('submit', function(event) {
-    	  // hidden input 요소들을 가져옵니다.
-    	  var h0 = document.querySelector('input[name="h0"]');
-    	  var h1 = document.querySelector('input[name="h1"]');
-    	  var h2 = document.querySelector('input[name="h2"]');
-    	  var h3 = document.querySelector('input[name="h3"]');
+    	// 저장 버튼 요소를 가져옵니다.
+    	var saveButton = document.getElementById('saveBtn');
+    	// 저장 버튼에 클릭 이벤트 리스너를 추가합니다.
+    	saveButton.addEventListener('click', function(event) {
+    		var defaultFormAction = form.action;
+			// 'submit' 이벤트를 취소합니다.
+			event.preventDefault();
+			
+			// hidden input 요소들을 가져옵니다.
+			var h0 = document.querySelector('input[name="h0"]');
+			var h1 = document.querySelector('input[name="h1"]');
+			var h2 = document.querySelector('input[name="h2"]');
+			var h3 = document.querySelector('input[name="h3"]');
+			
+			// 각 hidden input 요소에 서버에서 전달받은 값을 설정합니다.
+			h0.value = ${siGunGu};
+			h1.value = ${eupMyeongDong};
+			h2.value = ${smallCategoryName};
+			h3.value = ${excheGtn};
+			
+			// form 요소의 action 속성을 변경합니다.
+			form.action = "${pageContext.request.contextPath}/user/mypage/save";
+			
+			// form 요소를 제출합니다.
+			form.submit();
+			
+			// form action의 경로 원상복구
+			form.action = defaultFormAction;
+		});
+    	
 
-    	  // 각 hidden input 요소의 value가 비어 있는지 확인합니다.
-    	  if (!h0.value || !h1.value || !h2.value || !h3.value) {
-    	    // 하나라도 value가 비어 있다면 경고 메시지를 표시하고,
-    	    alert("모든 선택을 실시해주세요");
-
-    	    // 'submit' 이벤트를 취소합니다.
-    	    event.preventDefault();
-    	  }
-    	});
     	
       </script>
 
