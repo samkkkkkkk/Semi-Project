@@ -58,10 +58,11 @@ public class CommercialController {
 			log.info("데이터가 없는데여");
 			
 			model.addAttribute("body", "NODATA_ERROR");
-			return "home";
+		}
+		else {
+			model.addAttribute("body", body);
 		}
 		model.addAttribute("property", propertyList);
-		model.addAttribute("body", body);
 		
 		return "home2";
 	}
