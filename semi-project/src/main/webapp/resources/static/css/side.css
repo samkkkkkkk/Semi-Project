@@ -96,6 +96,15 @@ p {
   font-family: 'Gowun Dodum', sans-serif;
 }
 
+p {
+  width: 250px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  font-family: 'Gowun Dodum', sans-serif;
+}
+
 .pre {
   width: 200px;
   height: 40px;

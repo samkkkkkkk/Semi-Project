@@ -351,7 +351,7 @@ ul.tabnav {
   display: none;
 }
 #map_map {
-  width: 38%;
+  width: 100%;
   height: 450px;
 }
 

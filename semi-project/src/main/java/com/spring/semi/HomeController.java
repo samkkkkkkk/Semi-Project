@@ -33,7 +33,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "forward:/map";
+		return "forward:/api/map";
 	}
 	
 }

@@ -8,9 +8,9 @@
         WHERE small_category_name = #{name}
     </select>
 
-	<select id="getJobList" resultType="string">
-		SELECT small_category_name FROM job_category
-		WHERE medium_category_name = #{mediumCategoryName}
-	</select>
+   <select id="getJobList" resultType="string">
+      SELECT small_category_name FROM job_category
+      WHERE medium_category_name = #{mediumCategoryName}
+   </select>
 
 </mapper>

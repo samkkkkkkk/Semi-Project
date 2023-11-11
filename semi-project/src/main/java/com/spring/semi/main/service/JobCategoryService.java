@@ -26,5 +26,9 @@ public class JobCategoryService {
 		}
 		return dtoList;
 	}
+   public String getCodeFromJob(String h2) {
+	   String jobCode = jobCategoryMapper.getCode(h2);
+	   return jobCode;
+   }
 	
 }

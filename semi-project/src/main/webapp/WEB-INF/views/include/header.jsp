@@ -83,7 +83,7 @@ prefix="c" %>
 
 <script>
   let flag = false;
-  document.getElementById('userInfo').onclick = function (e) {
+  document.getElementById('userInfo').onclick = function () {
     // console.log('이벤트 발생!');
     if (!flag) {
       document.querySelector('.dropOut').style.height = '180px';
