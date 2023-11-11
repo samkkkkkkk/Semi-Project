@@ -3,21 +3,9 @@ pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link
-      href="${pageContext.request.contextPath}/css/side.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="${pageContext.request.contextPath}/css/search.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="${pageContext.request.contextPath}/css/mainFooter.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <link href="${pageContext.request.contextPath}/css/side.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/css/mainFooter.css" rel="stylesheet" type="text/css"/>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>사용자 조회페이지</title>
@@ -58,18 +46,23 @@ pageEncoding="UTF-8"%>
               상권 조회와 매물 정보 제공
             </li>
           </ul>
-          <form action="#">
-            <input type="button" id="loc" class="b1" value="지역 선택" />
-            <p id="p1">지역을 선택해 주세요.</p>
-            <!--나중에 innerText 등 이용-->
-            <input type="button" id="category" class="b1" value="업종 선택" />
-            <p id="p2">업종을 선택해 주세요.</p>
-            <input type="button" id="price" class="b1 pre" value="창업 비용" />
-            <p id="p3">예상한 비용을 입력해 주세요.</p>
-            <input type="button" id="" class="btn" value="조회" />
-            <button type="submit" id="save"></button>
-            <p class="arrow_box">저장하기!</p>
-          </form>
+            <form id="myForm" action="${pageContext.request.contextPath}/api/req/" method="GET">
+              <input type="button" id="loc" class="b1" value="지역 선택" />
+              <p id="p1">지역을 선택해 주세요.</p>
+              <!--나중에 innerText 등 이용-->
+              <input type="button" id="category" class="b1" value="업종 선택" />
+              <p id="p2">업종을 선택해 주세요.</p>
+              <input type="button" id="price" class="b1 pre" value="창업 비용" />
+              <p id="p3">예상한 비용을 입력해 주세요.</p>
+              <input type="hidden" name="h0" />
+              <input type="hidden" name="h1" />
+              <input type="hidden" name="h2" />
+              <input type="hidden" name="h3" />
+              <div>
+	              <input type="submit" id="chkForm" class="btn" value="조회" />
+	              <input type="submit" id="saveForm" class="btn" value="저장" />
+              </div>
+            </form>
         </aside>
 
         <div id="fix">
@@ -112,7 +105,7 @@ pageEncoding="UTF-8"%>
               </div>
               <!--자바스크립트로 반복문 돌릴 곳-->`
               <div id="ListContents">
-                <div>매물리스트</div>
+                <div>매물 조회 결과가 없습니다.</div>
               </div>
             </div>
           </article>
@@ -134,8 +127,8 @@ pageEncoding="UTF-8"%>
             </div>
           </article>
           <!--컨텐츠3 끝-->
+          <%@ include file="./include/modal.jsp" %>
         </div><!--fix id끝-->
-        <%@ include file="./include/modal.jsp" %>
       </section>
       <%@ include file="./include/footer.jsp"%>
 
@@ -191,8 +184,18 @@ pageEncoding="UTF-8"%>
 
 			// 지도가 확대 또는 축소되면 발동하는 이벤트
 			kakao.maps.event.addListener(map, 'zoom_changed', function() {        
-				placeOverlay.setMap(null);  
+				placeOverlay.setMap(null);
 			});
+		}else if(body_check == "NODATA_ERROR"){
+
+			var mapContainer = document.getElementById('article3_map'), // 지도를 표시할 div 
+			
+			mapOption = {
+			center: new kakao.maps.LatLng(property[0].latitude, property[0].longitude), // 지도의 중심좌표 // 전달받은 첫번째 json을 가공해서 중심이 어디 있는지 표시하고
+			level: 1 // 지도의 확대 레벨
+			};
+			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+			document.querySelector('#search').innerText = property[0].adstrdNm + ' 상권 조회';
 		}
 
 		var clusterer = new kakao.maps.MarkerClusterer({
@@ -231,11 +234,15 @@ pageEncoding="UTF-8"%>
 			var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), contentNode = document.createElement('div'); // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다
 			
 			var sprite = new kakao.maps.Point(40, 40); // 초기값 설정
-			// 여기서 카페인지 은행인지 주유소인지 병원이지 등등등 을 items.indsLclsCd 랑 비교해서 마커 이미지 설정
+			// places_category.png 스프라이트 이미지
 			var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커이미지의 주소입니다 //스프라이트 이미지
 			imageSize = new kakao.maps.Size(36, 36); // 마커이미지의 크기입니다
 
 			var markers = [];
+			// 지도가 확대 또는 축소되면 발동하는 이벤트
+			kakao.maps.event.addListener(map2, 'zoom_changed', function() {        
+				placeOverlay.setMap(null);
+			});
     	  
     	// 페이지를 열자마자 바로 실행할 영역
     	window.onload = function () {
@@ -289,8 +296,6 @@ pageEncoding="UTF-8"%>
 					});
 				});
 
-				
-    		
 				// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
 				// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOP RIGHT는 오른쪽 위를 의미합니다
 				map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
@@ -354,7 +359,7 @@ pageEncoding="UTF-8"%>
 				// items 배열의 각 요소에 대해 div 생성 후 추가
 				items.forEach((item, idx) => {
 					const div = document.createElement('div');
-					div.innerHTML = '<div>'+(idx+1)+'. '+ item.bizesNm+ item.lnoAdr + '<button onclick="panTo(' + idx + ')">위치보기</button>'+'</div>';
+					div.innerHTML = (idx+1)+'. '+ item.bizesNm + '<button onclick="panTo(' + idx + ')">위치보기</button>';
 					listContents.appendChild(div);
 				});
 			}
@@ -368,7 +373,7 @@ pageEncoding="UTF-8"%>
     	    // Property 배열의 각 요소에 대해 div 생성 후 추가
     	    property.forEach((property, idx) => {
     	        const div = document.createElement('div');
-    	        div.innerHTML = '<div>' + (idx+1) + '. 서울특별시 '+ property.adstrdNm +' '+ resultPrice(property.excheGtn) + '<button onclick="panTo2(' + idx + ')">위치보기</button>'+'</div>';
+    	        div.innerHTML = (idx+1) + '. 서울특별시 '+ property.adstrdNm +' '+ resultPrice(property.excheGtn) + '<button onclick="panTo2(' + idx + ')">위치보기</button>';
     	        listProperty.appendChild(div);
     	        propertyAverage +=property.excheGtn;
     	        totalCount=idx;
@@ -414,7 +419,7 @@ pageEncoding="UTF-8"%>
     		contentNode.className = 'placeinfo_wrap';
     	    var content = '<div class="placeinfo">' +
     	                    '<a class="title" href="https://map.kakao.com/?q=' + property.latitude + ' ' + property.longitude + '" target="_blank" title="' + property.adstrdNm + '">' + property.adstrdNm + '</a>'+
-    	                    '<span title="' + property.excheGtn + '">' + property.excheGtn + '</span>' +
+    	                    '<span title="' + property.excheGtn + '">' + resultPrice(property.excheGtn) + '</span>' +
     	                  '</div>'+
     	                  '<div class="after"></div>';
     	    contentNode.innerHTML = content;
@@ -451,6 +456,45 @@ pageEncoding="UTF-8"%>
           return items[0].adongNm + ' ' + count + ' 개';        
         }
         
+    	// HTML의 form 요소를 가져옵니다.
+    	var form = document.getElementById('myForm');
+
+    	// form 요소에 'submit' 이벤트 리스너를 추가합니다.
+    	form.addEventListener('submit', function(event) {
+    	  // hidden input 요소들을 가져옵니다.
+    	  var h0 = document.querySelector('input[name="h0"]');
+    	  var h1 = document.querySelector('input[name="h1"]');
+    	  var h2 = document.querySelector('input[name="h2"]');
+    	  var h3 = document.querySelector('input[name="h3"]');
+
+    	  // 각 hidden input 요소의 value가 비어 있는지 확인합니다.
+    	  if (!h0.value || !h1.value || !h2.value || !h3.value) {
+    	    // 하나라도 value가 비어 있다면 경고 메시지를 표시하고,
+    	    alert("모든 선택을 실시해주세요");
+
+    	    // 'submit' 이벤트를 취소합니다.
+    	    event.preventDefault();
+    	  }
+    	});
+    	
+    	// form 요소에 'submit' 이벤트 리스너를 추가합니다.
+    	form.addEventListener('submit', function(event) {
+    	  // hidden input 요소들을 가져옵니다.
+    	  var h0 = document.querySelector('input[name="h0"]');
+    	  var h1 = document.querySelector('input[name="h1"]');
+    	  var h2 = document.querySelector('input[name="h2"]');
+    	  var h3 = document.querySelector('input[name="h3"]');
+
+    	  // 각 hidden input 요소의 value가 비어 있는지 확인합니다.
+    	  if (!h0.value || !h1.value || !h2.value || !h3.value) {
+    	    // 하나라도 value가 비어 있다면 경고 메시지를 표시하고,
+    	    alert("모든 선택을 실시해주세요");
+
+    	    // 'submit' 이벤트를 취소합니다.
+    	    event.preventDefault();
+    	  }
+    	});
+    	
       </script>
 
   </body>
