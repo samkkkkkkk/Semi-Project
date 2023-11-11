@@ -36,11 +36,12 @@ public class MainMapperTest {
 	@Test
 	@DisplayName("읍면동이름을 주면 행정명 코드를 줄것이다.")
 	public void getadmCodeTest1() {
-		String eupMyeongDong = "사직동";
+		String siGunGu = "강남구";
+		String eupMyeongDong = "신사동";
 		
-		int res = admCodeMapper.getCodeFromEupMyeongDong(eupMyeongDong);
+		String res = admCodeMapper.getCodeFromEupMyeongDong(siGunGu, eupMyeongDong);
 		
-		assertEquals(11110530, res);
+		assertEquals("11680510", res);
 	}
 	
 	@Test
@@ -48,7 +49,7 @@ public class MainMapperTest {
 	public void getadmCodeTest2() {
 		AdministrativeCode acode = new AdministrativeCode(0, "서울특별시", "종로구", "사직동");
 		
-		int res = admCodeMapper.getCodeFromAll(acode);
+		String res = admCodeMapper.getCodeFromAll(acode);
 		
 		assertEquals(11110530, res);
 	}

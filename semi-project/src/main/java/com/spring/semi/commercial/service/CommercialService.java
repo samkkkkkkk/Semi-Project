@@ -1,7 +1,7 @@
 package com.spring.semi.commercial.service;
 
 import java.net.URI;
-
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.spring.semi.main.entity.Property;
+import com.spring.semi.main.mapper.IPropertyMapper;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -44,8 +47,8 @@ public class CommercialService {
 				.queryParam("pageNo", "1")
 				.queryParam("numOfRows", "200")
 				.queryParam("divId", "adongCd")
-				.queryParam("key", "11110640")
-				.queryParam("indsSclsCd", "I21201")
+				.queryParam("key", h1)
+				.queryParam("indsSclsCd", h2)
 				.queryParam("type", "json")
 				.build();
 
@@ -62,6 +65,10 @@ public class CommercialService {
 			//UriComponents 타입의 값을 URI 객체로 변환. (GET)
 			URI uri = new URI(builder.toUriString());
 			ResponseEntity<Map> responseEntity = template.exchange(uri, HttpMethod.GET, requestEntity, Map.class);
+			String resultMsg = (String) ((Map) responseEntity.getBody().get("header")).get("resultMsg");
+			if ("NODATA_ERROR".equals(resultMsg)) {
+			    return "NODATA_ERROR";
+			};
 
 
 //			log.info("요청에 따른 응답 데이터: {}", responseData);

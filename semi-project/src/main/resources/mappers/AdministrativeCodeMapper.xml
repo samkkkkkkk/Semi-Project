@@ -2,19 +2,19 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.semi.main.mapper.IAdministrativeCodeMapper">
-    <select id="getCodeFromEupMyeongDong" resultType="int">
+    <select id="getCodeFromEupMyeongDong" resultType="string">
         SELECT code FROM administrative_code
-        WHERE eup_myeong_dong = #{eupMyeongDong}
+        WHERE si_gun_gu = #{siGunGu} AND eup_myeong_dong = #{eupMyeongDong}
     </select>
 
-    <select id="getCodeFromAll" resultType="int">
+    <select id="getCodeFromAll" resultType="string">
         SELECT code FROM administrative_code
         WHERE si_do = #{siDo} AND si_gun_gu = #{siGunGu} AND eup_myeong_dong = #{eupMyeongDong}
     </select>
-	<select id="getAdrList" resultType="string">
-		SELECT eup_myeong_dong FROM administrative_code
-		WHERE si_gun_gu = #{siGunGu}
-	</select>
-	
+   <select id="getAdrList" resultType="string">
+      SELECT eup_myeong_dong FROM administrative_code
+      WHERE si_gun_gu = #{siGunGu}
+   </select>
+   
 
 </mapper>

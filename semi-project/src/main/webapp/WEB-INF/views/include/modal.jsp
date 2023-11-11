@@ -425,6 +425,10 @@
       } else {
         if ($siDoValue && $siGunGuValue && $eupMyeongDongValue) {
           document.getElementById('p1').innerText = $siDoValue + ' ' + $siGunGuValue + ' ' + $eupMyeongDongValue;
+          const encodedValue = decodeURI($siGunGuValue);
+          document.querySelector('input[name=h0]').value = encodedValue;
+          const encodedValue1 = decodeURI($eupMyeongDongValue);
+          document.querySelector('input[name=h1]').value = encodedValue1;
         }
       }
 
@@ -448,6 +452,8 @@
       } else {
         if ($sec1stValue && $sec2ndValue && $sec3rdValue) {
           document.getElementById('p2').innerText = $sec3rdValue;
+          const encodedValue = decodeURI($sec3rdValue);
+          document.querySelector('input[name=h2]').value = encodedValue;
         }
       }
 
@@ -472,6 +478,7 @@
         if ($pri1st && $pri2nd) {
           document.getElementById('p3').innerText =
           '환산 보증금: ' + $conversion + '원\n' + '보증금: ' + $pri1st + '원, ' + '월세: ' + $pri2nd + '원';
+          document.querySelector('input[name=h3]').value = parseFloat($pri1) + (parseFloat($pri2) * 100);
         }
       }
 

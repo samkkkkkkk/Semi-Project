@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.semi.main.dto.AdministrativeCodeDTO;
 import com.spring.semi.main.dto.JobCategoryDTO;
+import com.spring.semi.main.entity.AdministrativeCode;
 import com.spring.semi.main.mapper.IAdministrativeCodeMapper;
 import com.spring.semi.main.mapper.IJobCategoryMapper;
 
@@ -26,5 +27,13 @@ private final IAdministrativeCodeMapper administrativeCodeMapper;
 		}
 		return dtoList;
 	}
-	
+   public String getCodeFromEupMyeongDong(String siGunGu, String eupMyeongDong) {
+	   
+	   AdministrativeCode adcode = new AdministrativeCode();
+	   adcode.setSiGunGu(siGunGu);
+	   adcode.setEupMyeongDong(eupMyeongDong);
+	   
+      String eupMyeongDongCode = administrativeCodeMapper.getCodeFromEupMyeongDong(adcode);
+      return eupMyeongDongCode;
+   }
 }
