@@ -1,36 +1,78 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link href="${pageContext.request.contextPath}/css/side.css" rel="stylesheet" type="text/css" />
-    <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet" type="text/css"/>
-    <link href="${pageContext.request.contextPath}/css/mainFooter.css" rel="stylesheet" type="text/css"/>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>사용자 조회페이지</title>
-  </head>
-  <body>
-    <div id="container">
-      <!--헤더 시작-->
-      <%@ include file="./include/header.jsp"%>
-      <!--헤더 끝-->
+<head>
+<link href="${pageContext.request.contextPath}/css/side.css"
+	rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/css/search.css"
+	rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/css/mainFooter.css"
+	rel="stylesheet" type="text/css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>사용자 조회페이지</title>
 
-      <!--중간 세션 시작-->
-      <section id="contents">
-        <p id="content1">상권 분석 서비스</p>
-        <h2>
-          당신을 좋은 곳으로 <br />
-          이끌어 줄 지도, 비즈니스맵
-          <p id="app">
-            <공지> businessMap앱 설치하고 <strong>혜택 알람</strong>받기!
-          </p>
-        </h2>
-        <div class="caption">
-          <h2>로그인하시면 더 많은 혜택을 경험할 수 있습니다.</h2>
-        </div>
-      </section>
-      <!--중간 세션 시작-->
+<style>
+.score-table {
+	border-spacing: 10px;
+	border-collapse: separate;
+	width: 100%;
+	height: auto;
+	padding: 0;
+}
+
+.score-table tr, td {
+	border: 1px solid black;
+}
+
+.text-result {
+	height: 20%;
+}
+
+/* .canvas {
+	width: 100%;
+	height: 100%;
+	font-size: 1px;
+} */
+
+.table-div {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.score-table td {
+	text-align: center;
+}
+
+.score-table tr td:nth-child(1) {
+	background-color: rgb(106, 133, 173);
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		<!--헤더 시작-->
+		<%@ include file="./include/header.jsp"%>
+		<!--헤더 끝-->
+
+		<!--중간 세션 시작-->
+		<section id="contents">
+			<p id="content1">상권 분석 서비스</p>
+			<h2>
+				당신을 좋은 곳으로 <br /> 이끌어 줄 지도, 비즈니스맵
+				<p id="app">
+					<공지> businessMap앱 설치하고 <strong>혜택 알람</strong>받기! 
+				</p>
+			</h2>
+			<div class="caption">
+				<h2>로그인하시면 더 많은 혜택을 경험할 수 있습니다.</h2>
+			</div>
+		</section>
+		<!--중간 세션 시작-->
 
       <section id="result_content2">
         <h2 id="dream">
@@ -65,33 +107,35 @@ pageEncoding="UTF-8"%>
             </form>
         </aside>
 
-        <div id="fix">
-          <div id="btn">
-            <button type="button" id="btnId1" class="btn1">상권 현황</button>
-            <button type="button" id="btnId2" class="btn1">매물</button>
-            <button type="button" id="btnId3" class="btn1">점수</button>
-          </div>
+			<div id="fix">
+				<div id="btn">
+					<button type="button" id="btnId1" class="btn1">상권 현황</button>
+					<button type="button" id="btnId2" class="btn1">매물</button>
+					<button type="button" id="btnId3" class="btn1">점수</button>
+				</div>
 
-          <!--컨텐츠 시작1 -  상권 현황-->
-          <div id="shopList">
-            <article id="article3">
-              <div id="article3_map">지도</div>
-            </article>
+				<!--컨텐츠 시작1 -  상권 현황-->
+				<div id="shopList">
+					<article id="article3">
+						<div id="article3_map">지도</div>
+					</article>
 
-            <article id="article2" class="ottdiv ottif">
-              <div id="shopList2">
-                <div id="foodList">
-                  <div id="search">상권 조회</div>
-                  <strong id="foodTitle">가맹점 총 수</strong>
-                  <!--상권 조회시 푸드 리스트 반복문 자바스크립트로 돌릴 곳-->
-                  <div id="foodListSpan">
-                    <div>조회 결과가 없습니다.</div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-          <!--컨텐츠 끝1-->
+					<article id="article2" class="ottdiv ottif">
+						<div id="shopList2">
+							<div id="foodList">
+								<div id="search">상권 조회</div>
+								<strong id="foodTitle">한식 가맹점 총 수</strong>
+								<!--상권 조회시 푸드 리스트 반복문 자바스크립트로 돌릴 곳-->
+								<div id="foodListSpan">
+									<div id="">
+										국수 / 칼국수 --<span> 28개</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+				</div>
+				<!--컨텐츠 끝1-->
 
           <!--컨텐츠2 시작 기본값 : display none임-->
           <article id="saleList">
@@ -110,33 +154,72 @@ pageEncoding="UTF-8"%>
             </div>
           </article>
 
-          <article id="map">
-            <div id="map_map">지도</div>
-          </article>
-          <!--컨텐츠2 끝-->
+				<article id="map">
+					<div id="map_map">지도</div>
+				</article>
+				<!--컨텐츠2 끝-->
 
-          <!--컨텐츠3 시작 - 매물점수-->
-          <article id="score">
-            <div id="article_score">
-              <h2 id="h2_score">매물 점수</h2>
+				<!--컨텐츠3 시작 - 매물점수-->
+				<article id="score">
+
+					<div id="article_score">
+						<div class="text-result" style="border: 1px black solid;">
+							<p>상권 분석 결과</p>
+						</div>
+
+						<table class="score-table">
+							<tbody>
+							<colgroup>
+								<col style="width: 10%;" />
+								<col style="width: 40%;" />
+								<col style="width: 50%;" />
+
+							</colgroup>
+							<tr>
+								<td>상권</td>
+								<td>총 가맹점 수</td>
+								<td>
+									<div class="table-div">
+										<canvas id="commercial-canvas" class="canvas" width="400px" height="200px"></canvas>
+									</div>
+
+								</td>
+
+							</tr>
+							<tr>
+								<td>매물</td>
+								<td>평균 임대 비용</td>
+								<td>
+									<div class="table-div table-div-realestate">
+										<canvas id="realestate-commercial-canvas"
+											class="canvas realastate-canvas" width="400px" height="200px"></canvas>
+									</div>
+								</td>
+
+							</tr>
+							</tbody>
+						</table>
+
+						<!-- <h2 id="h2_score">매물 점수</h2>
               <div id="div_score">매물 점수 34점</div>
               <h2 id="h2_score2">상권 점수</h2>
               <div id="div_score2">상권 점수 34점</div>
               <h2 id="h2_score3">businessMap 분석 결과 보고서</h2>
               <div id="div_score3">비즈니스맵 분석 결과 보고서 입니다.</div>
-            </div>
-          </article>
           <!--컨텐츠3 끝-->
           <%@ include file="./include/modal.jsp" %>
         </div><!--fix id끝-->
       </section>
       <%@ include file="./include/footer.jsp"%>
 
-      
-    </div>
 
-<script type="text/javascript" src="${reqUrl}?appkey=${serviceKey}&libraries=clusterer"></script>
-<script>
+	</div>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script>
+		
+	
         //매물 버튼에 따라 페이지 전환하기
         document.getElementById('btnId2').addEventListener('click', (e) => {
           document.getElementById('saleList').style.visibility = 'visible';
@@ -158,7 +241,7 @@ pageEncoding="UTF-8"%>
               document.getElementById('map').style.visibility = 'hidden';
           document.getElementById('score').style.visibility = 'visible';
         });
-        
+      
         const body_check = '${body}';
 		let items = {};
 		let body = {};
@@ -384,6 +467,8 @@ pageEncoding="UTF-8"%>
     	    
     	};// 조회 결과 대입 끝
     	
+    	
+    	
     	// 값 표현식
     	function resultPrice(number) {
     		var avgBillion = Math.floor(number / 100000000);
@@ -496,6 +581,137 @@ pageEncoding="UTF-8"%>
     	});
     	
       </script>
+        
+        new Chart(document.getElementById("commercial-canvas"), {
+    	    type: 'horizontalBar',
+    	    data: {
+    	        labels: ['평균 상권 개수', '조회 상권 개수'],
+    	        datasets: [{
+    	            
+    	          label: {
+    	                  display: false,
+    	                },
+    	            data: [5000000, 8000000],
+    	            borderColor: "rgba(255, 201, 14, 1)",
+    	            backgroundColor: ["rgba(32, 102, 207, 0.8)", "rgba(137, 14, 14, 0.75)"], 
+    	            fill: false,
+    	        }]
+    	    },
+    	    options: {
+    	    
+    	      legend: {
+    	        display: false
+    	    },
+    	        responsive: false,
+    	        title: {
+    	            display: true,
+    	            text: '상권 비교'
+    	        },
+    	        tooltips: {
+    	            mode: 'index',
+    	            intersect: false,
+    	        },
+    	        hover: {
+    	            mode: 'nearest',
+    	            intersect: true
+    	        },
+    	        scales: {
+    	            xAxes: [{
+    	                display: true,
+    	                ticks: {
+    	                  fontSize: 11,
+    	                  fontColor: 'rgb(0,0,0)',
+    	                  beginAtZero : true,
+    	                   
+    	                },
+    	                scaleLabel: {
+    	                    display: true,
+    	                },
+    	            }],
+    	            yAxes: [{
+    	                display: true,
+    	                ticks: {
+    	                  fontSize: 11,
+    	                  fontColor: 'rgb(0,0,0)',
+    	                    autoSkip: false,
+    	                },
+    	                scaleLabel: {
+    	                    display: true,
+    	                    
+    	                }
+    	            }]
+    	        }
+    	    }
+    	});
 
-  </body>
+    	new Chart(document.getElementById("realestate-commercial-canvas"), {
+    	    type: 'horizontalBar',
+    	    data: {
+    	        labels: ['평균 임대비용', '희망 임대 비용'],
+    	        datasets: [{
+    	            
+    	          label: {
+    	                  display: false,
+    	                },
+    	            data: [50, 80],
+    	            borderColor: "rgba(255, 201, 14, 1)",
+    	            backgroundColor: ["rgba(32, 102, 207, 0.8)", "rgba(137, 14, 14, 0.75)"], 
+    	            fill: false,
+    	        }]
+    	    },
+    	    options: {
+    	    	
+    	      legend: {
+    	        display: false
+    	    },
+    	        responsive: false,
+    	        title: {
+    	            display: true,
+    	            text: '임대 비용 비교'
+    	        },
+    	        tooltips: {
+    	            mode: 'index',
+    	            intersect: false,
+    	        },
+    	        hover: {
+    	            mode: 'nearest',
+    	            intersect: true
+    	        },
+    	        scales: {
+    	            xAxes: [{
+    	                display: true,
+    	                ticks: {
+    	                  fontSize: 11,
+    	                  fontColor: 'rgb(0,0,0)',
+    	                    beginAtZero : true,
+    	                },
+    	                scaleLabel: {
+    	                    display: true,
+    	                    
+    	                },
+    	            }],
+    	            yAxes: [{
+    	                display: true,
+    	                ticks: {
+    	                  fontSize: 11,
+    	                  fontColor: 'rgb(0,0,0)',
+    	                    autoSkip: false,
+    	                },
+    	                scaleLabel: {
+    	                    display: true,
+    	                    
+    	                }
+    	            }]
+    	        }
+    	    }
+    	});
+    	document.querySelector('.canvas').style.removeProperty(['width']);
+    	document.querySelector('.realastate-canvas').style.removeProperty(['width']);
+    	document.querySelector('.canvas').style.removeProperty(['height']);
+    	document.querySelector('.realastate-canvas').style.removeProperty(['height']);
+
+       
+</script>
+
+</body>
 </html>
