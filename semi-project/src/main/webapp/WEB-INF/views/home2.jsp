@@ -1,26 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link
-      href="${pageContext.request.contextPath}/css/side.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="${pageContext.request.contextPath}/css/search.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="${pageContext.request.contextPath}/css/mainFooter.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <link href="${pageContext.request.contextPath}/css/side.css" rel="stylesheet" type="text/css" />
+    <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/css/mainFooter.css" rel="stylesheet" type="text/css"/>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>사용자 조회페이지</title>
+    <style>
+.score-table {
+	border-spacing: 10px;
+	border-collapse: separate;
+		width: 100%;
+		height: auto;
+		padding: 0;
+	}
+
+	.score-table tr, td {
+		border: 1px solid black;
+	}
+
+	.text-result {
+		height: 20%;
+	}
+
+	/* .canvas {
+		width: 100%;
+		height: 100%;
+		font-size: 1px;
+	} */
+
+	.table-div {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.score-table td {
+		text-align: center;
+	}
+
+	.score-table tr td:nth-child(1) {
+		background-color: rgb(106, 133, 173);
+	}
+	</style>
   </head>
   <body>
     <div id="container">
@@ -28,21 +55,22 @@ pageEncoding="UTF-8"%>
       <%@ include file="./include/header.jsp"%>
       <!--헤더 끝-->
 
-      <!--중간 세션 시작-->
-      <section id="contents">
-        <p id="content1">상권 분석 서비스</p>
-        <h2>
-          당신을 좋은 곳으로 <br />
-          이끌어 줄 지도, 비즈니스맵
-          <p id="app">
-            <공지> businessMap앱 설치하고 <strong>혜택 알람</strong>받기!
-          </p>
-        </h2>
-        <div class="caption">
-          <h2>로그인하시면 더 많은 혜택을 경험할 수 있습니다.</h2>
-        </div>
-      </section>
-      <!--중간 세션 시작-->
+		<!--중간 세션 시작-->
+		<section id="contents">
+			<p id="content1">상권 분석 서비스</p>
+			<h2>
+				당신을 좋은 곳으로 <br /> 이끌어 줄 지도, 비즈니스맵
+				<p id="app">
+					<공지> businessMap앱 설치하고 <strong>혜택 알람</strong>받기! 
+				</p>
+			</h2>
+			<c:if test="${userId == null}">
+			<div class="caption">
+				<h2>로그인하시면 더 많은 혜택을 경험할 수 있습니다.</h2>
+			</div>
+			</c:if>
+		</section>
+		<!--중간 세션 시작-->
 
       <section id="result_content2">
         <h2 id="dream">
@@ -58,47 +86,55 @@ pageEncoding="UTF-8"%>
               상권 조회와 매물 정보 제공
             </li>
           </ul>
-          <form action="#">
-            <input type="button" id="loc" class="b1" value="지역 선택" />
-            <p id="p1">지역을 선택해 주세요.</p>
-            <!--나중에 innerText 등 이용-->
-            <input type="button" id="category" class="b1" value="업종 선택" />
-            <p id="p2">업종을 선택해 주세요.</p>
-            <input type="button" id="price" class="b1 pre" value="창업 비용" />
-            <p id="p3">예상한 비용을 입력해 주세요.</p>
-            <input type="button" id="" class="btn" value="조회" />
-            <button type="submit" id="save"></button>
-            <p class="arrow_box">저장하기!</p>
-          </form>
+            <form id="myForm" action="${pageContext.request.contextPath}/api/req/" method="GET">
+              <input type="button" id="loc" class="b1" value="지역 선택" />
+              <p id="p1">지역을 선택해 주세요.</p>
+              <!--나중에 innerText 등 이용-->
+              <input type="button" id="category" class="b1" value="업종 선택" />
+              <p id="p2">업종을 선택해 주세요.</p>
+              <input type="button" id="price" class="b1 pre" value="창업 비용" />
+              <p id="p3">예상한 비용을 입력해 주세요.</p>
+              <input type="hidden" name="h0" />
+              <input type="hidden" name="h1" />
+              <input type="hidden" name="h2" />
+              <input type="hidden" name="h3" />
+              <div>
+	              <input type="submit" id="chkBtn" class="btn" value="조회" />
+	              <input type="submit" id="saveBtn" class="btn" value="저장" />
+              </div>
+              
+            </form>
         </aside>
 
-        <div id="fix">
-          <div id="btn">
-            <button type="button" id="btnId1" class="btn1">상권 현황</button>
-            <button type="button" id="btnId2" class="btn1">매물</button>
-            <button type="button" id="btnId3" class="btn1">점수</button>
-          </div>
+			<div id="fix">
+				<div id="btn">
+					<button type="button" id="btnId1" class="btn1">상권 현황</button>
+					<button type="button" id="btnId2" class="btn1">매물</button>
+					<button type="button" id="btnId3" class="btn1">점수</button>
+				</div>
 
-          <!--컨텐츠 시작1 -  상권 현황-->
-          <div id="shopList">
-            <article id="article3">
-              <div id="article3_map">지도</div>
-            </article>
+				<!--컨텐츠 시작1 -  상권 현황-->
+				<div id="shopList">
+					<article id="article3">
+						<div id="article3_map">지도</div>
+					</article>
 
-            <article id="article2" class="ottdiv ottif">
-              <div id="shopList2">
-                <div id="foodList">
-                  <div id="search">상권 조회</div>
-                  <strong id="foodTitle">가맹점 총 수</strong>
-                  <!--상권 조회시 푸드 리스트 반복문 자바스크립트로 돌릴 곳-->
-                  <div id="foodListSpan">
-                    <div>조회 결과가 없습니다.</div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-          <!--컨텐츠 끝1-->
+					<article id="article2" class="ottdiv ottif">
+						<div id="shopList2">
+							<div id="foodList">
+								<div id="search">상권 조회</div>
+								<strong id="foodTitle"></strong>
+								<!--상권 조회시 푸드 리스트 반복문 자바스크립트로 돌릴 곳-->
+								<div id="foodListSpan">
+									<div id="">
+										상권 조회 결과가 없습니다.
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+				</div>
+				<!--컨텐츠 끝1-->
 
           <!--컨텐츠2 시작 기본값 : display none임-->
           <article id="saleList">
@@ -112,38 +148,70 @@ pageEncoding="UTF-8"%>
               </div>
               <!--자바스크립트로 반복문 돌릴 곳-->`
               <div id="ListContents">
-                <div>매물리스트</div>
+                <div>매물 조회 결과가 없습니다.</div>
               </div>
             </div>
           </article>
 
           <article id="map">
-            <div id="map_map">지도</div>
-          </article>
-          <!--컨텐츠2 끝-->
+					<div id="map_map">지도</div>
+				</article>
+				<!--컨텐츠2 끝-->
 
-          <!--컨텐츠3 시작 - 매물점수-->
-          <article id="score">
-            <div id="article_score">
-              <h2 id="h2_score">매물 점수</h2>
-              <div id="div_score">매물 점수 34점</div>
-              <h2 id="h2_score2">상권 점수</h2>
-              <div id="div_score2">상권 점수 34점</div>
-              <h2 id="h2_score3">businessMap 분석 결과 보고서</h2>
-              <div id="div_score3">비즈니스맵 분석 결과 보고서 입니다.</div>
-            </div>
-          </article>
-          <!--컨텐츠3 끝-->
+				<!--컨텐츠3 시작 - 매물점수-->
+				<article id="score">
+
+					<div id="article_score">
+						<div class="text-result" style="border: 1px black solid;">
+							<p>상권 분석 결과</p>
+						</div>
+
+						<table class="score-table">
+							<tbody>
+							<colgroup>
+								<col style="width: 10%;" />
+								<col style="width: 40%;" />
+								<col style="width: 50%;" />
+
+							</colgroup>
+							<tr>
+								<td>상권</td>
+								<td>총 가맹점 수</td>
+								<td>
+									<div class="table-div">
+										<canvas id="commercial-canvas" class="canvas" width="400px" height="200px"></canvas>
+									</div>
+
+								</td>
+
+							</tr>
+							<tr>
+								<td>매물</td>
+								<td>평균 임대 비용</td>
+								<td>
+									<div class="table-div table-div-realestate">
+										<canvas id="realestate-commercial-canvas"
+											class="canvas realastate-canvas" width="400px" height="200px"></canvas>
+									</div>
+								</td>
+
+							</tr>
+							</tbody>
+						</table>
+
+						
+          			<%@ include file="./include/modal.jsp" %>
+				</article>
+    			</div>
+      		</section>
         </div><!--fix id끝-->
-        <%@ include file="./include/modal.jsp" %>
-      </section>
       <%@ include file="./include/footer.jsp"%>
 
       
-    </div>
-
-<script type="text/javascript" src="${reqUrl}?appkey=${serviceKey}&libraries=clusterer"></script>
-<script>
+	
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script type="text/javascript" src="${reqUrl}?appkey=${serviceKey}&libraries=clusterer"></script>
+	<script>
         //매물 버튼에 따라 페이지 전환하기
         document.getElementById('btnId2').addEventListener('click', (e) => {
           document.getElementById('saleList').style.visibility = 'visible';
@@ -165,7 +233,7 @@ pageEncoding="UTF-8"%>
               document.getElementById('map').style.visibility = 'hidden';
           document.getElementById('score').style.visibility = 'visible';
         });
-        
+      
         const body_check = '${body}';
 		let items = {};
 		let body = {};
@@ -173,8 +241,13 @@ pageEncoding="UTF-8"%>
 		if (!property_check) {
 			property_check = '{}';
 		}
+		
+		let propertyAverage = 0;
+	    let totalCount = 0;
+	    
 		const property = JSON.parse(property_check);
-
+		
+		console.log(${excheGtn})
         //console.log(body_check);
         if(body_check !== "NODATA_ERROR"){
 			body = JSON.parse('${body}'); // 서버 kakaoController에서 이미 자바스크립트에서 바로 사용할 수 있는 json 형태로 변환해서 사용가능
@@ -191,8 +264,18 @@ pageEncoding="UTF-8"%>
 
 			// 지도가 확대 또는 축소되면 발동하는 이벤트
 			kakao.maps.event.addListener(map, 'zoom_changed', function() {        
-				placeOverlay.setMap(null);  
+				placeOverlay.setMap(null);
 			});
+		}else if(body_check == "NODATA_ERROR"){
+
+			var mapContainer = document.getElementById('article3_map'), // 지도를 표시할 div 
+			
+			mapOption = {
+			center: new kakao.maps.LatLng(property[0].latitude, property[0].longitude), // 지도의 중심좌표 // 전달받은 첫번째 json을 가공해서 중심이 어디 있는지 표시하고
+			level: 1 // 지도의 확대 레벨
+			};
+			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+			document.querySelector('#search').innerText = property[0].adstrdNm + ' 상권 조회';
 		}
 
 		var clusterer = new kakao.maps.MarkerClusterer({
@@ -231,11 +314,15 @@ pageEncoding="UTF-8"%>
 			var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), contentNode = document.createElement('div'); // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다
 			
 			var sprite = new kakao.maps.Point(40, 40); // 초기값 설정
-			// 여기서 카페인지 은행인지 주유소인지 병원이지 등등등 을 items.indsLclsCd 랑 비교해서 마커 이미지 설정
+			// places_category.png 스프라이트 이미지
 			var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커이미지의 주소입니다 //스프라이트 이미지
 			imageSize = new kakao.maps.Size(36, 36); // 마커이미지의 크기입니다
 
 			var markers = [];
+			// 지도가 확대 또는 축소되면 발동하는 이벤트
+			kakao.maps.event.addListener(map2, 'zoom_changed', function() {        
+				placeOverlay.setMap(null);
+			});
     	  
     	// 페이지를 열자마자 바로 실행할 영역
     	window.onload = function () {
@@ -289,8 +376,6 @@ pageEncoding="UTF-8"%>
 					});
 				});
 
-				
-    		
 				// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
 				// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOP RIGHT는 오른쪽 위를 의미합니다
 				map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
@@ -338,46 +423,182 @@ pageEncoding="UTF-8"%>
     		// 클러스터러에 마커들을 추가합니다
     	    clusterer.addMarkers(markers);
     		
+    		console.log(propertyAverage/(totalCount+1));
+    		
+    	    console.log(totalCount);
+    		new Chart(document.getElementById("commercial-canvas"), {
+        	    type: 'horizontalBar',
+        	    data: {
+        	        labels: ['평균 상권 개수', '조회 상권 개수'],
+        	        datasets: [{
+        	            
+        	          label: {
+        	                  display: false,
+        	                },
+        	            data: [50, body.totalCount + 1],
+        	            borderColor: "rgba(255, 201, 14, 1)",
+        	            backgroundColor: ["rgba(32, 102, 207, 0.8)", "rgba(137, 14, 14, 0.75)"], 
+        	            fill: false,
+        	        }]
+        	    },
+        	    options: {
+        	    
+        	      legend: {
+        	        display: false
+        	    },
+        	        responsive: false,
+        	        title: {
+        	            display: true,
+        	            text: '상권 비교'
+        	        },
+        	        tooltips: {
+        	            mode: 'index',
+        	            intersect: false,
+        	        },
+        	        hover: {
+        	            mode: 'nearest',
+        	            intersect: true
+        	        },
+        	        scales: {
+        	            xAxes: [{
+        	                display: true,
+        	                ticks: {
+        	                  fontSize: 11,
+        	                  fontColor: 'rgb(0,0,0)',
+        	                  beginAtZero : true,
+        	                   
+        	                },
+        	                scaleLabel: {
+        	                    display: true,
+        	                },
+        	            }],
+        	            yAxes: [{
+        	                display: true,
+        	                ticks: {
+        	                  fontSize: 11,
+        	                  fontColor: 'rgb(0,0,0)',
+        	                    autoSkip: false,
+        	                },
+        	                scaleLabel: {
+        	                    display: true,
+        	                    
+        	                }
+        	            }]
+        	        }
+        	    }
+        	});
+			console.log('property.excheGtn', property.excheGtn);
+        	new Chart(document.getElementById("realestate-commercial-canvas"), {
+        	    type: 'horizontalBar',
+        	    data: {
+        	        labels: ['평균 임대비용', '희망 임대 비용'],
+        	        datasets: [{
+        	            
+        	          label: {
+        	                  display: false,
+        	                },
+        	            data: [propertyAverage/(totalCount+1)*10, ${excheGtn}],
+        	            borderColor: "rgba(255, 201, 14, 1)",
+        	            backgroundColor: ["rgba(32, 102, 207, 0.8)", "rgba(137, 14, 14, 0.75)"], 
+        	            fill: false,
+        	        }]
+        	    },
+        	    options: {
+        	    	
+        	      legend: {
+        	        display: false
+        	    },
+        	        responsive: false,
+        	        title: {
+        	            display: true,
+        	            text: '임대 비용 비교'
+        	        },
+        	        tooltips: {
+        	            mode: 'index',
+        	            intersect: false,
+        	        },
+        	        hover: {
+        	            mode: 'nearest',
+        	            intersect: true
+        	        },
+        	        scales: {
+        	            xAxes: [{
+        	                display: true,
+        	                ticks: {
+        	                  fontSize: 11,
+        	                  fontColor: 'rgb(0,0,0)',
+        	                    beginAtZero : true,
+        	                },
+        	                scaleLabel: {
+        	                    display: true,
+        	                    
+        	                },
+        	            }],
+        	            yAxes: [{
+        	                display: true,
+        	                ticks: {
+        	                  fontSize: 11,
+        	                  fontColor: 'rgb(0,0,0)',
+        	                    autoSkip: false,
+        	                },
+        	                scaleLabel: {
+        	                    display: true,
+        	                    
+        	                }
+        	            }]
+        	        }
+        	    }
+        	});
+        	document.querySelector('.canvas').style.removeProperty(['width']);
+        	document.querySelector('.realastate-canvas').style.removeProperty(['width']);
+        	document.querySelector('.canvas').style.removeProperty(['height']);
+        	document.querySelector('.realastate-canvas').style.removeProperty(['height']);
     		
     	}; // window.onload() 끝
 
-
+    	
     	// 조회 결과 대입
     	var saleListSetUp = () => {
 			if(body_check !== "NODATA_ERROR"){
 				document.querySelector('#search').innerText = items[0].adongNm + ' 상권 조회';
 				document.querySelector('#foodTitle').innerText = items[0].indsSclsNm+'가맹점 총 : '+body.totalCount+' 개';
+				console.log(body.totalCount);
 				// foodListSpan 내부를 비웁니다
 				const listContents = document.querySelector('#foodListSpan');
 				listContents.innerHTML = '';
+				
+				
 			
 				// items 배열의 각 요소에 대해 div 생성 후 추가
 				items.forEach((item, idx) => {
 					const div = document.createElement('div');
-					div.innerHTML = '<div>'+(idx+1)+'. '+ item.bizesNm+ item.lnoAdr + '<button onclick="panTo(' + idx + ')">위치보기</button>'+'</div>';
+					div.innerHTML = (idx+1)+'. '+ item.bizesNm + '<button class="w-btn-outline w-btn-skin-outline" onclick="panTo(' + idx + ')">위치 보기</button>';
 					listContents.appendChild(div);
 				});
 			}
     	    
+			
+			
     		// ListContents 내부를 비웁니다
     	    const listProperty = document.querySelector('#ListContents');
     	    listProperty.innerHTML = '';
     	
-    	    var propertyAverage = 0;
-    	    var totalCount = 0;
+    	    
     	    // Property 배열의 각 요소에 대해 div 생성 후 추가
     	    property.forEach((property, idx) => {
     	        const div = document.createElement('div');
-    	        div.innerHTML = '<div>' + (idx+1) + '. 서울특별시 '+ property.adstrdNm +' '+ resultPrice(property.excheGtn) + '<button onclick="panTo2(' + idx + ')">위치보기</button>'+'</div>';
+    	        div.innerHTML = (idx+1) + '. 서울특별시 '+ property.adstrdNm +' '+ resultPrice(property.excheGtn) + '<button class="w-btn-outline w-btn-skin-outline" onclick="panTo2(' + idx + ')">위치 보기</button>';
     	        listProperty.appendChild(div);
     	        propertyAverage +=property.excheGtn;
     	        totalCount=idx;
     	    });
     	    
           	document.querySelector('.tabnav li:first-child').innerText = '매물 '+(totalCount+1)+ '개';
-    	    document.querySelector('.tabnav li:nth-child(2)').innerText = '평균가 ' + resultPrice(propertyAverage/(totalCount+1));
+    	    document.querySelector('.tabnav li:nth-child(2)').innerText = '평균가 ' + resultPrice(propertyAverage/(totalCount+1)*10);
     	    
     	};// 조회 결과 대입 끝
+    	
+    	
     	
     	// 값 표현식
     	function resultPrice(number) {
@@ -414,7 +635,7 @@ pageEncoding="UTF-8"%>
     		contentNode.className = 'placeinfo_wrap';
     	    var content = '<div class="placeinfo">' +
     	                    '<a class="title" href="https://map.kakao.com/?q=' + property.latitude + ' ' + property.longitude + '" target="_blank" title="' + property.adstrdNm + '">' + property.adstrdNm + '</a>'+
-    	                    '<span title="' + property.excheGtn + '">' + property.excheGtn + '</span>' +
+    	                    '<span title="' + property.excheGtn + '">' + resultPrice(property.excheGtn) + '</span>' +
     	                  '</div>'+
     	                  '<div class="after"></div>';
     	    contentNode.innerHTML = content;
@@ -451,7 +672,60 @@ pageEncoding="UTF-8"%>
           return items[0].adongNm + ' ' + count + ' 개';        
         }
         
+    	// HTML의 form 요소를 가져옵니다.
+    	var form = document.getElementById('myForm');
+
+    	// form 요소에 'submit' 이벤트 리스너를 추가합니다.
+    	form.addEventListener('submit', function(event) {
+    	  // hidden input 요소들을 가져옵니다.
+    	  var h0 = document.querySelector('input[name="h0"]');
+    	  var h1 = document.querySelector('input[name="h1"]');
+    	  var h2 = document.querySelector('input[name="h2"]');
+    	  var h3 = document.querySelector('input[name="h3"]');
+
+    	  // 각 hidden input 요소의 value가 비어 있는지 확인합니다.
+    	  if (!h0.value || !h1.value || !h2.value || !h3.value) {
+    	    // 하나라도 value가 비어 있다면 경고 메시지를 표시하고,
+    	    alert("모든 선택을 실시해주세요");
+
+    	    // 'submit' 이벤트를 취소합니다.
+    	    event.preventDefault();
+    	  }
+		});
+    	
+    	// 저장 버튼 요소를 가져옵니다.
+    	var saveButton = document.getElementById('saveBtn');
+    	// 저장 버튼에 클릭 이벤트 리스너를 추가합니다.
+    	saveButton.addEventListener('click', function(event) {
+    		var defaultFormAction = form.action;
+			// 'submit' 이벤트를 취소합니다.
+			event.preventDefault();
+			
+			// hidden input 요소들을 가져옵니다.
+			var h0 = document.querySelector('input[name="h0"]');
+			var h1 = document.querySelector('input[name="h1"]');
+			var h2 = document.querySelector('input[name="h2"]');
+			var h3 = document.querySelector('input[name="h3"]');
+			
+			// 각 hidden input 요소에 서버에서 전달받은 값을 설정합니다.
+			h0.value = '${siGunGu}';
+			h1.value = '${eupMyeongDong}';
+			h2.value = '${smallCategoryName}';
+			h3.value = '${excheGtn}';
+			
+			// form 요소의 action 속성을 변경합니다.
+			form.action = "${pageContext.request.contextPath}/user/mypage/save";
+			
+			// form 요소를 제출합니다.
+			form.submit();
+			
+			// form action의 경로 원상복구
+			form.action = defaultFormAction;
+		});
+    	
+
+    	
       </script>
 
-  </body>
+</body>
 </html>

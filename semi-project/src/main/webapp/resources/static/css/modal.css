@@ -1,7 +1,12 @@
 #content3 {
   position: relative;
 }
-
+body.modal-open {
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* 스크롤을 막는다 */
+	position: relative;
+    z-index: 99;
+}
 #modal1,
 #modal2,
 #modal3 {
@@ -107,6 +112,7 @@
   border-radius: 2px;
   border: 10px solid rgb(224, 224, 224);
   background-color: rgb(224, 224, 224);
+  font-size: 15px;
 
   color: #333;
 }
@@ -159,4 +165,8 @@
   bottom: 1px;
   outline: none;
   color: #125688;
+  font-size: 22px;
+}
+#conversion::placeholder{
+	font-size: 15px;
 }

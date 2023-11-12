@@ -155,4 +155,17 @@ public class UserController {
 	public void result() {
 		
 	}
+
+	@GetMapping("/mypage/save")
+	public String myPageSave(HttpSession session, String h0, String h1, String h2, String h3) {
+		// h0: 시군구, h1: 읍면동, h2: 소분류, h3: 예산
+		String userId = session.getAttribute("userId").toString();
+		String location = "서울특별시 " + h0 + " " + h1;
+		String category = h2;
+		int budget = Integer.parseInt(h3);
+
+		service.insertMyPage(userId, location, category, budget);
+
+		return "redirect:/user/mypage/results";
+	}
 }

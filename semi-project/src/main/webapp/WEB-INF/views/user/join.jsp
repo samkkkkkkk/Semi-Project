@@ -1,11 +1,12 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
+pageEncoding="UTF-8"%>
 
 <link
   href="${pageContext.request.contextPath }/css/select1.css"
   rel="stylesheet"
 />
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&family=Nanum+Gothic&family=Noto+Sans+KR:wght@300&family=Quicksand:wght@300&display=swap');
   .container {
     max-width: 80vh;
     margin: 0 auto;
@@ -13,6 +14,8 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
   }
   html,
   body {
+    margin: 0;
+    padding: 0;
     width: 100%;
     height: auto;
   }
@@ -28,14 +31,25 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
     padding: 20px;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
   /* Style the title box */
   .titlebox {
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
     margin-bottom: 20px;
+
+    font-family: 'Diphylleia', serif;
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 35px;
+    font-weight: 800;
+  }
+  .titlebox a {
+    text-decoration: none;
+    color: rgb(70, 130, 180);
   }
 
   /* Style form fields and labels */
@@ -124,6 +138,14 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
     background-color: rgb(40, 80, 100);
   }
 
+  .input-group-addon button:disabled {
+    background-color: gray;
+  }
+
+  .input-group-addon button:hover:disabled {
+    background-color: gray;
+  }
+
   .mail-check-box.mailBtn button {
     position: absolute;
     right: 3px;
@@ -149,19 +171,13 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
     width: 60px;
     font-size: 10;
   }
-
-  /* .idWarn {
-    font-size: 13;
-    font-weight: bold;
-    color: red;
-    text-align: left;
-    width: 200px;
-  } */
 </style>
 <section>
   <div class="container">
     <div class="join-form">
-      <div class="titlebox">logo</div>
+      <div class="titlebox">
+        <a href="${pageContext.request.contextPath}/">businessMap</a>
+      </div>
       <div class="inputContainer inputCenter">
         <form
           action=""
@@ -186,6 +202,7 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
                   type="button"
                   id="idCheckBtn"
                   class="btn btn-primary"
+                  disabled
                 >
                   중복확인
                 </button>
@@ -303,8 +320,6 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
     </div>
   </div>
 </section>
-
-<%@ include file="../include/footer.jsp"%>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -441,11 +456,13 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
       document.getElementById('msgId').innerHTML =
         '아이디 중복 체크는 필수 입니다';
       idValTst = true;
+      document.getElementById('idCheckBtn').removeAttribute('disabled');
     } else {
       document.getElementById('userId').style.borderColor = 'red';
       document.getElementById('msgId').innerHTML = '부적합한 아이디 입니다.';
       idValTst = false;
       document.getElementById('idTest').style.display = 'none';
+      document.getElementById('idCheckBtn').setAttribute('disabled', '');
     }
   };
 

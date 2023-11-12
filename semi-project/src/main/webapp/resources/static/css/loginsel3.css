@@ -1,4 +1,5 @@
 /* Reset some default styles */
+@import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Gothic+A1:wght@200&family=Nanum+Gothic&family=Noto+Sans+KR:wght@300&family=Quicksand:wght@300&display=swap');
 body,
 html {
   margin: 0;
@@ -36,7 +37,20 @@ html {
   margin-bottom: 20px;
   width: 400px;
   height: 150px;
-  border: black 1px solid;
+
+  text-align: center;
+  line-height: 150px;
+}
+.login-logo a {
+  text-decoration: none;
+  color: rgb(70, 130, 180);
+  font-family: 'Diphylleia', serif;
+  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 35px;
+  font-weight: 800;
 }
 
 /* Container style */

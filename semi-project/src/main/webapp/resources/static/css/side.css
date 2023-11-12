@@ -30,7 +30,6 @@
   margin: 0 auto;
   margin-bottom: 0px;
   display: flex;
-  border: 1px solid red;
 }
 
 #sidebar {
@@ -91,9 +90,12 @@ p {
   width: 250px;
   margin-top: 10px;
   margin-left: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 15px;
   font-family: 'Gowun Dodum', sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pre {
@@ -106,7 +108,7 @@ p {
   width: 120px;
   height: 30px;
   border-radius: 10px;
-  margin-left: 40px;
+  margin-left: -5px;
   font-family: 'Gowun Batang', serif;
   font-family: 'Gowun Dodum', sans-serif;
   font-family: 'Jua', sans-serif;

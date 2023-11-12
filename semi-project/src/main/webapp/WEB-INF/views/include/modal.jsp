@@ -331,15 +331,7 @@
 
     // 지역 버튼 이벤트 부여
     document.getElementById('loc').onclick = () => {
-      // 로그인 여부 판단
-      // const id = document.getElementById('id').value;
-      // const pw = document.getElementById('pw').value;
-
-      // if (id === '' || pw === '') {
-      //   alert('로그인을 해주세요!');
-      //   return;
-      // }
-
+      
       document.getElementById('modal1').style.display = 'block';
       document.getElementById('modal2').style.display = 'none';
       document.getElementById('modal3').style.display = 'none';
@@ -350,18 +342,14 @@
       $("select[name='siGunGu']").append("<option value=''>구 선택</option>");
       $("select[name='eupMyeongDong'] option").remove();
       $("select[name='eupMyeongDong']").append("<option value=''>동 선택</option>");
+      
+      // 사이드바 클릭 X
+      document.getElementById('pointer').style.pointerEvents = 'none';
+      document.body.classList.add('modal-open'); // body에 body.modal-open 클래스 추가
     };
-
+    
     // 업종 버튼 이벤트 부여
     document.getElementById('category').onclick = () => {
-      // 로그인 여부 판단
-      // const id = document.getElementById('id').value;
-      // const pw = document.getElementById('pw').value;
-
-      // if (id === '' || pw === '') {
-      //   alert('로그인을 해주세요!');
-      //   return;
-      // }
 
       document.getElementById('modal1').style.display = 'none';
       document.getElementById('modal2').style.display = 'block';
@@ -373,18 +361,15 @@
       $("select[name='sec2nd']").append("<option value=''>중분류 선택</option>");
       $("select[name='sec3rd'] option").remove();
       $("select[name='sec3rd']").append("<option value=''>소분류 선택</option>");
+      
+      
+	  // 사이드바 클릭 X
+      document.getElementById('pointer').style.pointerEvents = 'none';
+      document.body.classList.add('modal-open'); // body에 body.modal-open 클래스 추가
     };
 
     // 가격 버튼 이벤트 부여
     document.getElementById('price').onclick = () => {
-      // 로그인 여부 판단
-      // const id = document.getElementById('id').value;
-      // const pw = document.getElementById('pw').value;
-
-      // if (id === '' || pw === '') {
-      //   alert('로그인을 해주세요!');
-      //   return;
-      // }
 
       document.getElementById('modal1').style.display = 'none';
       document.getElementById('modal2').style.display = 'none';
@@ -394,17 +379,27 @@
       document.getElementById('pri1').value = null;
       document.getElementById('pri2').value = null;
       document.getElementById('conversion').value = null;
+      
+      // 사이드바 클릭 X
+      document.getElementById('pointer').style.pointerEvents = 'none';
+      document.body.classList.add('modal-open'); // body에 body.modal-open 클래스 추가
     };
 
     // 취소 버튼 이벤트 부여
     document.getElementById('res1').onclick = () => {
       document.getElementById('modal1').style.display = 'none';
+      document.getElementById('pointer').style.pointerEvents = 'auto';
+      document.body.classList.remove('modal-open');
     };
     document.getElementById('res2').onclick = () => {
       document.getElementById('modal2').style.display = 'none';
+      document.getElementById('pointer').style.pointerEvents = 'auto';
+      document.body.classList.remove('modal-open');
     };
     document.getElementById('res3').onclick = () => {
       document.getElementById('modal3').style.display = 'none';
+      document.getElementById('pointer').style.pointerEvents = 'auto';
+      document.body.classList.remove('modal-open');
     };
 
     // 확인 버튼 이벤트 부여
@@ -433,6 +428,8 @@
       }
 
       document.getElementById('modal1').style.display = 'none';
+      document.getElementById('pointer').style.pointerEvents = 'auto';
+      document.body.classList.remove('modal-open');
     };
 
     document.getElementById('sub2').onclick = () => {
@@ -458,6 +455,8 @@
       }
 
       document.getElementById('modal2').style.display = 'none';
+      document.getElementById('pointer').style.pointerEvents = 'auto';
+      document.body.classList.remove('modal-open');
     };
 
     document.getElementById('sub3').onclick = () => {
@@ -465,8 +464,8 @@
       const $pri2 = document.getElementById('pri2').value;
       const $conversion = document.getElementById('conversion').value;
 
-      const $pri1st = $pri1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-      const $pri2nd = $pri2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      const $pri1st = conversionPrice($pri1);
+      const $pri2nd = conversionPrice($pri2);
 
       if($pri1st === '') {
         alert('보증금을 입력해주세요.')
@@ -483,6 +482,8 @@
       }
 
       document.getElementById('modal3').style.display = 'none';
+      document.getElementById('pointer').style.pointerEvents = 'auto';
+      document.body.classList.remove('modal-open');
     };
 
     // 보증금 or 월세 입력시 이벤트 발생 (환산 보증금)
@@ -494,15 +495,24 @@
         $("#conversion").val(null);
       } else {
         var result = parseFloat(pri1) + (parseFloat(pri2) * 100);
-        var formattedResult = formatNumber(result);
-        $("#conversion").val(formattedResult);
+        var resultPrice = conversionPrice(result);
+        $("#conversion").val(resultPrice);
       }
     }
 
-    function formatNumber(number) {
-      var formatted = number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-      return formatted.replace(/\.00$/, '');
-    }
+    // 값 변경식    
+	function conversionPrice(number) {
+		var Billion = Math.floor(number / 100000000);
+	    var Million = Math.floor((number % 100000000) / 10000);
+	    var result = '';
+	    if(Billion > 0){
+	        result += Billion.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '억 ';
+	    }
+	    if(Million > 0){
+	        result += Million.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '만';
+	    }
+	    return result;
+	}
     
   </script>
 </body>
