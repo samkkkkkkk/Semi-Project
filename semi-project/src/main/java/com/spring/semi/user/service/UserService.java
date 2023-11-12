@@ -147,6 +147,19 @@ public class UserService {
 		return myPageMapper.getTotal(userId);
 	}
 
+    public void insertMyPage(String userId, String location, String category, int budget) {
+		MyPage page = MyPage.builder()
+			.id(userId)
+			.jobCategory1("???")
+			.jobCategory2("???")
+			.jobCategory3(category)
+			.location(location)
+			.budget(budget)
+			.build();
+
+		myPageMapper.insertMyPage(page);
+    }
+
 	
 
 }
