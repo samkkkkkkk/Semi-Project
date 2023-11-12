@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,41 +13,41 @@ pageEncoding="UTF-8"%>
 .score-table {
 	border-spacing: 10px;
 	border-collapse: separate;
-	width: 100%;
-	height: auto;
-	padding: 0;
-}
+		width: 100%;
+		height: auto;
+		padding: 0;
+	}
 
-.score-table tr, td {
-	border: 1px solid black;
-}
+	.score-table tr, td {
+		border: 1px solid black;
+	}
 
-.text-result {
-	height: 20%;
-}
+	.text-result {
+		height: 20%;
+	}
 
-/* .canvas {
-	width: 100%;
-	height: 100%;
-	font-size: 1px;
-} */
+	/* .canvas {
+		width: 100%;
+		height: 100%;
+		font-size: 1px;
+	} */
 
-.table-div {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+	.table-div {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
-.score-table td {
-	text-align: center;
-}
+	.score-table td {
+		text-align: center;
+	}
 
-.score-table tr td:nth-child(1) {
-	background-color: rgb(106, 133, 173);
-}
-</style>
+	.score-table tr td:nth-child(1) {
+		background-color: rgb(106, 133, 173);
+	}
+	</style>
   </head>
   <body>
     <div id="container">
@@ -55,21 +55,20 @@ pageEncoding="UTF-8"%>
       <%@ include file="./include/header.jsp"%>
       <!--헤더 끝-->
 
-      <!--중간 세션 시작-->
-      <section id="contents">
-        <p id="content1">상권 분석 서비스</p>
-        <h2>
-          당신을 좋은 곳으로 <br />
-          이끌어 줄 지도, 비즈니스맵
-          <p id="app">
-            <공지> businessMap앱 설치하고 <strong>혜택 알람</strong>받기!
-          </p>
-        </h2>
-        <div class="caption">
-          <h2>로그인하시면 더 많은 혜택을 경험할 수 있습니다.</h2>
-        </div>
-      </section>
-      <!--중간 세션 시작-->
+		<!--중간 세션 시작-->
+		<section id="contents">
+			<p id="content1">상권 분석 서비스</p>
+			<h2>
+				당신을 좋은 곳으로 <br /> 이끌어 줄 지도, 비즈니스맵
+				<p id="app">
+					<공지> businessMap앱 설치하고 <strong>혜택 알람</strong>받기! 
+				</p>
+			</h2>
+			<div class="caption">
+				<h2>로그인하시면 더 많은 혜택을 경험할 수 있습니다.</h2>
+			</div>
+		</section>
+		<!--중간 세션 시작-->
 
       <section id="result_content2">
         <h2 id="dream">
@@ -104,33 +103,35 @@ pageEncoding="UTF-8"%>
             </form>
         </aside>
 
-        <div id="fix">
-          <div id="btn">
-            <button type="button" id="btnId1" class="btn1">상권 현황</button>
-            <button type="button" id="btnId2" class="btn1">매물</button>
-            <button type="button" id="btnId3" class="btn1">점수</button>
-          </div>
+			<div id="fix">
+				<div id="btn">
+					<button type="button" id="btnId1" class="btn1">상권 현황</button>
+					<button type="button" id="btnId2" class="btn1">매물</button>
+					<button type="button" id="btnId3" class="btn1">점수</button>
+				</div>
 
-          <!--컨텐츠 시작1 -  상권 현황-->
-          <div id="shopList">
-            <article id="article3">
-              <div id="article3_map">지도</div>
-            </article>
+				<!--컨텐츠 시작1 -  상권 현황-->
+				<div id="shopList">
+					<article id="article3">
+						<div id="article3_map">지도</div>
+					</article>
 
-            <article id="article2" class="ottdiv ottif">
-              <div id="shopList2">
-                <div id="foodList">
-                  <div id="search">상권 조회</div>
-                  <strong id="foodTitle">가맹점 총 수</strong>
-                  <!--상권 조회시 푸드 리스트 반복문 자바스크립트로 돌릴 곳-->
-                  <div id="foodListSpan">
-                    <div>조회 결과가 없습니다.</div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-          <!--컨텐츠 끝1-->
+					<article id="article2" class="ottdiv ottif">
+						<div id="shopList2">
+							<div id="foodList">
+								<div id="search">상권 조회</div>
+								<strong id="foodTitle">한식 가맹점 총 수</strong>
+								<!--상권 조회시 푸드 리스트 반복문 자바스크립트로 돌릴 곳-->
+								<div id="foodListSpan">
+									<div id="">
+										국수 / 칼국수 --<span> 28개</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+				</div>
+				<!--컨텐츠 끝1-->
 
           <!--컨텐츠2 시작 기본값 : display none임-->
           <article id="saleList">
@@ -229,7 +230,7 @@ pageEncoding="UTF-8"%>
               document.getElementById('map').style.visibility = 'hidden';
           document.getElementById('score').style.visibility = 'visible';
         });
-        
+      
         const body_check = '${body}';
 		let items = {};
 		let body = {};
@@ -594,6 +595,8 @@ pageEncoding="UTF-8"%>
     	    
     	};// 조회 결과 대입 끝
     	
+    	
+    	
     	// 값 표현식
     	function resultPrice(number) {
     		var avgBillion = Math.floor(number / 100000000);
@@ -710,5 +713,5 @@ pageEncoding="UTF-8"%>
     	
       </script>
 
-  </body>
+</body>
 </html>

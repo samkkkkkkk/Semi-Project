@@ -81,6 +81,7 @@ prefix="c" %>
 </div>
 <!--헤더 끝-->
 
+<c:if test="${userId != null}">
 <script>
   let flag = false;
   <c:if test="${userId != null}">
@@ -114,3 +115,4 @@ prefix="c" %>
 	  });
   </c:if>
 </script>
+</c:if>
