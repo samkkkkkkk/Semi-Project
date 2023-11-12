@@ -13,12 +13,11 @@
     <link href="${pageContext.request.contextPath}/css/loginsel3.css" rel="stylesheet">
 </head>
 <body>
-    <header id="header">
-    </header>
+    
     <section id="container">
         <div class="login-header">
             <div class="login-logo">
-                logo
+                <a href="${pageContext.request.contextPath}/">businessMap</a>
             </div>
             <c:if test="${msg == 'loginFail'}">
                 <div id="login-fail-msg">아이디 또는 비밀번호를 틀렸습니다.<br>

@@ -28,9 +28,11 @@ pageEncoding="UTF-8"%>
             <공지> businessMap앱 설치하고 <strong>혜택 알람</strong>받기!
           </p>
         </h2>
+		<c:if test="${userId == null}">
         <div class="caption">
           <h2>로그인하시면 더 많은 혜택을 경험할 수 있습니다.</h2>
         </div>
+		</c:if>
       </section>
       <!--중간 세션 끝-->
 

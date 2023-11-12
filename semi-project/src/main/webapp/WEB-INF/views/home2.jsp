@@ -64,9 +64,11 @@
 					<공지> businessMap앱 설치하고 <strong>혜택 알람</strong>받기! 
 				</p>
 			</h2>
+			<c:if test="${userId == null}">
 			<div class="caption">
 				<h2>로그인하시면 더 많은 혜택을 경험할 수 있습니다.</h2>
 			</div>
+			</c:if>
 		</section>
 		<!--중간 세션 시작-->
 
@@ -121,11 +123,11 @@
 						<div id="shopList2">
 							<div id="foodList">
 								<div id="search">상권 조회</div>
-								<strong id="foodTitle">한식 가맹점 총 수</strong>
+								<strong id="foodTitle"></strong>
 								<!--상권 조회시 푸드 리스트 반복문 자바스크립트로 돌릴 곳-->
 								<div id="foodListSpan">
 									<div id="">
-										국수 / 칼국수 --<span> 28개</span>
+										상권 조회 결과가 없습니다.
 									</div>
 								</div>
 							</div>
@@ -495,7 +497,7 @@
         	          label: {
         	                  display: false,
         	                },
-        	            data: [propertyAverage/(totalCount+1), ${excheGtn}],
+        	            data: [propertyAverage/(totalCount+1)*10, ${excheGtn}],
         	            borderColor: "rgba(255, 201, 14, 1)",
         	            backgroundColor: ["rgba(32, 102, 207, 0.8)", "rgba(137, 14, 14, 0.75)"], 
         	            fill: false,
@@ -592,7 +594,7 @@
     	    });
     	    
           	document.querySelector('.tabnav li:first-child').innerText = '매물 '+(totalCount+1)+ '개';
-    	    document.querySelector('.tabnav li:nth-child(2)').innerText = '평균가 ' + resultPrice(propertyAverage/(totalCount+1));
+    	    document.querySelector('.tabnav li:nth-child(2)').innerText = '평균가 ' + resultPrice(propertyAverage/(totalCount+1)*10);
     	    
     	};// 조회 결과 대입 끝
     	
