@@ -1,7 +1,12 @@
 #content3 {
   position: relative;
 }
-
+body.modal-open {
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* 스크롤을 막는다 */
+	position: relative;
+    z-index: 99;
+}
 #modal1,
 #modal2,
 #modal3 {
