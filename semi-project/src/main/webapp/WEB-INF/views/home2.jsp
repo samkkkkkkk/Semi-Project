@@ -9,6 +9,45 @@ pageEncoding="UTF-8"%>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>사용자 조회페이지</title>
+    <style>
+.score-table {
+	border-spacing: 10px;
+	border-collapse: separate;
+	width: 100%;
+	height: auto;
+	padding: 0;
+}
+
+.score-table tr, td {
+	border: 1px solid black;
+}
+
+.text-result {
+	height: 20%;
+}
+
+/* .canvas {
+	width: 100%;
+	height: 100%;
+	font-size: 1px;
+} */
+
+.table-div {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.score-table td {
+	text-align: center;
+}
+
+.score-table tr td:nth-child(1) {
+	background-color: rgb(106, 133, 173);
+}
+</style>
   </head>
   <body>
     <div id="container">
@@ -111,32 +150,64 @@ pageEncoding="UTF-8"%>
           </article>
 
           <article id="map">
-            <div id="map_map">지도</div>
-          </article>
-          <!--컨텐츠2 끝-->
+					<div id="map_map">지도</div>
+				</article>
+				<!--컨텐츠2 끝-->
 
-          <!--컨텐츠3 시작 - 매물점수-->
-          <article id="score">
-            <div id="article_score">
-              <h2 id="h2_score">매물 점수</h2>
-              <div id="div_score">매물 점수 34점</div>
-              <h2 id="h2_score2">상권 점수</h2>
-              <div id="div_score2">상권 점수 34점</div>
-              <h2 id="h2_score3">businessMap 분석 결과 보고서</h2>
-              <div id="div_score3">비즈니스맵 분석 결과 보고서 입니다.</div>
-            </div>
-          </article>
-          <!--컨텐츠3 끝-->
-          <%@ include file="./include/modal.jsp" %>
+				<!--컨텐츠3 시작 - 매물점수-->
+				<article id="score">
+
+					<div id="article_score">
+						<div class="text-result" style="border: 1px black solid;">
+							<p>상권 분석 결과</p>
+						</div>
+
+						<table class="score-table">
+							<tbody>
+							<colgroup>
+								<col style="width: 10%;" />
+								<col style="width: 40%;" />
+								<col style="width: 50%;" />
+
+							</colgroup>
+							<tr>
+								<td>상권</td>
+								<td>총 가맹점 수</td>
+								<td>
+									<div class="table-div">
+										<canvas id="commercial-canvas" class="canvas" width="400px" height="200px"></canvas>
+									</div>
+
+								</td>
+
+							</tr>
+							<tr>
+								<td>매물</td>
+								<td>평균 임대 비용</td>
+								<td>
+									<div class="table-div table-div-realestate">
+										<canvas id="realestate-commercial-canvas"
+											class="canvas realastate-canvas" width="400px" height="200px"></canvas>
+									</div>
+								</td>
+
+							</tr>
+							</tbody>
+						</table>
+
+						
+          			<%@ include file="./include/modal.jsp" %>
+				</article>
+    			</div>
+      		</section>
         </div><!--fix id끝-->
-      </section>
       <%@ include file="./include/footer.jsp"%>
 
       
-    </div>
-
-<script type="text/javascript" src="${reqUrl}?appkey=${serviceKey}&libraries=clusterer"></script>
-<script>
+	
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script type="text/javascript" src="${reqUrl}?appkey=${serviceKey}&libraries=clusterer"></script>
+	<script>
         //매물 버튼에 따라 페이지 전환하기
         document.getElementById('btnId2').addEventListener('click', (e) => {
           document.getElementById('saleList').style.visibility = 'visible';
@@ -166,8 +237,13 @@ pageEncoding="UTF-8"%>
 		if (!property_check) {
 			property_check = '{}';
 		}
+		
+		let propertyAverage = 0;
+	    let totalCount = 0;
+	    
 		const property = JSON.parse(property_check);
-
+		
+		console.log(${excheGtn})
         //console.log(body_check);
         if(body_check !== "NODATA_ERROR"){
 			body = JSON.parse('${body}'); // 서버 kakaoController에서 이미 자바스크립트에서 바로 사용할 수 있는 json 형태로 변환해서 사용가능
@@ -343,18 +419,151 @@ pageEncoding="UTF-8"%>
     		// 클러스터러에 마커들을 추가합니다
     	    clusterer.addMarkers(markers);
     		
+    		console.log(propertyAverage/(totalCount+1));
+    		
+    	    console.log(totalCount);
+    		new Chart(document.getElementById("commercial-canvas"), {
+        	    type: 'horizontalBar',
+        	    data: {
+        	        labels: ['평균 상권 개수', '조회 상권 개수'],
+        	        datasets: [{
+        	            
+        	          label: {
+        	                  display: false,
+        	                },
+        	            data: [50, body.totalCount + 1],
+        	            borderColor: "rgba(255, 201, 14, 1)",
+        	            backgroundColor: ["rgba(32, 102, 207, 0.8)", "rgba(137, 14, 14, 0.75)"], 
+        	            fill: false,
+        	        }]
+        	    },
+        	    options: {
+        	    
+        	      legend: {
+        	        display: false
+        	    },
+        	        responsive: false,
+        	        title: {
+        	            display: true,
+        	            text: '상권 비교'
+        	        },
+        	        tooltips: {
+        	            mode: 'index',
+        	            intersect: false,
+        	        },
+        	        hover: {
+        	            mode: 'nearest',
+        	            intersect: true
+        	        },
+        	        scales: {
+        	            xAxes: [{
+        	                display: true,
+        	                ticks: {
+        	                  fontSize: 11,
+        	                  fontColor: 'rgb(0,0,0)',
+        	                  beginAtZero : true,
+        	                   
+        	                },
+        	                scaleLabel: {
+        	                    display: true,
+        	                },
+        	            }],
+        	            yAxes: [{
+        	                display: true,
+        	                ticks: {
+        	                  fontSize: 11,
+        	                  fontColor: 'rgb(0,0,0)',
+        	                    autoSkip: false,
+        	                },
+        	                scaleLabel: {
+        	                    display: true,
+        	                    
+        	                }
+        	            }]
+        	        }
+        	    }
+        	});
+			console.log('property.excheGtn', property.excheGtn);
+        	new Chart(document.getElementById("realestate-commercial-canvas"), {
+        	    type: 'horizontalBar',
+        	    data: {
+        	        labels: ['평균 임대비용', '희망 임대 비용'],
+        	        datasets: [{
+        	            
+        	          label: {
+        	                  display: false,
+        	                },
+        	            data: [propertyAverage/(totalCount+1), ${excheGtn}],
+        	            borderColor: "rgba(255, 201, 14, 1)",
+        	            backgroundColor: ["rgba(32, 102, 207, 0.8)", "rgba(137, 14, 14, 0.75)"], 
+        	            fill: false,
+        	        }]
+        	    },
+        	    options: {
+        	    	
+        	      legend: {
+        	        display: false
+        	    },
+        	        responsive: false,
+        	        title: {
+        	            display: true,
+        	            text: '임대 비용 비교'
+        	        },
+        	        tooltips: {
+        	            mode: 'index',
+        	            intersect: false,
+        	        },
+        	        hover: {
+        	            mode: 'nearest',
+        	            intersect: true
+        	        },
+        	        scales: {
+        	            xAxes: [{
+        	                display: true,
+        	                ticks: {
+        	                  fontSize: 11,
+        	                  fontColor: 'rgb(0,0,0)',
+        	                    beginAtZero : true,
+        	                },
+        	                scaleLabel: {
+        	                    display: true,
+        	                    
+        	                },
+        	            }],
+        	            yAxes: [{
+        	                display: true,
+        	                ticks: {
+        	                  fontSize: 11,
+        	                  fontColor: 'rgb(0,0,0)',
+        	                    autoSkip: false,
+        	                },
+        	                scaleLabel: {
+        	                    display: true,
+        	                    
+        	                }
+        	            }]
+        	        }
+        	    }
+        	});
+        	document.querySelector('.canvas').style.removeProperty(['width']);
+        	document.querySelector('.realastate-canvas').style.removeProperty(['width']);
+        	document.querySelector('.canvas').style.removeProperty(['height']);
+        	document.querySelector('.realastate-canvas').style.removeProperty(['height']);
     		
     	}; // window.onload() 끝
 
-
+    	
     	// 조회 결과 대입
     	var saleListSetUp = () => {
 			if(body_check !== "NODATA_ERROR"){
 				document.querySelector('#search').innerText = items[0].adongNm + ' 상권 조회';
 				document.querySelector('#foodTitle').innerText = items[0].indsSclsNm+'가맹점 총 : '+body.totalCount+' 개';
+				console.log(body.totalCount);
 				// foodListSpan 내부를 비웁니다
 				const listContents = document.querySelector('#foodListSpan');
 				listContents.innerHTML = '';
+				
+				
 			
 				// items 배열의 각 요소에 대해 div 생성 후 추가
 				items.forEach((item, idx) => {
@@ -364,12 +573,13 @@ pageEncoding="UTF-8"%>
 				});
 			}
     	    
+			
+			
     		// ListContents 내부를 비웁니다
     	    const listProperty = document.querySelector('#ListContents');
     	    listProperty.innerHTML = '';
     	
-    	    var propertyAverage = 0;
-    	    var totalCount = 0;
+    	    
     	    // Property 배열의 각 요소에 대해 div 생성 후 추가
     	    property.forEach((property, idx) => {
     	        const div = document.createElement('div');
@@ -494,6 +704,9 @@ pageEncoding="UTF-8"%>
     	    event.preventDefault();
     	  }
     	});
+		
+    	
+
     	
       </script>
 
