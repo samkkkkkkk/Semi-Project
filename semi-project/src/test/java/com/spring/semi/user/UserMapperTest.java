@@ -104,7 +104,7 @@ public class UserMapperTest {
 	public void insertMyPageTest() {
 		for (int i = 1; i <= 100; i++) {
 		MyPage user = MyPage.builder()
-				.id("test3")
+				.id("kimaaaaa")
 				.location("신내동")
 				.jobCategory1("소매업")
 				.jobCategory2("종합 소매업")

@@ -163,7 +163,7 @@
 
 					<div id="article_score">
 						<div class="text-result" style="border: 1px black solid;">
-							<p>상권 분석 결과</p>
+							<span id="commercial-analysis-result">상권 분석 결과</span>
 						</div>
 
 						<table class="score-table">
@@ -176,7 +176,9 @@
 							</colgroup>
 							<tr>
 								<td>상권</td>
-								<td>총 가맹점 수</td>
+								<td>
+								<p id="commercial-result-end">총 가맹점 수</p>
+								</td>
 								<td>
 									<div class="table-div">
 										<canvas id="commercial-canvas" class="canvas" width="400px" height="200px"></canvas>
@@ -187,7 +189,9 @@
 							</tr>
 							<tr>
 								<td>매물</td>
-								<td>평균 임대 비용</td>
+								<td>
+									<p id="realestate-result-end">평균 임대 비용</p>
+								</td>
 								<td>
 									<div class="table-div table-div-realestate">
 										<canvas id="realestate-commercial-canvas"
@@ -553,6 +557,28 @@
         	document.querySelector('.realastate-canvas').style.removeProperty(['width']);
         	document.querySelector('.canvas').style.removeProperty(['height']);
         	document.querySelector('.realastate-canvas').style.removeProperty(['height']);
+			
+        	document.getElementById('commercial-result-end').innerText = '총 가맹점 수: ' + (body.totalCount + 1);
+        	document.getElementById('realestate-result-end').innerText = '평균 임대 비용: ' + (propertyAverage/(totalCount+1)*10) + '원';
+
+
+			if(propertyAverage/(totalCount+1)*10 > ${excheGtn}) {
+				if (body.totalCount + 1 > 50) {
+					document.getElementById('commercial-analysis-result').innerText = '희망 임대 비용 보다 평균 임대 비용이 높고 조회 상권 개수가 평균 상권 개수보다 많습니다.';
+				}
+				else{
+					document.getElementById('commercial-analysis-result').innerText = '희망 임대 비용 보다 평균 임대 비용이 높고 조회 상권 개수가 평균 상권 개수보다 적습니다.';
+				}
+				
+			} 
+			else {
+				if (body.totalCount + 1 > 50) {
+					document.getElementById('commercial-analysis-result').innerText = '희망 임대 비용 보다 평균 임대 비용이 낮고 조회 상권 개수가 평균 상권 개수보다 많습니다.';
+				}
+				else{
+					document.getElementById('commercial-analysis-result').innerText = '희망 임대 비용 보다 평균 임대 비용이 낮고 조회 상권 개수가 평균 상권 개수보다 적습니다.';
+				}
+			}
     		
     	}; // window.onload() 끝
 
