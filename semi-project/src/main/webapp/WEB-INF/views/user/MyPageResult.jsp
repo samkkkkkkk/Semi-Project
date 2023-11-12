@@ -177,9 +177,15 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
       console.log('location: ', location);
       console.log('jobCategory: ', jobCategory);
       console.log('budget: ', budget);
+
+      const locSplit = location.split(' ');
+      const siGunGu = locSplit[1];
+      const eupMyeongDong = locSplit[2];
+      console.log(siGunGu, eupMyeongDong);
+
       window.location =
-        '${pageContext.request.contextPath}/result' +
-        `?location=\${location}&jobCategory=\${jobCategory}&budget=\${budget}`;
+        '${pageContext.request.contextPath}/api/req/' +
+        `?h0=\${siGunGu}&h1=\${eupMyeongDong}&h2=\${jobCategory}&h3=\${budget}`;
     };
 
     const onClickDelete = (e) => {
