@@ -23,7 +23,7 @@
             FROM(
                 SELECT * FROM mypage
                 WHERE id = #{userId}
-                ORDER BY reg_date
+                ORDER BY reg_date DESC
                 ) tbl
             )
         <![CDATA[

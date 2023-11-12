@@ -150,3 +150,12 @@ p {
   background-color: rgb(158, 156, 156);
   cursor: pointer;
 }
+
+li.active {
+  border-color: rgb(50, 96, 122);
+}
+li.active>a {
+  background-color: rgb(44, 83, 105);
+  color: white;
+  cursor: default;
+}
